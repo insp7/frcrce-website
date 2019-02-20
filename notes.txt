@@ -1,0 +1,50 @@
+/*---------------- DATABASE TABLES ----------------*/
+
+1) student
+	- s_id 
+	- first_name
+	- middle_name
+	- last_name
+	- contact_no
+	- date_of_birth
+	- roll_no
+	- branch_id 
+	- current_year (FE or SE or TE or BE)
+	- current_semester (1-8)
+	- year_of_admission
+	- expected_year_of_passing 
+	- status (currently-pursuing OR Ex-student)
+	- fees_pending(true OR false)
+	- email (A student will submit their gmail)
+	- moodle_password
+	- portal_password
+	- created_at
+	- created_by
+	- is_deleted
+	- deleted_by
+
+2) staff
+	- staff_id
+	- first_name
+	- middle_name
+	- last_name
+	- contact_no
+	- date_of_birth
+	- role (admin OR teacher)
+	- email (A teacher OR admin will submit their gmail)
+	- created_at
+	- created_by
+	- is_deleted
+	- deleted_by
+
+3) branches
+	- branch_id
+	- branch_name
+	- branch_intake_capacity
+	- created_at
+	- created_by
+	- is_deleted
+	- deleted_by
+
+// PENDING TO CREATE MORE TABLES AS NEEDED
+// PENDING TO WRITE THE DESIGN FLOW
