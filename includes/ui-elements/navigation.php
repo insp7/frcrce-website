@@ -4,13 +4,14 @@
  * User: Aniket
  * Date: 2/20/2019
  * Time: 11:34 PM
- */?>
+ */
+?>
 
 <!-- Main Header -->
 <header class="main-header">
 
     <!-- Logo -->
-    <a href="index.php" class="logo">
+    <a href="<?php echo $BASE_URL; ?>index.php" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>A</b>LT</span>
         <!-- logo for regular state and mobile devices -->
@@ -42,7 +43,7 @@
                                     <a href="#">
                                         <div class="pull-left">
                                             <!-- User Image -->
-                                            <img src="assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                            <img src="<?php echo $BASE_URL; ?>assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                                         </div>
                                         <!-- Message title and timestamp -->
                                         <h4>
@@ -127,14 +128,14 @@
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <!-- The user image in the navbar-->
-                        <img src="assets/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                        <img src="<?php echo $BASE_URL; ?>assets/img/user2-160x160.jpg" class="user-image" alt="User Image">
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
                         <span class="hidden-xs">Alexander Pierce</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- The user image in the menu -->
                         <li class="user-header">
-                            <img src="assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            <img src="<?php echo $BASE_URL; ?>assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                             <p>
                                 Alexander Pierce - Web Developer
@@ -159,10 +160,10 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="<?php echo $BASE_URL; ?>includes/users/profile.php" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="<?php echo $BASE_URL; ?>login.php" class="btn btn-default btn-flat">Sign out</a>
                             </div>
                         </li>
                     </ul>

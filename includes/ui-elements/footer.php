@@ -7,12 +7,22 @@
  */
 ?>
 
-<!-- Main Footer -->
+<!-- CUSTOM FOOTER -->
+<!--<footer class="main-footer">-->
+<!--    <!-- To the right -->-->
+<!--    <div class="pull-right hidden-xs">-->
+<!--        Anything you want-->
+<!--    </div>-->
+<!--    <!-- Default to the left -->-->
+<!--    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.-->
+<!--</footer>-->
+
+<!-- Main Footer of the theme owner -->
 <footer class="main-footer">
-    <!-- To the right -->
     <div class="pull-right hidden-xs">
-        Anything you want
+        <b>Version</b> 2.4.0
     </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+    reserved.
 </footer>
+

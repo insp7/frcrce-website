@@ -16,7 +16,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo $BASE_URL; ?>assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p>Alexander Pierce</p>
@@ -40,22 +40,47 @@
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">HEADER</li>
+
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-            <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+            <li class="active">
+                <a href="<?php echo $BASE_URL; ?>includes/users/profile.php">
+                    <i class="fa fa-user-o"></i> <span>Profile</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo $BASE_URL; ?>includes/sample-data-table.php">
+                    <i class="fa fa-table"></i> <span>Tables</span>
+                </a>
+            </li>
+
+            <!-- User details -->
             <li class="treeview">
-                <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
+                <a href="#">
+                    <i class="fa fa-user-o"></i> <span>User</span>
                     <span class="pull-right-container">
-                    <i class="fa fa-angle-left pull-right"></i>
-                  </span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Link in level 2</a></li>
-                    <li><a href="#">Link in level 2</a></li>
+                    <li><a href="<?php echo $BASE_URL; ?>includes/users/profile.php">View profile</a></li>
+                    <li><a href="<?php echo $BASE_URL; ?>includes/users/timeline.php">Timeline</a></li>
                 </ul>
-            </li>
-        </ul>
-        <!-- /.sidebar-menu -->
-    </section>
-    <!-- /.sidebar -->
+            </li> <!-- End of User details -->
+
+            <!-- Extras -->
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-folder"></i> <span>Extras</span>
+                    <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?php echo $BASE_URL; ?>extras/invoice.php"><i class="fa fa-circle-o"></i> Invoice</a></li>
+                    <li><a href="<?php echo $BASE_URL; ?>extras/lockscreen.php"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
+                </ul>
+            </li> <!-- End of Extras -->
+        </ul> <!-- /.sidebar-menu -->
+    </section> <!-- /.sidebar -->
 </aside>

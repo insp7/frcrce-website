@@ -16,6 +16,7 @@
   "dependencies": {
     "bootstrap": "^3.4.1",
     "chart.js": "^2.7.3",
+    "datatables.net-bs": "^1.10.19",
     "fastclick": "^1.0.6",
     "font-awesome": "^4.7.0",
     "ionicons": "^4.5.5",

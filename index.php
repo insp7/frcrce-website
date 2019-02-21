@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- HEADER -->
 <?php
-    require_once("includes/ui-elements/header.php");
+    require_once('includes/ui-elements/header.php');
 ?> <!-- End of HEADER -->
 
 <!--
@@ -34,12 +34,12 @@ desired effect
     <div class="wrapper">
         <!-- NAVIGATION -->
         <?php
-            require_once("includes/ui-elements/navigation.php");
+            require_once('includes/ui-elements/navigation.php');
         ?> <!-- End of NAVIGATION -->
 
         <!-- SIDEBAR -->
         <?php
-            require_once("includes/ui-elements/sidebar.php");
+            require_once('includes/ui-elements/sidebar.php');
         ?> <!-- End of SIDEBAR -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -70,19 +70,19 @@ desired effect
 
         <!-- FOOTER -->
         <?php
-            require_once("includes/ui-elements/footer.php");
+            require_once('includes/ui-elements/footer.php');
         ?> <!-- End of FOOTER -->
 
         <!-- CONTROL-SIDEBAR -->
         <?php
-            require_once("includes/ui-elements/control-sidebar.php");
+            require_once('includes/ui-elements/control-sidebar.php');
         ?> <!-- End of CONTROL-SIDEBAR -->
     </div>
     <!-- ./wrapper -->
 
     <!-- SCRIPTS -->
     <?php
-        require_once("includes/ui-elements/scripts.php");
+        require_once('includes/ui-elements/scripts.php');
     ?>
 
 </body>
