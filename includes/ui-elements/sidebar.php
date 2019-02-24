@@ -16,7 +16,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?php echo $BASE_URL; ?>assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p>Alexander Pierce</p>
@@ -43,7 +43,7 @@
 
             <!-- Optionally, you can add icons to the links -->
             <li class="active">
-                <a href="<?php echo $BASE_URL; ?>includes/users/profile.php">
+                <a href="includes/users/profile.php">
                     <i class="fa fa-user-o"></i> <span>Profile</span>
                 </a>
             </li>
@@ -63,8 +63,8 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?php echo $BASE_URL; ?>includes/users/profile.php">View profile</a></li>
-                    <li><a href="<?php echo $BASE_URL; ?>includes/users/timeline.php">Timeline</a></li>
+                    <li><a href="includes/users/profile.php">View profile</a></li>
+                    <li><a href="includes/users/timeline.php">Timeline</a></li>
                 </ul>
             </li> <!-- End of User details -->
 
@@ -77,8 +77,8 @@
                             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?php echo $BASE_URL; ?>extras/invoice.php"><i class="fa fa-circle-o"></i> Invoice</a></li>
-                    <li><a href="<?php echo $BASE_URL; ?>extras/lockscreen.php"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
+                    <li><a href="extras/invoice.php"><i class="fa fa-circle-o"></i> Invoice</a></li>
+                    <li><a href="extras/lockscreen.php"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
                 </ul>
             </li> <!-- End of Extras -->
         </ul> <!-- /.sidebar-menu -->
