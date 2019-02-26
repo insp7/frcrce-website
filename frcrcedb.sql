@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2019 at 07:12 PM
+-- Generation Time: Feb 26, 2019 at 02:10 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -68,6 +68,23 @@ CREATE TABLE `event_coordinators` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `news_feed`
+--
+
+CREATE TABLE `news_feed` (
+  `news_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `updated_by` int(11) NOT NULL,
+  `is_deleted` bit(1) NOT NULL DEFAULT b'0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `staff`
 --
 
@@ -87,6 +104,14 @@ CREATE TABLE `staff` (
   `updated_by` int(11) NOT NULL,
   `is_deleted` bit(1) NOT NULL DEFAULT b'0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`staff_id`, `first_name`, `middle_name`, `last_name`, `contact_no`, `date_of_birth`, `role`, `email`, `password`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_deleted`) VALUES
+(1, 'LO2L', 'hah2a', 'sir', 1234567890, '2019-02-04', 'teacher', 'ns@gmail.com', 'ns123', '2019-02-25 00:00:00', 2, '0000-00-00 00:00:00', 0, b'1'),
+(3, 'LOL', 'haha', '', 0, '0000-00-00', '', '', '', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, b'0');
 
 -- --------------------------------------------------------
 
@@ -135,6 +160,12 @@ ALTER TABLE `events`
   ADD PRIMARY KEY (`event_id`);
 
 --
+-- Indexes for table `news_feed`
+--
+ALTER TABLE `news_feed`
+  ADD PRIMARY KEY (`news_id`);
+
+--
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
@@ -157,10 +188,16 @@ ALTER TABLE `events`
   MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `news_feed`
+--
+ALTER TABLE `news_feed`
+  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `students`
