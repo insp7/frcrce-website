@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html>
 
+<!--INIT-->
+<?php
+    ob_start();
+    define('BASE_URL', '../'); // Path to root directory.
+?>
+<!--END OF INIT-->
+
+<base href="<?php echo BASE_URL; ?>">
+
 <!-- HEADER -->
 <?php
-    $ROOT_PATH = '../'; // Path to root directory.
-    require_once($ROOT_PATH . 'includes/ui-elements/header.php');
+    require_once(BASE_URL . 'includes/ui-elements/header.php');
 ?> <!-- End of HEADER -->
 
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
         <!-- NAVIGATION -->
         <?php
-            require_once($ROOT_PATH . 'includes/ui-elements/navigation.php');
+            require_once(BASE_URL . 'includes/ui-elements/navigation.php');
         ?> <!-- End of NAVIGATION -->
 
         <!-- SIDEBAR -->
         <?php
-            require_once($ROOT_PATH . 'includes/ui-elements/sidebar.php');
+            require_once(BASE_URL . 'includes/ui-elements/sidebar.php');
         ?> <!-- End of SIDEBAR -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -258,7 +266,7 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td><a href="<?php echo $ROOT_PATH; ?>extras/invoice.php">OR9842</a></td>
+                                            <td><a href="<?php echo BASE_URL; ?>extras/invoice.php">OR9842</a></td>
                                             <td>Call of Duty IV</td>
                                             <td><span class="label label-success">Shipped</span></td>
                                             <td>
@@ -266,7 +274,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="<?php echo $ROOT_PATH; ?>extras/invoice.php">OR1848</a></td>
+                                            <td><a href="<?php echo BASE_URL; ?>extras/invoice.php">OR1848</a></td>
                                             <td>Samsung Smart TV</td>
                                             <td><span class="label label-warning">Pending</span></td>
                                             <td>
@@ -274,7 +282,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="<?php echo $ROOT_PATH; ?>extras/invoice.php">OR7429</a></td>
+                                            <td><a href="<?php echo BASE_URL; ?>extras/invoice.php">OR7429</a></td>
                                             <td>iPhone 6 Plus</td>
                                             <td><span class="label label-danger">Delivered</span></td>
                                             <td>
@@ -282,7 +290,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="<?php echo $ROOT_PATH; ?>extras/invoice.php">OR7429</a></td>
+                                            <td><a href="<?php echo BASE_URL; ?>extras/invoice.php">OR7429</a></td>
                                             <td>Samsung Smart TV</td>
                                             <td><span class="label label-info">Processing</span></td>
                                             <td>
@@ -290,7 +298,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="<?php echo $ROOT_PATH; ?>extras/invoice.php">OR1848</a></td>
+                                            <td><a href="<?php echo BASE_URL; ?>extras/invoice.php">OR1848</a></td>
                                             <td>Samsung Smart TV</td>
                                             <td><span class="label label-warning">Pending</span></td>
                                             <td>
@@ -298,7 +306,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="<?php echo $ROOT_PATH; ?>extras/invoice.php">OR7429</a></td>
+                                            <td><a href="<?php echo BASE_URL; ?>extras/invoice.php">OR7429</a></td>
                                             <td>iPhone 6 Plus</td>
                                             <td><span class="label label-danger">Delivered</span></td>
                                             <td>
@@ -306,7 +314,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="<?php echo $ROOT_PATH; ?>extras/invoice.php">OR9842</a></td>
+                                            <td><a href="<?php echo BASE_URL; ?>extras/invoice.php">OR9842</a></td>
                                             <td>Call of Duty IV</td>
                                             <td><span class="label label-success">Shipped</span></td>
                                             <td>
@@ -459,7 +467,7 @@
 
         <!-- FOOTER -->
         <?php
-            require_once($ROOT_PATH . 'includes/ui-elements/footer.php');
+            require_once(BASE_URL . 'includes/ui-elements/footer.php');
         ?> <!-- End of FOOTER -->
 
     </div>
@@ -469,13 +477,13 @@
     <!-- Importing common scripts first -->
     <!-- SCRIPTS -->
     <?php
-        require_once($ROOT_PATH . 'includes/ui-elements/scripts.php');
+        require_once(BASE_URL . 'includes/ui-elements/scripts.php');
     ?> <!-- End of SCRIPTS -->
 
     <!-- Scripts Specific to this page -->
     <!-- ChartJS -->
-    <script src="<?php echo $ROOT_PATH; ?>node_modules/chart.js/dist/Chart.js"></script>
+    <script src="<?php echo BASE_URL; ?>node_modules/chart.js/dist/Chart.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="<?php echo $ROOT_PATH; ?>assets/js/dashboard.js"></script>
+    <script src="<?php echo BASE_URL; ?>assets/js/dashboard.js"></script>
 </body>
 </html>

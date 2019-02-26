@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
 
+<!--INIT-->
+<?php
+    ob_start();
+    define('BASE_URL', '');
+?> <!--END OF INIT-->
+
+<base href="<?php echo BASE_URL; ?>">
+
 <!-- HEADER -->
 <?php
-require_once("includes/ui-elements/header.php");
+    include_once(BASE_URL . 'includes/ui-elements/header.php');
 ?> <!-- End of HEADER -->
 
 <body class="hold-transition register-page">

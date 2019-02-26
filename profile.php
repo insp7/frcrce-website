@@ -10,23 +10,30 @@
 <!DOCTYPE html>
 <html>
 
+<!--INIT-->
+<?php
+    ob_start();
+    define('BASE_URL', '');
+?>
+<!--END OF INIT-->
+
+<base href="<?php echo BASE_URL; ?>">
+
 <!-- HEADER -->
 <?php
-    // Path to root directory
-    $ROOT_PATH = '../../'; // or $ROOT_PATH = $_SERVER['DOCUMENT_ROOT'] . '/frcrce/'; however this wont work when echoing in scripts.
-    require_once($ROOT_PATH . 'includes/ui-elements/header.php');
+    include_once(BASE_URL . 'includes/ui-elements/header.php');
 ?> <!-- End of HEADER -->
 
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
         <!-- NAVIGATION -->
         <?php
-            require_once($ROOT_PATH . 'includes/ui-elements/navigation.php');
+            include_once(BASE_URL . 'includes/ui-elements/navigation.php');
         ?> <!-- End of NAVIGATION -->
 
         <!-- SIDEBAR -->
         <?php
-            require_once($ROOT_PATH . 'includes/ui-elements/sidebar.php');
+            include_once(BASE_URL . 'includes/ui-elements/sidebar.php');
         ?> <!-- End of SIDEBAR -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -52,7 +59,7 @@
                         <!-- Profile Image -->
                         <div class="box box-primary">
                             <div class="box-body box-profile">
-                                <img class="profile-user-img img-responsive img-circle" src="<?php echo $ROOT_PATH; ?>assets/img/user4-128x128.jpg" alt="User profile picture">
+                                <img class="profile-user-img img-responsive img-circle" src="<?php echo BASE_URL; ?>assets/img/user4-128x128.jpg" alt="User profile picture">
 
                                 <h3 class="profile-username text-center">Nina Mcintire</h3>
 
@@ -130,7 +137,7 @@
                                     <!-- Post -->
                                     <div class="post">
                                         <div class="user-block">
-                                            <img class="img-circle img-bordered-sm" src="<?php echo $ROOT_PATH; ?>assets/img/user1-128x128.jpg" alt="user image">
+                                            <img class="img-circle img-bordered-sm" src="<?php echo BASE_URL; ?>assets/img/user1-128x128.jpg" alt="user image">
                                             <span class="username">
                                                 <a href="#">Jonathan Burke Jr.</a>
                                                 <a href="#" class="pull-right btn-box-tool">
@@ -163,7 +170,7 @@
                                     <!-- Post -->
                                     <div class="post clearfix">
                                         <div class="user-block">
-                                            <img class="img-circle img-bordered-sm" src="<?php echo $ROOT_PATH; ?>assets/img/user7-128x128.jpg" alt="User Image">
+                                            <img class="img-circle img-bordered-sm" src="<?php echo BASE_URL; ?>assets/img/user7-128x128.jpg" alt="User Image">
                                             <span class="username">
                                                 <a href="#">Sarah Ross</a>
                                                 <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
@@ -195,7 +202,7 @@
                                     <!-- Post -->
                                     <div class="post">
                                         <div class="user-block">
-                                            <img class="img-circle img-bordered-sm" src="<?php echo $ROOT_PATH; ?>assets/img/user6-128x128.jpg" alt="User Image">
+                                            <img class="img-circle img-bordered-sm" src="<?php echo BASE_URL; ?>assets/img/user6-128x128.jpg" alt="User Image">
                                             <span class="username">
                                                 <a href="#">Adam Jones</a>
                                                 <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
@@ -205,21 +212,21 @@
                                         <!-- /.user-block -->
                                         <div class="row margin-bottom">
                                             <div class="col-sm-6">
-                                                <img class="img-responsive" src="<?php echo $ROOT_PATH; ?>assets/img/photo1.png" alt="Photo">
+                                                <img class="img-responsive" src="<?php echo BASE_URL; ?>assets/img/photo1.png" alt="Photo">
                                             </div>
                                             <!-- /.col -->
                                             <div class="col-sm-6">
                                                 <div class="row">
                                                     <div class="col-sm-6">
-                                                        <img class="img-responsive" src="<?php echo $ROOT_PATH; ?>assets/img/photo2.png" alt="Photo">
+                                                        <img class="img-responsive" src="<?php echo BASE_URL; ?>assets/img/photo2.png" alt="Photo">
                                                         <br>
-                                                        <img class="img-responsive" src="<?php echo $ROOT_PATH; ?>assets/img/photo3.jpg" alt="Photo">
+                                                        <img class="img-responsive" src="<?php echo BASE_URL; ?>assets/img/photo3.jpg" alt="Photo">
                                                     </div>
                                                     <!-- /.col -->
                                                     <div class="col-sm-6">
-                                                        <img class="img-responsive" src="<?php echo $ROOT_PATH; ?>assets/img/photo4.jpg" alt="Photo">
+                                                        <img class="img-responsive" src="<?php echo BASE_URL; ?>assets/img/photo4.jpg" alt="Photo">
                                                         <br>
-                                                        <img class="img-responsive" src="<?php echo $ROOT_PATH; ?>assets/img/photo1.png" alt="Photo">
+                                                        <img class="img-responsive" src="<?php echo BASE_URL; ?>assets/img/photo1.png" alt="Photo">
                                                     </div>
                                                     <!-- /.col -->
                                                 </div>
@@ -412,19 +419,19 @@
 
         <!-- FOOTER -->
         <?php
-            require_once($ROOT_PATH . 'includes/ui-elements/footer.php');
+            include_once(BASE_URL . 'includes/ui-elements/footer.php');
         ?> <!-- End of FOOTER -->
 
         <!-- CONTROL-SIDEBAR -->
         <?php
-            require_once($ROOT_PATH . 'includes/ui-elements/control-sidebar.php');
+            include_once(BASE_URL . 'includes/ui-elements/control-sidebar.php');
         ?> <!-- End of CONTROL-SIDEBAR -->
     </div>
     <!-- ./wrapper -->
 
     <!-- SCRIPTS -->
     <?php
-        require_once($ROOT_PATH . 'includes/ui-elements/scripts.php');
+        include_once(BASE_URL . 'includes/ui-elements/scripts.php');
     ?> <!-- End of sCRIPTS -->
 
 </body>

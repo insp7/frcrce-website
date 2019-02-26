@@ -16,11 +16,11 @@ DATABASE TABLES:
 	- status (currently-pursuing OR Ex-student)
 	- email (A student will submit their gmail)
     - password
-	- created_at
-	- created_by
-	- updated_at
-	- updated_by
-	- is_deleted
+    - created_at
+    - created_by
+    - updated_at
+    - updated_by
+    - is_deleted
 
 2) staff
 	- staff_id
@@ -31,8 +31,8 @@ DATABASE TABLES:
 	- date_of_birth
 	- role (admin OR teacher)
 	- email (A teacher OR admin will submit their gmail)
-	- password
-	- created_at
+    - password
+    - created_at
     - created_by
     - updated_at
     - updated_by
@@ -98,3 +98,16 @@ $result = $students->insertStudent('{
     "created_by": 2
 }');
 echo $result;
+
+$result = $gf->select("first_name, middle_name, last_name", "staff", '{
+"staff_id": 1,
+"first_name": "Nilesh"
+}');
+
+extract(mysqli_fetch_assoc($result));
+echo $middle_name;
+
+$result = $gf->delete("staff", '{
+    "staff_id": 1,
+    "first_name": "LO2L"
+}');

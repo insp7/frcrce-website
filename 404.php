@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html>
 
-    <!-- HEADER -->
-    <?php
-        require_once("includes/ui-elements/header.php");
-    ?> <!-- End of HEADER -->
+<!--INIT-->
+<?php
+    ob_start();
+    define('BASE_URL', '');
+?> <!--END OF INIT-->
+
+<base href="<?php echo BASE_URL; ?>">
+
+<!-- HEADER -->
+<?php
+    require_once(BASE_URL . 'includes/ui-elements/header.php');
+?> <!-- End of HEADER -->
 
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
         <!-- NAVIGATION -->
         <?php
-            require_once("includes/ui-elements/navigation.php");
+            require_once(BASE_URL . 'includes/ui-elements/navigation.php');
         ?> <!-- End of NAVIGATION -->
 
         <!-- SIDEBAR -->
         <?php
-            require_once("includes/ui-elements/sidebar.php");
+            require_once(BASE_URL . 'includes/ui-elements/sidebar.php');
         ?> <!-- End of SIDEBAR -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -67,19 +75,19 @@
 
         <!-- FOOTER -->
         <?php
-            require_once("includes/ui-elements/footer.php");
+            require_once(BASE_URL . 'includes/ui-elements/footer.php');
         ?> <!-- End of FOOTER -->
 
         <!-- CONTROL-SIDEBAR -->
         <?php
-            require_once("includes/ui-elements/control-sidebar.php");
+            require_once(BASE_URL . 'includes/ui-elements/control-sidebar.php');
         ?> <!-- End of CONTROL-SIDEBAR -->
     </div>
     <!-- ./wrapper -->
 
     <!-- SCRIPTS -->
     <?php
-        require_once("includes/ui-elements/scripts.php");
+        require_once(BASE_URL . 'includes/ui-elements/scripts.php');
     ?> <!-- End of SCRIPTS -->
 
 </body>

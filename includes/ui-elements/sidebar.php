@@ -16,7 +16,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo BASE_URL; ?>assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p>Alexander Pierce</p>
@@ -25,60 +25,48 @@
             </div>
         </div>
 
-        <!-- search form (Optional) -->
-        <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search...">
-                <span class="input-group-btn">
-                  <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                  </button>
-                </span>
-            </div>
-        </form>
-        <!-- /.search form -->
-
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">HEADER</li>
 
             <!-- Optionally, you can add icons to the links -->
             <li class="active">
-                <a href="includes/users/profile.php">
-                    <i class="fa fa-user-o"></i> <span>Profile</span>
+                <a href="<?php echo BASE_URL; ?>index.php">
+                    <i class="fa fa-home"></i> <span>Home</span>
                 </a>
             </li>
 
             <li>
-                <a href="<?php echo $BASE_URL; ?>includes/sample-data-table.php">
+                <a href="<?php echo BASE_URL; ?>data-table.php">
                     <i class="fa fa-table"></i> <span>Tables</span>
                 </a>
             </li>
 
-            <!-- User details -->
+            <!-- Events -->
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-user-o"></i> <span>User</span>
+                    <i class="fa fa-folder"></i> <span>Events</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="includes/users/profile.php">View profile</a></li>
-                    <li><a href="includes/users/timeline.php">Timeline</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>extras/invoice.php"><i class="fa fa-circle-o"></i> Create</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>extras/lockscreen.php"><i class="fa fa-circle-o"></i> View</a></li>
                 </ul>
-            </li> <!-- End of User details -->
+            </li> <!-- End of Events -->
 
             <!-- Extras -->
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-folder"></i> <span>Extras</span>
                     <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="extras/invoice.php"><i class="fa fa-circle-o"></i> Invoice</a></li>
-                    <li><a href="extras/lockscreen.php"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>extras/invoice.php"><i class="fa fa-circle-o"></i> Invoice</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>extras/lockscreen.php"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
                 </ul>
             </li> <!-- End of Extras -->
         </ul> <!-- /.sidebar-menu -->

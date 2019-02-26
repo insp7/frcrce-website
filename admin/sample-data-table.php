@@ -10,11 +10,19 @@
 <!DOCTYPE html>
 <html>
 
+<!--INIT-->
+<?php
+    ob_start();
+    define('BASE_URL', '../'); // Path to root directory
+?>
+<!--END OF INIT-->
+
+<base href="<?php echo BASE_URL; ?>">
+
+
 <!-- HEADER -->
 <?php
-    // Path to root directory
-    $ROOT_PATH = '../'; // or $ROOT_PATH = $_SERVER['DOCUMENT_ROOT'] . '/frcrce/'; however this wont work when echoing in scripts.
-    require_once($ROOT_PATH . 'includes/ui-elements/header.php');
+    include_once(BASE_URL . 'includes/ui-elements/header.php');
 ?> <!-- End of HEADER -->
 
 
@@ -23,12 +31,12 @@
     <div class="wrapper">
         <!-- NAVIGATION -->
         <?php
-            require_once('ui-elements/navigation.php');
+            include_once(BASE_URL . 'includes/ui-elements/navigation.php');
         ?> <!-- End of NAVIGATION -->
 
         <!-- SIDEBAR -->
         <?php
-            require_once('ui-elements/sidebar.php');
+            include_once(BASE_URL . 'includes/ui-elements/sidebar.php');
         ?> <!-- End of SIDEBAR -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -501,24 +509,24 @@
 
         <!-- FOOTER -->
         <?php
-            require_once($ROOT_PATH . 'includes/ui-elements/footer.php');
+            include_once(BASE_URL . 'includes/ui-elements/footer.php');
         ?> <!-- End of FOOTER -->
 
         <!-- CONTROL-SIDEBAR -->
         <?php
-            require_once($ROOT_PATH . 'includes/ui-elements/control-sidebar.php');
+            include_once(BASE_URL . 'includes/ui-elements/control-sidebar.php');
         ?> <!-- End of CONTROL-SIDEBAR -->
     </div>
     <!-- ./wrapper -->
 
     <!-- Common SCRIPTS -->
     <?php
-        require_once($ROOT_PATH . 'includes/ui-elements/scripts.php');
+        include_once(BASE_URL . 'includes/ui-elements/scripts.php');
     ?> <!-- End of Common SCRIPTS -->
 
     <!-- Page specific scripts -->
-    <script src="<?php echo $ROOT_PATH; ?>node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="<?php echo $ROOT_PATH; ?>node_modules/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="<?php echo $ROOT_PATH; ?>assets/js/initialize-datatables.js"></script>
+    <script src="<?php echo BASE_URL; ?>node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo BASE_URL; ?>node_modules/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="<?php echo BASE_URL; ?>assets/js/initialize-datatables.js"></script>
 </body>
 </html>

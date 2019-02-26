@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
 
+<!--INIT-->
+<?php
+    ob_start();
+    define('BASE_URL', '../'); // Path to root directory
+?> <!--END OF INIT-->
+
+<base href="<?php echo BASE_URL; ?>">
+
 <!-- HEADER -->
 <?php
-    // Path to root directory
-    $ROOT_PATH = '../'; // or $ROOT_PATH = $_SERVER['DOCUMENT_ROOT'] . '/frcrce/'; however this wont work when echoing in scripts.
-    require_once($ROOT_PATH . 'includes/ui-elements/header.php');
+    include_once(BASE_URL . 'includes/ui-elements/header.php');
 ?> <!-- End of HEADER -->
 
 <body onload="window.print();">
@@ -110,10 +116,10 @@
                 <!-- accepted payments column -->
                 <div class="col-xs-6">
                     <p class="lead">Payment Methods:</p>
-                    <img src="<?php echo $ROOT_PATH; ?>assets/img/credit/visa.png" alt="Visa">
-                    <img src="<?php echo $ROOT_PATH; ?>assets/img/credit/mastercard.png" alt="Mastercard">
-                    <img src="<?php echo $ROOT_PATH; ?>assets/img/credit/american-express.png" alt="American Express">
-                    <img src="<?php echo $ROOT_PATH; ?>assets/img/credit/paypal2.png" alt="Paypal">
+                    <img src="<?php echo BASE_URL; ?>assets/img/credit/visa.png" alt="Visa">
+                    <img src="<?php echo BASE_URL; ?>assets/img/credit/mastercard.png" alt="Mastercard">
+                    <img src="<?php echo BASE_URL; ?>assets/img/credit/american-express.png" alt="American Express">
+                    <img src="<?php echo BASE_URL; ?>assets/img/credit/paypal2.png" alt="Paypal">
 
                     <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
                         Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg dopplr
