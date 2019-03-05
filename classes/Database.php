@@ -61,8 +61,8 @@
             // FOR TESTING
             if(!$this->connection)
                 echo "Database not connected";
-            // else
-            //     echo "Connected successfully";
+//            else
+//                echo "Connection established with the database!";
         }
 
         /**

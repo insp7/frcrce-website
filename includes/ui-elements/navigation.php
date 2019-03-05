@@ -131,7 +131,14 @@
                         <!-- The user image in the navbar-->
                         <img src="assets/img/user2-160x160.jpg" class="user-image" alt="User Image">
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                        <span class="hidden-xs">Alexander Pierce</span>
+                        <span class="hidden-xs">
+                            <?php
+                                if(isset($_SESSION['staff_name']))
+                                    echo $_SESSION['staff_name'];
+                                else if(isset($_SESSION['student_name']))
+                                    echo $_SESSION['student_name'];
+                            ?>
+                        </span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- The user image in the menu -->
@@ -139,7 +146,12 @@
                             <img src="assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                             <p>
-                                Alexander Pierce - Web Developer
+                                <?php
+                                    if(isset($_SESSION['staff_name']))
+                                        echo $_SESSION['staff_name'] . " - " . $_SESSION['role'];
+                                    else if(isset($_SESSION['student_name']))
+                                        echo $_SESSION['student_name'];
+                                ?>
                                 <small>Member since Nov. 2012</small>
                             </p>
                         </li>
@@ -164,14 +176,14 @@
                                 <a href="includes/users/profile.php" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="login.php" class="btn btn-default btn-flat">Sign out</a>
+                                <button class="btn btn-default btn-flat" onClick="btnSignOutClicked(event);">Sign out</button>
                             </div>
                         </li>
                     </ul>
                 </li>
                 <!-- Control Sidebar Toggle Button -->
                 <li>
-                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                    <a data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                 </li>
             </ul>
         </div>

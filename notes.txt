@@ -111,3 +111,21 @@ $result = $gf->delete("staff", '{
     "staff_id": 1,
     "first_name": "LO2L"
 }');
+
+**UPDATED** structure :
+//    $result_Set = GeneralFunctions::select('*', 'students', array(1 => 1));
+//    while($row = mysqli_fetch_assoc($result_Set)) {
+//        extract($row);
+//
+//        echo $first_name;
+//    }
+
+//    $result = GeneralFunctions::insert(array(
+//        'first_name' => 'haha',
+//        'last_name' => 'lol',
+//        'created_at' => date('Y-m-d H:i:s'),
+//        ), "students");
+//    echo $result;
+
+//    $result = GeneralFunctions::delete("students", array('Student_id' => 17));
+//    echo $result;

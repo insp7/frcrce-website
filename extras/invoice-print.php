@@ -7,7 +7,7 @@
     define('BASE_URL', '../'); // Path to root directory
 ?> <!--END OF INIT-->
 
-<base href="<?php echo BASE_URL; ?>">
+<base href="">
 
 <!-- HEADER -->
 <?php
@@ -116,10 +116,10 @@
                 <!-- accepted payments column -->
                 <div class="col-xs-6">
                     <p class="lead">Payment Methods:</p>
-                    <img src="<?php echo BASE_URL; ?>assets/img/credit/visa.png" alt="Visa">
-                    <img src="<?php echo BASE_URL; ?>assets/img/credit/mastercard.png" alt="Mastercard">
-                    <img src="<?php echo BASE_URL; ?>assets/img/credit/american-express.png" alt="American Express">
-                    <img src="<?php echo BASE_URL; ?>assets/img/credit/paypal2.png" alt="Paypal">
+                    <img src="assets/img/credit/visa.png" alt="Visa">
+                    <img src="assets/img/credit/mastercard.png" alt="Mastercard">
+                    <img src="assets/img/credit/american-express.png" alt="American Express">
+                    <img src="assets/img/credit/paypal2.png" alt="Paypal">
 
                     <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
                         Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg dopplr

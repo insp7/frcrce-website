@@ -5,6 +5,9 @@
  * Date: 2/20/2019
  * Time: 11:50 PM
  */
+
+    if(session_status() == PHP_SESSION_NONE)
+        session_start();
 ?>
 
 <!-- Left side column. contains the logo and sidebar -->
@@ -16,10 +19,17 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?php echo BASE_URL; ?>assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
+                <p>
+                    <?php
+                        if(isset($_SESSION['staff_name']))
+                            echo $_SESSION['staff_name'] ;
+                        else if(isset($_SESSION['student_name']))
+                            echo $_SESSION['student_name'] ;
+                    ?>
+                </p>
                 <!-- Status -->
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -31,44 +41,53 @@
 
             <!-- Optionally, you can add icons to the links -->
             <li class="active">
-                <a href="<?php echo BASE_URL; ?>index.php">
+                <a href="index.php">
                     <i class="fa fa-home"></i> <span>Home</span>
                 </a>
             </li>
 
             <li>
-                <a href="<?php echo BASE_URL; ?>data-table.php">
+                <a href="data-table.php">
                     <i class="fa fa-table"></i> <span>Tables</span>
                 </a>
             </li>
 
-            <!-- Events -->
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-folder"></i> <span>Events</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo BASE_URL; ?>extras/invoice.php"><i class="fa fa-circle-o"></i> Create</a></li>
-                    <li><a href="<?php echo BASE_URL; ?>extras/lockscreen.php"><i class="fa fa-circle-o"></i> View</a></li>
-                </ul>
-            </li> <!-- End of Events -->
+            <?php
+                if(isset($_SESSION['role'])) {
+                    if($_SESSION['role'] === 'admin') {
+                        ?>
+                        <!-- Events -->
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-folder"></i> <span>Events</span>
+                                <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="admin/events.php?action=create"><i class="fa fa-circle-o"></i> Create</a></li>
+                                <li><a href="admin/events.php?action=view"><i class="fa fa-circle-o"></i> View</a></li>
+                            </ul>
+                        </li>
+                        <!-- End of Events -->
 
-            <!-- Extras -->
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-folder"></i> <span>Extras</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo BASE_URL; ?>extras/invoice.php"><i class="fa fa-circle-o"></i> Invoice</a></li>
-                    <li><a href="<?php echo BASE_URL; ?>extras/lockscreen.php"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-                </ul>
-            </li> <!-- End of Extras -->
+                        <!-- News -->
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-folder"></i> <span>News</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="admin/news.php?action=create"><i class="fa fa-circle-o"></i> Create</a></li>
+                                <li><a href="admin/news.php?action=view"><i class="fa fa-circle-o"></i> View</a></li>
+                            </ul>
+                        </li> <!-- End of News -->
+                        <?php
+                    }
+                }
+            ?>
         </ul> <!-- /.sidebar-menu -->
     </section> <!-- /.sidebar -->
 </aside>

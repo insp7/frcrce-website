@@ -266,7 +266,7 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td><a href="<?php echo BASE_URL; ?>extras/invoice.php">OR9842</a></td>
+                                            <td><a href="extras/invoice.php">OR9842</a></td>
                                             <td>Call of Duty IV</td>
                                             <td><span class="label label-success">Shipped</span></td>
                                             <td>
@@ -274,7 +274,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="<?php echo BASE_URL; ?>extras/invoice.php">OR1848</a></td>
+                                            <td><a href="extras/invoice.php">OR1848</a></td>
                                             <td>Samsung Smart TV</td>
                                             <td><span class="label label-warning">Pending</span></td>
                                             <td>
@@ -282,7 +282,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="<?php echo BASE_URL; ?>extras/invoice.php">OR7429</a></td>
+                                            <td><a href="extras/invoice.php">OR7429</a></td>
                                             <td>iPhone 6 Plus</td>
                                             <td><span class="label label-danger">Delivered</span></td>
                                             <td>
@@ -290,7 +290,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="<?php echo BASE_URL; ?>extras/invoice.php">OR7429</a></td>
+                                            <td><a href="extras/invoice.php">OR7429</a></td>
                                             <td>Samsung Smart TV</td>
                                             <td><span class="label label-info">Processing</span></td>
                                             <td>
@@ -298,7 +298,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="<?php echo BASE_URL; ?>extras/invoice.php">OR1848</a></td>
+                                            <td><a href="extras/invoice.php">OR1848</a></td>
                                             <td>Samsung Smart TV</td>
                                             <td><span class="label label-warning">Pending</span></td>
                                             <td>
@@ -306,7 +306,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="<?php echo BASE_URL; ?>extras/invoice.php">OR7429</a></td>
+                                            <td><a href="extras/invoice.php">OR7429</a></td>
                                             <td>iPhone 6 Plus</td>
                                             <td><span class="label label-danger">Delivered</span></td>
                                             <td>
@@ -314,7 +314,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="<?php echo BASE_URL; ?>extras/invoice.php">OR9842</a></td>
+                                            <td><a href="extras/invoice.php">OR9842</a></td>
                                             <td>Call of Duty IV</td>
                                             <td><span class="label label-success">Shipped</span></td>
                                             <td>
@@ -473,17 +473,23 @@
     </div>
     <!-- ./wrapper -->
 
-
-    <!-- Importing common scripts first -->
     <!-- SCRIPTS -->
-    <?php
-        require_once(BASE_URL . 'includes/ui-elements/scripts.php');
-    ?> <!-- End of SCRIPTS -->
+    <!-- jQuery 3 -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
 
-    <!-- Scripts Specific to this page -->
+    <!-- Bootstrap 3.3.7 -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
     <!-- ChartJS -->
-    <script src="<?php echo BASE_URL; ?>node_modules/chart.js/dist/Chart.js"></script>
+    <script src="node_modules/chart.js/dist/Chart.js"></script>
+
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="<?php echo BASE_URL; ?>assets/js/dashboard.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+
+    <!-- AdminLTE App -->
+    <script src="assets/js/adminlte.min.js"></script>
+
+    <!-- My scripts -->
+    <script src="assets/js/scripts.js"></script>
 </body>
 </html>

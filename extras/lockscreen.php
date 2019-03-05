@@ -18,7 +18,7 @@
     <!-- Automatic element centering -->
     <div class="lockscreen-wrapper">
         <div class="lockscreen-logo">
-            <a href="<?php echo BASE_URL; ?>index.php"><b>Admin</b>LTE</a>
+            <a href="index.php"><b>Admin</b>LTE</a>
         </div>
         <!-- User name -->
         <div class="lockscreen-name">John Doe</div>
@@ -27,7 +27,7 @@
         <div class="lockscreen-item">
             <!-- lockscreen image -->
             <div class="lockscreen-image">
-                <img src="<?php echo BASE_URL; ?>assets/img/user1-128x128.jpg" alt="User Image">
+                <img src="assets/img/user1-128x128.jpg" alt="User Image">
             </div>
             <!-- /.lockscreen-image -->
 
@@ -49,7 +49,7 @@
             Enter your password to retrieve your session
         </div>
         <div class="text-center">
-            <a href="<?php echo BASE_URL; ?>login.php">Or sign in as a different user</a>
+            <a href="login.php">Or sign in as a different user</a>
         </div>
         <div class="lockscreen-footer text-center">
             Copyright &copy; 2014-2016 <b><a href="https://adminlte.io" class="text-black">Almsaeed Studio</a></b><br>
@@ -60,8 +60,8 @@
 
     <!-- Required Scripts -->
     <!-- jQuery 3 -->
-    <script src="<?php echo BASE_URL; ?>node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
-    <script src="<?php echo BASE_URL; ?>node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
