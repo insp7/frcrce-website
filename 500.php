@@ -87,18 +87,14 @@ require_once(BASE_URL . 'includes/ui-elements/header.php');
         <?php
             require_once(BASE_URL . 'includes/ui-elements/footer.php');
         ?> <!-- End of FOOTER -->
-
-        <!-- CONTROL-SIDEBAR -->
-        <?php
-            require_once(BASE_URL . 'includes/ui-elements/control-sidebar.php');
-        ?> <!-- End of CONTROL-SIDEBAR -->
     </div>
     <!-- ./wrapper -->
 
     <!-- SCRIPTS -->
-    <?php
-        require_once(BASE_URL . 'includes/ui-elements/scripts.php');
-    ?> <!-- End of SCRIPTS -->
+    <!-- jQuery 3 -->
+    <script src="<?php echo BASE_URL; ?>node_modules/jquery/dist/jquery.min.js"></script>
 
+    <!-- Bootstrap 3.3.7 -->
+    <script src="<?php echo BASE_URL; ?>node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

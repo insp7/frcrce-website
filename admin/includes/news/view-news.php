@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Aniket
- * Date: 3/4/2019
- * Time: 7:07 PM
+ * Date: 3/10/2019
+ * Time: 8:02 PM
  */
 ?>
 <!DOCTYPE html>
@@ -14,25 +14,10 @@
     ob_start();
     define('BASE_URL', '../../../'); // Path to root directory.
 
-    require_once(BASE_URL . 'classes/GeneralFunctions.php');
+    require_once(BASE_URL . "classes/GeneralFunctions.php");
 
     if(session_status() == PHP_SESSION_NONE)
         session_start();
-
-    if(!(isset($_SESSION['student_id']) || isset($_SESSION['staff_id'])))
-        header("Location: " . BASE_URL . "login.php");
-
-    if(isset($_POST['news_title'])) {
-        extract($_POST);
-
-        GeneralFunctions::insert(array(
-                'title' => $news_title,
-                'description' => $news_description,
-                'created_at' => date('Y-m-d H:i:s'),
-                'created_by' => $_SESSION['staff_id']) , 'news_feed');
-
-        header("Location: view-news.php");
-    }
 ?>
 <!--END OF INIT-->
 
@@ -65,34 +50,47 @@
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="admin/index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Create News</li>
+                    <li class="active">View news</li>
                 </ol>
             </section>
 
             <!-- Main content -->
             <section class="content">
-                <form method="post" id="news-form">
-                    <div class="form-group">
-                        <label for="news_title">News Title</label>
-                        <input id="news_title" name="news_title" class="form-control" placeholder="Event Name">
+                <div class="box">
+                    <div class="table-responsive box-body">
+                        <table class="table table-bordered table-hover table-condensed" id="dataTable" width="100%" cellspacing="0">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th>News Title</th>
+                                <th>News Description</th>
+                                <th>News Image</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                                $result_set = GeneralFunctions::select("*", "news_feed", array(1 => 1));
+
+                                while($row = mysqli_fetch_assoc($result_set)) {
+                                    extract($row);
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $title ;?></td>
+                                        <td><?php echo $description ;?></td>
+                                        <td> <?php echo "TODO : Show Images" ;?></td>
+                                    </tr>
+                                    <?php
+                                }
+                            ?>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="form-group">
-                        <label for="news_description">News Description</label>
-                        <textarea name="news_description" id="news_description" class="form-control" cols="30" rows="5" placeholder="Event Details"></textarea>
-                    </div>
-    <!-- TODO: FOR IMAGE -->
-    <!--                <div class="form-group">-->
-    <!--                    <label for="news_title">Event Name</label>-->
-    <!--                    <input id="event_name" name="event_name" class="form-control" placeholder="Event Name">-->
-    <!--                </div>-->
-                    <div class="form-group">
-                        <button class="btn btn-instagram" type="submit">Create News Feed</button>
-                    </div>
-                </form>
+                    <!-- ./box-body -->
+                </div>
+                <!-- ./box -->
             </section>
-            <!-- /.content -->
+            <!-- ./content -->
         </div>
-        <!-- /.content-wrapper -->
+        <!-- ./content-wrapper -->
 
         <!-- FOOTER -->
         <?php
@@ -108,5 +106,8 @@
 
     <!-- Bootstrap 3.3.7 -->
     <script src="<?php echo BASE_URL; ?>node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- My scripts -->
+    <script src="<?php echo BASE_URL; ?>assets/js/scripts.js"></script>
 </body>
 </html>

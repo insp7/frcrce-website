@@ -173,17 +173,13 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="includes/users/profile.php" class="btn btn-default btn-flat">Profile</a>
+                                <a href="profile.php" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
                                 <button class="btn btn-default btn-flat" onClick="btnSignOutClicked(event);">Sign out</button>
                             </div>
                         </li>
                     </ul>
-                </li>
-                <!-- Control Sidebar Toggle Button -->
-                <li>
-                    <a data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                 </li>
             </ul>
         </div>

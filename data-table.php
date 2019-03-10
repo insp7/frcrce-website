@@ -16,8 +16,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!--INIT-->
 <?php
-ob_start();
-define('BASE_URL', '');
+    ob_start();
+    define('BASE_URL', '');
+
+    if(session_status() == PHP_SESSION_NONE)
+        session_start();
+
+    if(!(isset($_SESSION['student_id']) || isset($_SESSION['staff_id'])))
+        header("Location: login.php");
 ?>
 <!--END OF INIT-->
 
@@ -25,7 +31,7 @@ define('BASE_URL', '');
 
 <!-- HEADER -->
 <?php
-include_once(BASE_URL . 'includes/ui-elements/header.php');
+    include_once(BASE_URL . 'includes/ui-elements/header.php');
 ?> <!-- End of HEADER -->
 
 <!--
@@ -49,142 +55,138 @@ desired effect
 |---------------------------------------------------------|
 -->
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
-    <!-- NAVIGATION -->
-    <?php
-        include_once(BASE_URL . 'includes/ui-elements/navigation.php');
-    ?> <!-- End of NAVIGATION -->
+    <div class="wrapper">
+        <!-- NAVIGATION -->
+        <?php
+            include_once(BASE_URL . 'includes/ui-elements/navigation.php');
+        ?> <!-- End of NAVIGATION -->
 
-    <!-- SIDEBAR -->
-    <?php
-        include_once(BASE_URL . 'includes/ui-elements/sidebar.php');
-    ?> <!-- End of SIDEBAR -->
+        <!-- SIDEBAR -->
+        <?php
+            include_once(BASE_URL . 'includes/ui-elements/sidebar.php');
+        ?> <!-- End of SIDEBAR -->
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Page Header
-                <small>Optional description</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                <li class="active">Here</li>
-            </ol>
-        </section>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    Page Header
+                    <small>Optional description</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+                    <li class="active">Here</li>
+                </ol>
+            </section>
 
-        <!-- Main content -->
-        <section class="content container-fluid">
+            <!-- Main content -->
+            <section class="content container-fluid">
 
-            <div class="box">
-                <div class="box-header">
-                    <h3 class="box-title">Data Table With Full Features</h3>
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Data Table With Full Features</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example1" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Rendering engine</th>
+                        <th>Browser</th>
+                        <th>Platform(s)</th>
+                        <th>Engine version</th>
+                        <th>CSS grade</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Trident</td>
+                        <td>Internet
+                            Explorer 4.0
+                        </td>
+                        <td>Win 95+</td>
+                        <td> 4</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td>Trident</td>
+                        <td>Internet
+                            Explorer 5.0
+                        </td>
+                        <td>Win 95+</td>
+                        <td>5</td>
+                        <td>C</td>
+                    </tr>
+                    <tr>
+                        <td>Trident</td>
+                        <td>Internet
+                            Explorer 5.5
+                        </td>
+                        <td>Win 95+</td>
+                        <td>5.5</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>Trident</td>
+                        <td>Internet
+                            Explorer 6
+                        </td>
+                        <td>Win 98+</td>
+                        <td>6</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>Trident</td>
+                        <td>Internet Explorer 7</td>
+                        <td>Win XP SP2+</td>
+                        <td>7</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>Trident</td>
+                        <td>AOL browser (AOL desktop)</td>
+                        <td>Win XP</td>
+                        <td>6</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>Gecko</td>
+                        <td>Firefox 1.0</td>
+                        <td>Win 98+ / OSX.2+</td>
+                        <td>1.7</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>Gecko</td>
+                        <td>Firefox 1.5</td>
+                        <td>Win 98+ / OSX.2+</td>
+                        <td>1.8</td>
+                        <td>A</td>
+                    </tr>
+                    </tbody>
+                </table>
+                    </div>
+                    <!-- /.box-body -->
                 </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                    <table id="example1" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                        Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>X</td>
-                </tr>
-                <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                        Explorer 5.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5</td>
-                    <td>C</td>
-                </tr>
-                <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                        Explorer 5.5
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5.5</td>
-                    <td>A</td>
-                </tr>
-                <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                        Explorer 6
-                    </td>
-                    <td>Win 98+</td>
-                    <td>6</td>
-                    <td>A</td>
-                </tr>
-                <tr>
-                    <td>Trident</td>
-                    <td>Internet Explorer 7</td>
-                    <td>Win XP SP2+</td>
-                    <td>7</td>
-                    <td>A</td>
-                </tr>
-                <tr>
-                    <td>Trident</td>
-                    <td>AOL browser (AOL desktop)</td>
-                    <td>Win XP</td>
-                    <td>6</td>
-                    <td>A</td>
-                </tr>
-                <tr>
-                    <td>Gecko</td>
-                    <td>Firefox 1.0</td>
-                    <td>Win 98+ / OSX.2+</td>
-                    <td>1.7</td>
-                    <td>A</td>
-                </tr>
-                <tr>
-                    <td>Gecko</td>
-                    <td>Firefox 1.5</td>
-                    <td>Win 98+ / OSX.2+</td>
-                    <td>1.8</td>
-                    <td>A</td>
-                </tr>
-                </tbody>
-            </table>
-                </div>
-                <!-- /.box-body -->
-            </div>
-            <!-- /.box -->
-        </section>
-        <!-- /.content -->
+                <!-- /.box -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <!-- FOOTER -->
+        <?php
+            include_once(BASE_URL . 'includes/ui-elements/footer.php');
+        ?> <!-- End of FOOTER -->
     </div>
-    <!-- /.content-wrapper -->
+    <!-- ./wrapper -->
 
-    <!-- FOOTER -->
-    <?php
-        include_once(BASE_URL . 'includes/ui-elements/footer.php');
-    ?> <!-- End of FOOTER -->
+    <!-- SCRIPTS -->
+    <!-- jQuery 3 -->
+    <script src="<?php echo BASE_URL; ?>node_modules/jquery/dist/jquery.min.js"></script>
 
-    <!-- CONTROL-SIDEBAR -->
-    <?php
-        include_once(BASE_URL . 'includes/ui-elements/control-sidebar.php');
-    ?> <!-- End of CONTROL-SIDEBAR -->
-</div>
-<!-- ./wrapper -->
-
-<!-- SCRIPTS -->
-<?php
-    include_once(BASE_URL . 'includes/ui-elements/scripts.php');
-?>
-
+    <!-- Bootstrap 3.3.7 -->
+    <script src="<?php echo BASE_URL; ?>node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

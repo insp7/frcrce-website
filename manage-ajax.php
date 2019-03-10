@@ -23,9 +23,10 @@
 
                 $result_set = GeneralFunctions::select("*", "students", $where_condition);
 
-                // TODO: the returned number of rows must exactly be 1, so change the if condition
-                if(mysqli_num_rows($result_set) >= 1)
+                if(mysqli_num_rows($result_set) == 1)
                     echo "true";
+                else if(mysqli_num_rows($result_set) > 1)
+                    echo "Database contains multiple row entries for the record with roll_no:" . $roll_no;
                 else
                     echo "false";
                 break;
@@ -39,9 +40,10 @@
 
                 $result_set = GeneralFunctions::select("*", "staff", $where_condition);
 
-                // TODO: the returned number of rows must exactly be 1, so change the if condition
-                if(mysqli_num_rows($result_set) >= 1)
+                if(mysqli_num_rows($result_set) == 1)
                     echo "true";
+                else if(mysqli_num_rows($result_set) > 1)
+                    echo "Database contains multiple row entries for the record with email:" . $email;
                 else
                     echo "false";
                 break;

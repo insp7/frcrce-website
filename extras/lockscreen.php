@@ -60,8 +60,8 @@
 
     <!-- Required Scripts -->
     <!-- jQuery 3 -->
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="<?php echo BASE_URL; ?>node_modules/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="<?php echo BASE_URL; ?>node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

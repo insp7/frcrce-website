@@ -66,24 +66,15 @@
         <?php
             include_once(BASE_URL . 'includes/ui-elements/footer.php');
         ?> <!-- End of FOOTER -->
-
-        <!-- CONTROL-SIDEBAR -->
-        <?php
-            include_once('includes/ui-elements/control-sidebar.php');
-        ?>
-        <!-- End of CONTROL-SIDEBAR -->
-
     </div>
     <!-- ./wrapper -->
 
-
-    <!-- Importing common scripts first -->
     <!-- SCRIPTS -->
-    <?php
-        include_once(BASE_URL . 'includes/ui-elements/scripts.php');
-    ?> <!-- End of SCRIPTS -->
+    <!-- jQuery 3 -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
 
-    <!-- Scripts Specific to this page -->
+    <!-- Bootstrap 3.3.7 -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
 

@@ -16,6 +16,5 @@
                 header("Location: includes/news/view-news.php");
                 break;
         }
-
     }
 ?>
