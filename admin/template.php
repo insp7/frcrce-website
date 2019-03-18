@@ -10,7 +10,7 @@
 <!--INIT-->
 <?php
     ob_start();
-    define('BASE_URL', '');
+    define('BASE_URL', '../');
 ?>
 <!--END OF INIT-->
 
@@ -33,7 +33,7 @@
 
         <!-- SIDEBAR -->
         <?php
-            include_once(BASE_URL . 'includes/ui/sidebar.php');
+            include_once('includes/ui/sidebar.php');
         ?> <!-- End of SIDEBAR -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -56,6 +56,8 @@
                 <!-------------------------
                 | Your Page Content Here |
                 -------------------------->
+
+
 
             </section>
             <!-- /.content -->

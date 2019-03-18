@@ -25,54 +25,24 @@
      * @access public
      */
     class Database {
-        private $servername;
-        private $username;
-        private $password;
-        private $database;
-        private $connection;
+        private $host       =   "localhost";
+        private $db_name    =   "frcrcedb";
+        private $username   =   "root";
+        private $password   =   "";
+        private $conn=null;
 
         /**
-         * Creates a new Database object and sets the necessary details(servername, username, password, database)
-         * for establishing connection with the database.
-         *
-         * @access public
+         * Database constructor.
          */
-        public function __construct() {
-            $this->servername = "localhost";
-            $this->username = "insp7";
-            $this->password = "123";
-            $this->database = "frcrcedb";
-            $this->connectDB();
-        }
-
-        /**
-         * Function for establishing connection with the database;
-         * The connection is stored in the '$connection' variable.
-         *
-         * @access public
-         */
-        public function connectDB() {
-            $this->connection = new mysqli($this->servername, $this->username, $this->password, $this->database);
-
-            if(mysqli_connect_error()) { // if connection not successful
-                die("Connection Failed : " . mysqli_error());
+        public function __construct(){
+            try{
+                $this->conn = new PDO("mysql:host={$this->host};dbname={$this->db_name}", $this->username, $this->password);
+            }catch(PDOException $e){
+                die("Issue : " . $e->getMessage());
             }
-
-            // FOR TESTING
-            if(!$this->connection)
-                echo "Database not connected";
-//            else
-//                echo "Connection established with the database!";
         }
-
-        /**
-         * Function to get the established connection.
-         *
-         * @access public
-         * @return mysqli 'mysqli' connection object is returned if connection is established successfully
-         */
-        public function getConnection() {
-            return $this->connection;
+        public function getConnection(){
+            return $this->conn;
         }
     }
 

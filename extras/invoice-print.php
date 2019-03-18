@@ -11,7 +11,7 @@
 
 <!-- HEADER -->
 <?php
-    include_once(BASE_URL . 'includes/ui-elements/header.php');
+    include_once(BASE_URL . 'includes/ui/header.php');
 ?> <!-- End of HEADER -->
 
 <body onload="window.print();">

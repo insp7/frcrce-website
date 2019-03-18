@@ -12,19 +12,19 @@
 
 <!-- HEADER -->
 <?php
-    require_once(BASE_URL . 'includes/ui-elements/header.php');
+    require_once(BASE_URL . 'includes/ui/header.php');
 ?> <!-- End of HEADER -->
 
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
         <!-- NAVIGATION -->
         <?php
-            require_once(BASE_URL . 'includes/ui-elements/navigation.php');
+            require_once(BASE_URL . 'includes/ui/navigation.php');
         ?> <!-- End of NAVIGATION -->
 
         <!-- SIDEBAR -->
         <?php
-            require_once(BASE_URL . 'includes/ui-elements/sidebar.php');
+            require_once(BASE_URL . 'includes/ui/sidebar.php');
         ?> <!-- End of SIDEBAR -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -467,7 +467,7 @@
 
         <!-- FOOTER -->
         <?php
-            require_once(BASE_URL . 'includes/ui-elements/footer.php');
+            require_once(BASE_URL . 'includes/ui/footer.php');
         ?> <!-- End of FOOTER -->
 
     </div>

@@ -10,7 +10,7 @@
 <!--INIT-->
 <?php
     ob_start();
-    define('BASE_URL', '');
+    define('BASE_URL', '../');
 ?>
 <!--END OF INIT-->
 
@@ -24,6 +24,7 @@
     include_once(BASE_URL . 'includes/ui/header.php');
 ?> <!-- End of HEADER -->
 
+
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
         <!-- NAVIGATION -->
@@ -33,7 +34,7 @@
 
         <!-- SIDEBAR -->
         <?php
-            include_once(BASE_URL . 'includes/ui/sidebar.php');
+            include_once('includes/ui/sidebar.php');
         ?> <!-- End of SIDEBAR -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -41,8 +42,7 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Dashboard
-                    <small>Version 2.0</small>
+                    Events
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -56,6 +56,23 @@
                 <!-------------------------
                 | Your Page Content Here |
                 -------------------------->
+
+                <?php
+                $q = "";
+                if(isset($_GET['q'])){
+                    $q = $_GET['q'];
+                }
+                switch ($q)
+                {
+                    case 'add':
+                        include_once("includes/events/add-event.php");
+                        break;
+
+                    default:
+                        include_once("includes/events/manage-events.php");
+                        break;
+                }
+                ?>
 
             </section>
             <!-- /.content -->
@@ -71,6 +88,12 @@
 
 
     <!-- Plugins and scripts required by this view-->
+    <!-- DataTables -->
+    <script src="node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="node_modules/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+    <!--Manage Script-->
+    <script src="assets/pages/admin/manage-events.js"></script>
 
     <!-- End of Plugins and scripts required by this view-->
 </body>

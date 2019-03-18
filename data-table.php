@@ -31,7 +31,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- HEADER -->
 <?php
-    include_once(BASE_URL . 'includes/ui-elements/header.php');
+    include_once(BASE_URL . 'includes/ui/header.php');
 ?> <!-- End of HEADER -->
 
 <!--
@@ -58,12 +58,12 @@ desired effect
     <div class="wrapper">
         <!-- NAVIGATION -->
         <?php
-            include_once(BASE_URL . 'includes/ui-elements/navigation.php');
+            include_once(BASE_URL . 'includes/ui/navigation.php');
         ?> <!-- End of NAVIGATION -->
 
         <!-- SIDEBAR -->
         <?php
-            include_once(BASE_URL . 'includes/ui-elements/sidebar.php');
+            include_once(BASE_URL . 'includes/ui/sidebar.php');
         ?> <!-- End of SIDEBAR -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -177,7 +177,7 @@ desired effect
 
         <!-- FOOTER -->
         <?php
-            include_once(BASE_URL . 'includes/ui-elements/footer.php');
+            include_once(BASE_URL . 'includes/ui/footer.php');
         ?> <!-- End of FOOTER -->
     </div>
     <!-- ./wrapper -->
