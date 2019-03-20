@@ -46,12 +46,6 @@
                 </a>
             </li>
 
-            <li>
-                <a href="data-table.php">
-                    <i class="fa fa-table"></i> <span>Tables</span>
-                </a>
-            </li>
-
             <?php
                 if(isset($_SESSION['role'])) {
                     if($_SESSION['role'] === 'admin') {
@@ -61,12 +55,12 @@
                             <a href="#">
                                 <i class="fa fa-folder"></i> <span>Events</span>
                                 <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="admin/events.php?action=create"><i class="fa fa-circle-o"></i> Create</a></li>
-                                <li><a href="admin/events.php?action=view"><i class="fa fa-circle-o"></i> View</a></li>
+                                <li><a href="admin/events.php?q=create"><i class="fa fa-circle-o"></i> Create</a></li>
+                                <li><a href="admin/events.php"><i class="fa fa-circle-o"></i> View</a></li>
                             </ul>
                         </li>
                         <!-- End of Events -->
@@ -80,8 +74,8 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="admin/news.php?action=create"><i class="fa fa-circle-o"></i> Create</a></li>
-                                <li><a href="admin/news.php?action=view"><i class="fa fa-circle-o"></i> View</a></li>
+                                <li><a href="admin/news.php?q=create"><i class="fa fa-circle-o"></i> Create</a></li>
+                                <li><a href="admin/news.php"><i class="fa fa-circle-o"></i> View</a></li>
                             </ul>
                         </li> <!-- End of News -->
                         <?php

@@ -15,9 +15,6 @@
     define('BASE_URL', '../../../'); // Path to root directory.
 
     require_once(BASE_URL . "classes/GeneralFunctions.php");
-
-    if(session_status() == PHP_SESSION_NONE)
-        session_start();
 ?>
 <!--END OF INIT-->
 

@@ -17,7 +17,7 @@
 
 <!--Global Scripts-->
 <?php
-    include_once (BASE_URL.'includes/ui/scripts.php');
+    include_once (BASE_URL . 'includes/ui/scripts.php');
 ?>
 <!--End of Global Scripts-->
 

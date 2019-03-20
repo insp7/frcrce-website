@@ -33,7 +33,7 @@
 
         <!-- SIDEBAR -->
         <?php
-            include_once('includes/ui/sidebar.php');
+            include_once(BASE_URL . 'includes/ui/sidebar.php');
         ?> <!-- End of SIDEBAR -->
 
         <!-- Content Wrapper. Contains page content -->

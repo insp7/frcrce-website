@@ -11,10 +11,10 @@ require_once(BASE_URL."classes/Database.php");
 $columns = array("event_name","event_details","address");
 $query = "SELECT * FROM events WHERE ";
 
-if(isset($_POST["search"]["value"])){
+if(isset($_POST["search"]["value"])) {
     $query .= "(event_name like '%".$_POST["search"]["value"]."%' OR event_details like '%". $_POST['search']['value']."%')";
 }
-if(isset($_POST["order"])){
+if(isset($_POST["order"])) {
     $query .= " ORDER BY ".$columns[$_POST['order']['0']['column']]." ".$_POST['order']['0']['dir'];
 }
 else{
@@ -23,7 +23,7 @@ else{
 
 $query1 = "";
 
-if($_POST["length"]!=-1){
+if($_POST["length"]!=-1) {
     $query1 = ' LIMIT '.$_POST['start'] .','.$_POST['length'];
 }
 $connection = $database->getConnection();
@@ -45,7 +45,7 @@ while($row = $statement->fetch(PDO::FETCH_ASSOC)){
     $data[] = $sub_array;
 }
 
-function get_all_data(){
+function get_all_data() {
     global $connection;
     $query = "SELECT * from events";
     $statement=$connection->query($query);
