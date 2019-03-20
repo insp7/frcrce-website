@@ -30,5 +30,14 @@
             global $database;
             $this->connection = $database->getConnection();
         }
+
+        public function getStudentDetailsByRollNo($roll_no) {
+            $sql = "SELECT * FROM students WHERE roll_no = :roll_no";
+            $ps = $this->connection->prepare($sql);
+            $ps->execute(["roll_no" => $roll_no]);
+            $result_row = $ps->fetch(PDO::FETCH_ASSOC); // Only one row is expected
+
+            return $result_row;
+        }
     }
 ?>

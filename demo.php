@@ -13,7 +13,7 @@ class Database{
     private $db_name    =   "frcrcedb";
     private $username   =   "root";
     private $password   =   "";
-    private $conn=null;
+    private $conn       =   null;
 
     /**
      * Database constructor.

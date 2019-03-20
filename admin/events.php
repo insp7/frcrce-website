@@ -34,7 +34,7 @@
 
         <!-- SIDEBAR -->
         <?php
-            include_once('includes/ui/sidebar.php');
+            include_once(BASE_URL . 'includes/ui/sidebar.php');
         ?> <!-- End of SIDEBAR -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -58,20 +58,19 @@
                 -------------------------->
 
                 <?php
-                $q = "";
-                if(isset($_GET['q'])){
-                    $q = $_GET['q'];
-                }
-                switch ($q)
-                {
-                    case 'add':
-                        include_once("includes/events/add-event.php");
-                        break;
+                    $q = "";
+                    if(isset($_GET['q'])) {
+                        $q = $_GET['q'];
+                    }
+                    switch ($q) {
+                        case 'add':
+                            include_once('includes/events/create-event.php');
+                            break;
 
-                    default:
-                        include_once("includes/events/manage-events.php");
-                        break;
-                }
+                        default:
+                            include_once('includes/events/manage-events.php');
+                            break;
+                    }
                 ?>
 
             </section>
@@ -92,10 +91,12 @@
     <script src="node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="node_modules/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
+    <!-- AdminLTE App -->
+    <script src="assets/js/adminlte.min.js"></script>
+
     <!--Manage Script-->
     <script src="assets/pages/admin/manage-events.js"></script>
 
     <!-- End of Plugins and scripts required by this view-->
 </body>
 </html>
-

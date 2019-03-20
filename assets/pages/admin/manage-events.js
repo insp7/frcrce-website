@@ -1,14 +1,13 @@
-var TableDatatables = function(){
-    var handleEventTable = function(){
+var TableDatatables = function() {
+    var handleEventTable = function() {
         var eventTable = $("#event_list");
 
         var oTable = eventTable.dataTable({
             "processing": true,
             "serverSide": true,
             "ajax":{
-                url:
-                    "admin/scripts/events/manage.php",
-                type: "POST",
+                url: "admin/scripts/events/manage.php",
+                type: "POST"
             },
             "lengthMenu": [
                 [5,15,20,-1],
@@ -26,7 +25,7 @@ var TableDatatables = function(){
         });
 
         //EDIT
-        eventTable.on('click', '.edit', function(e){
+        eventTable.on('click', '.edit', function(e) {
             $id = $(this).attr('id');
             $("#edit_event_id").val($id);
             //fetching all other values from database using ajax and loading them onto their respective edit fields!
@@ -46,19 +45,19 @@ var TableDatatables = function(){
         });
 
         //DELETE
-        eventTable.on('click', '.delete', function(e){
+        eventTable.on('click', '.delete', function(e) {
             $id = $(this).attr('id');
             $("#recordID").val($id);
         });
 
     }
-    return{
+    return {
         //main function in javascript to handle all the initialisation part
         init: function(){
             handleEventTable();
         }
     };
 }();
-jQuery(document).ready(function(){
+jQuery(document).ready(function() {
     TableDatatables.init();
 });

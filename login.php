@@ -17,17 +17,18 @@
 
 <!-- Setting Session Variables -->
 <?php
-    require_once('classes/GeneralFunctions.php');
+    require_once('classes/Students.php');
+    require_once('classes/Staff.php');
 
     if(session_status() == PHP_SESSION_NONE)
         session_start();
 
     if(isset($_POST['student_roll_no'])) {
         $roll_no = intval($_POST['student_roll_no']);
-        $where_condition = array('roll_no' => $roll_no);
 
-        $result_set = GeneralFunctions::select('*' , 'students' , $where_condition);
-        extract(mysqli_fetch_assoc($result_set));
+        $students = new Students();
+        $result_set = $students->getStudentDetailsByRollNo($roll_no);
+        extract($result_set);
 
         $_SESSION['roll_no'] = $roll_no;
         $_SESSION['student_id'] = $student_id;
@@ -38,10 +39,10 @@
         session_unset();
 
         $email = $_POST['admin_email'];
-        $where_condition = array('email' => $email);
 
-        $result_set = GeneralFunctions::select('*' , 'staff' , $where_condition);
-        extract(mysqli_fetch_assoc($result_set));
+        $staff = new Staff();
+        $result_set = $staff->getStaffDetailsByEmail($email);
+        extract($result_set);
 
         $_SESSION['staff_id'] = $staff_id;
         $_SESSION['staff_name'] = $first_name . " " . $last_name;

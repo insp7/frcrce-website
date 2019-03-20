@@ -473,13 +473,7 @@
     </div>
     <!-- ./wrapper -->
 
-    <!-- SCRIPTS -->
-    <!-- jQuery 3 -->
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-
-    <!-- Bootstrap 3.3.7 -->
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
+    <!-- Plugins and scripts required by this view-->
     <!-- ChartJS -->
     <script src="node_modules/chart.js/dist/Chart.js"></script>
 
@@ -491,5 +485,6 @@
 
     <!-- My scripts -->
     <script src="assets/js/scripts.js"></script>
+    <!-- End of Plugins and scripts required by this view-->
 </body>
 </html>

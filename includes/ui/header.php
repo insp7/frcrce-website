@@ -5,6 +5,9 @@
  * Date: 2/20/2019
  * Time: 11:19 PM
  */
+
+    if(session_status() == PHP_SESSION_NONE)
+        session_start();
 ?>
 <head>
     <meta charset="utf-8">
@@ -26,6 +29,12 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="assets/css/AdminLTE.min.css">
 
+    <!-- jquery Datatables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+    <!-- select2 -->
+    <link rel="stylesheet" href="node_modules\select2\dist\css\select2.min.css">
+
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
@@ -33,6 +42,9 @@
 
     <!-- Styles for datatables; This link is only used once for now; TODO: come up with a better implementation -->
     <link rel="stylesheet" href="node_modules/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

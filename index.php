@@ -9,14 +9,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <?php
     ob_start();
     define('BASE_URL', '');
+    require_once(BASE_URL . 'classes/NewsFeed.php');
 
     if(session_status() == PHP_SESSION_NONE)
         session_start();
 
     if(!(isset($_SESSION['student_id']) || isset($_SESSION['staff_id'])))
         header("Location: login.php");
-
-    require_once (BASE_URL . "classes/GeneralFunctions.php");
 ?>
 <!--END OF INIT-->
 
@@ -82,9 +81,10 @@ desired effect
                 <div class="col-md-9">
 
                     <?php
-                        $result_set = GeneralFunctions::select('*', 'news_feed', array(1 => 1));
+                        $news_feed = new NewsFeed();
+                        $result_set = $news_feed->getAllNews();
 
-                        while($row = mysqli_fetch_assoc($result_set)) {
+                        foreach($result_set as $row) {
                             extract($row);
                             ?>
                             <!-- Post -->
@@ -279,14 +279,12 @@ desired effect
     </div>
     <!-- ./wrapper -->
 
-    <!-- SCRIPTS -->
-    <!-- jQuery 3 -->
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-
-    <!-- Bootstrap 3.3.7 -->
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Plugins and scripts required by this view-->
+    <!-- AdminLTE App -->
+    <script src="assets/js/adminlte.min.js"></script>
 
     <!-- My custom scripts -->
     <script src="assets/js/scripts.js"></script>
+    <!-- End of Plugins and scripts required by this view-->
 </body>
 </html>

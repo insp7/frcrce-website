@@ -99,13 +99,51 @@ function btnSignOutClicked(event) {
     });
 }
 
+function btnCreateEventClicked(event) {
+    event.preventDefault();
+
+    var eventInfo = {
+         event_name: $('#event_name').val(),
+         event_details: $('#event_details').val(),
+         event_coordinator: $('#event_coordinator').select2('data'),
+         event_address: $('#event_address').val(),
+         event_type: $('#event_type').val(),
+         event_institute_funding: $('#event_institute_funding').val(),
+         event_sponsor_funding: $('#event_sponsor_funding').val(),
+         event_start_date: $('#event_start_date').val(),
+         event_end_date: $('#event_end_date').val(),
+         event_expenditure: $('#event_expenditure').val(),
+         event_internal_participants: $('#event_internal_participants').val(),
+         event_external_participants: $('#event_external_participants').val()
+    };
+
+    var eventInfoStr = JSON.stringify(eventInfo);
+
+    // Ajax send request
+    $.ajax({
+        type : 'POST' ,
+        data: "event_info=" + eventInfoStr + "&manage=create_event",
+        url: "manage-ajax.php"
+    }).done(function(response) {
+        if(response === "true")
+            window.location.pathname = 'frcrce/admin/includes/events/view-events.php';
+    });
+}
+
 $(document).ready(function () {
+
     // For date picker plugin
     $('#event_start_date').datepicker({
         format : 'mm/dd/yyyy' ,
         container : container ,
         todayHighlight : true ,
         autoclose : true
+    });
+
+    // For datatables
+    $('#view-events').DataTable({
+        paging: true
+        searching: true
     });
 });
 

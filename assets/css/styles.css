@@ -1,0 +1,7 @@
+/*********** Custom styles ***********/
+
+/* For select2's multiple selected items*/
+.select2-container--default .select2-selection--multiple .select2-selection__rendered li {
+    list-style: none;
+    color: #000000;
+}

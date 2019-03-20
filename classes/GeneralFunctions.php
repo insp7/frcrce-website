@@ -123,7 +123,6 @@
 
             // Form SQL query & execute
             $sql = "INSERT INTO $relation_name($attributes_list) VALUES($total_unspecified_parameters_string)";
-            echo $sql;
             $preparedStatement = $database->getConnection()->prepare($sql);
             $preparedStatement->bind_param($datatype_defining_string, ...$values_array);
             $preparedStatement->execute();
