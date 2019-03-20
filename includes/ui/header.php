@@ -33,6 +33,8 @@
 
     <!-- Styles for datatables; This link is only used once for now; TODO: come up with a better implementation -->
     <link rel="stylesheet" href="node_modules/datatables.net-bs/css/dataTables.bootstrap.min.css">
+<!--    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">-->
+<!--    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">-->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,3 +47,4 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
+

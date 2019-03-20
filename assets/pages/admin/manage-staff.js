@@ -1,17 +1,20 @@
-var TableDatatables = function(){
-    var handleEventTable = function(){
-        var eventTable = $("#event_list");
+var staffTable;
+var StaffDatatable = function(){
 
-        var oTable = eventTable.dataTable({
+    var handleStaffTable = function(){
+
+        staffTable = $("#staff-table");
+
+        staffTable.dataTable({
             "processing": true,
             "serverSide": true,
             "ajax":{
                 url:
-                    "admin/scripts/events/manage.php",
+                    "admin/scripts/staff/manage.php",
                 type: "POST",
             },
             "lengthMenu": [
-                [5,15,20,-1],
+                [5,15,25,-1],
                 [5,15,25, "All"]
             ],
             "pageLength": 5,//set the default length
@@ -23,16 +26,10 @@ var TableDatatables = function(){
                 'targets':[-1,-2] //dont show orderable symbol as -1 and -2 are edit and delete
             }
             ],
-            buttons: [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5'
-            ]
         });
 
         //EDIT
-        eventTable.on('click', '.edit', function(e){
+        staffTable.on('click', '.edit', function(e){
             $id = $(this).attr('id');
             $("#edit_event_id").val($id);
             //fetching all other values from database using ajax and loading them onto their respective edit fields!
@@ -52,7 +49,7 @@ var TableDatatables = function(){
         });
 
         //DELETE
-        eventTable.on('click', '.delete', function(e){
+        staffTable.on('click', '.delete', function(e){
             $id = $(this).attr('id');
             $("#recordID").val($id);
         });
@@ -61,10 +58,24 @@ var TableDatatables = function(){
     return{
         //main function in javascript to handle all the initialisation part
         init: function(){
-            handleEventTable();
+            handleStaffTable();
         }
     };
 }();
+
 jQuery(document).ready(function(){
-    TableDatatables.init();
+    StaffDatatable.init();
+    var buttons = new $.fn.dataTable.Buttons(staffTable, {
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    }).container().appendTo($('#export-buttons'));
+
+    $(".buttons-pdf").addClass("btn btn-default");
+    $(".buttons-excel").addClass("btn btn-danger");
+    $(".buttons-copy").addClass("btn btn-success");
+    $(".buttons-csv").addClass("btn btn-warning");
 });
