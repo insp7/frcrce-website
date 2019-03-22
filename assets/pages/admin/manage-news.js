@@ -21,6 +21,12 @@ var TableDatatables = function() {
                 'orderable': false,
                 'targets':[-1,-2] //dont show orderable symbol as -1 and -2 are edit and delete
                 }
+            ],
+            buttons: [
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5'
             ]
         });
 
@@ -31,7 +37,7 @@ var TableDatatables = function() {
             //fetching all other values from database using ajax and loading them onto their respective edit fields!
             //alert($id); to print for checking
             $.ajax({
-                url: "http://localhost/frcrce/assets/pages/admin/fetch-news.php",
+                url: "http://localhost/frcrce/admin/scripts/news/fetch.php",
                 method: "POST",
                 data: {news_id: $id},
                 dataType: "json",
@@ -53,7 +59,7 @@ var TableDatatables = function() {
                             data: 'json_string_for_news_updation=' + JSON.stringify(data),
                             dataType: "text",
                             success: function (response) {
-                                if(response === "true"){
+                                if(response === "true") {
                                     $('#edit_news_modal').modal('hide');
                                     window.location.pathname = 'frcrce/admin/news.php'; // Later remove this refresh
                                 } else {

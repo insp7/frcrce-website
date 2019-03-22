@@ -11,6 +11,8 @@
 <?php
     ob_start();
     define('BASE_URL', '../');
+
+    require_once(BASE_URL . 'authenticate.php');
 ?>
 <!--END OF INIT-->
 
@@ -62,6 +64,7 @@
                     if(isset($_GET['q'])) {
                         $q = $_GET['q'];
                     }
+
                     switch ($q) {
                         case 'add':
                             include_once('includes/events/create-event.php');
@@ -91,12 +94,24 @@
     <script src="node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="node_modules/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
+    <!-- select2.js -->
+    <script src="node_modules/select2/dist/js/select2.min.js"></script>
+
     <!-- AdminLTE App -->
     <script src="assets/js/adminlte.min.js"></script>
 
     <!--Manage Script-->
     <script src="assets/pages/admin/manage-events.js"></script>
 
+    <!-- My Scripts -->
+    <script src="assets/js/scripts.js"></script>
+
+    <script>
+        // For select2 plugin
+        $(document).ready(function() {
+            $('#event_coordinator').select2();
+        });
+    </script>
     <!-- End of Plugins and scripts required by this view-->
 </body>
 </html>

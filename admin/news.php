@@ -12,8 +12,7 @@
     ob_start();
     define('BASE_URL', '../');
 
-    if(session_status() == PHP_SESSION_NONE)
-        session_start();
+    require_once(BASE_URL . 'authenticate.php');
 ?>
 <!--END OF INIT-->
 
@@ -65,6 +64,7 @@
                     if(isset($_GET['q'])) {
                         $q = $_GET['q'];
                     }
+
                     switch ($q) {
                         case 'add':
                             include_once('includes/news/create-news.php');

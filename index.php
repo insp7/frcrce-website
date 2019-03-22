@@ -10,12 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     ob_start();
     define('BASE_URL', '');
     require_once(BASE_URL . 'classes/NewsFeed.php');
-
-    if(session_status() == PHP_SESSION_NONE)
-        session_start();
-
-    if(!(isset($_SESSION['student_id']) || isset($_SESSION['staff_id'])))
-        header("Location: login.php");
+    require_once(BASE_URL . 'authenticate.php');
 ?>
 <!--END OF INIT-->
 

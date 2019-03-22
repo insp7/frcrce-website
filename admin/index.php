@@ -5,6 +5,8 @@
 <?php
     ob_start();
     define('BASE_URL', '../'); // Path to root directory.
+
+    require_once(BASE_URL . 'admin/authenticate-admin.php');
 ?>
 <!--END OF INIT-->
 

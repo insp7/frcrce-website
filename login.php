@@ -35,7 +35,7 @@
         $_SESSION['student_name'] = $first_name . " " . $last_name;
 
         header("Location: index.php");
-    } else if(isset($_POST['admin_email'])){
+    } else if(isset($_POST['admin_email'])) {
         session_unset();
 
         $email = $_POST['admin_email'];
