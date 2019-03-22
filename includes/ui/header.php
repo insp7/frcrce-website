@@ -29,9 +29,6 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="assets/css/AdminLTE.min.css">
 
-    <!-- jquery Datatables -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-
     <!-- select2 -->
     <link rel="stylesheet" href="node_modules\select2\dist\css\select2.min.css">
 
@@ -41,9 +38,10 @@
     <link rel="stylesheet" href="assets/css/skins/skin-blue.min.css">
 
     <!-- Styles for datatables; This link is only used once for now; TODO: come up with a better implementation -->
-    <link rel="stylesheet" href="node_modules/datatables.net-bs/css/dataTables.bootstrap.min.css">
-<!--    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">-->
-<!--    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">-->
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<!--    <link rel="stylesheet" href="node_modules/datatables.net-bs/css/dataTables.bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
 
     <!-- Custom styles -->
     <link rel="stylesheet" href="assets/css/styles.css">

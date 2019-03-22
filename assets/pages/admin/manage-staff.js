@@ -21,11 +21,16 @@ var StaffDatatable = function(){
             "order":[
                 [0, "desc"] //everything would be ordered by 0th column desc default
             ],
-            "columnDefs":[{
+            "columnDefs":[
+                {
                 'orderable': false,
                 'targets':[-1,-2] //dont show orderable symbol as -1 and -2 are edit and delete
-            }
-            ],
+                },
+                {
+                    "className": 'noVis',
+                    "targets": [6,7]
+                }
+            ]
         });
 
         //EDIT
@@ -70,12 +75,22 @@ jQuery(document).ready(function(){
             'copyHtml5',
             'excelHtml5',
             'csvHtml5',
-            'pdfHtml5'
+            {
+                extend: 'colvis',
+                columns: ':not(.noVis)'
+            },
+            {
+                extend: 'pdfHtml5',
+                exportOptions: {
+                    columns: ':visible'}
+                }
         ]
     }).container().appendTo($('#export-buttons'));
+
 
     $(".buttons-pdf").addClass("btn btn-default");
     $(".buttons-excel").addClass("btn btn-danger");
     $(".buttons-copy").addClass("btn btn-success");
     $(".buttons-csv").addClass("btn btn-warning");
+    $('[name="staff-table_length"]').addClass("input-sm");
 });
