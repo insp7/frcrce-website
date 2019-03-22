@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-md-12">
         <a href="admin/news.php?q=add" class="btn btn-danger">
-            <i class="fa fa-list"></i> Create News</a>
+            <i class="fa fa-plus"></i> &nbsp;Create News</a>
     </div>
 </div>
 
@@ -70,7 +70,7 @@
                 <div class="modal-body">
 
                     <div class="row">
-                        <form action="http://<?php echo BASE_SERVER;?>/erp/pages/scripts/category/edit.php" method="POST">
+                        <form method="POST">
                             <div class="form-body">
                                 <div class="form-group clearfix">
                                     <div class="col-md-9">
@@ -117,7 +117,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="delete?" id="deleteNewsModal">Modal title</h5>
+                    <h5 class="delete?" id="deleteNewsModal">Delete news</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

@@ -123,12 +123,19 @@ function btnCreateEventClicked(event) {
     $.ajax({
         type : 'POST' ,
         data: "event_info=" + eventInfoStr + "&manage=create_event",
-        url: "manage-ajax.php"
+        url: "admin/scripts/events/add.php"
     }).done(function(response) {
-        if(response === "true")
-            window.location.pathname = 'frcrce/admin/includes/events/view-events.php';
+        if(response === "true") {
+            window.location.pathname = 'frcrce/admin/events.php';
+        }
+        else {
+            alert(response);
+            console.log(response);
+        }
     });
 }
+
+
 
 $(document).ready(function () {
 
@@ -142,7 +149,7 @@ $(document).ready(function () {
 
     // For datatables
     $('#view-events').DataTable({
-        paging: true
+        paging: true,
         searching: true
     });
 });

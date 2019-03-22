@@ -40,6 +40,7 @@ class NewsFeed {
     public function updateNewsById($id, $title, $description) {
         $updated_by = $_SESSION['staff_id'];
         $updated_at = date('Y-m-d H:i:s');
+
         $sql = "UPDATE news_feed SET title = :title, description = :description, updated_at = '$updated_at', updated_by = $updated_by WHERE news_id = :id";
         $ps = $this->connection->prepare($sql);
         $ps->execute(["title" => $title, "description" => $description, "id" => $id]);
@@ -69,8 +70,3 @@ class NewsFeed {
         return $result;
     }
 }
-
-//$news_feed = new NewsFeed();
-//$result_set = $news_feed->updateNewsById(5, "lolol", "The updated description!");
-//
-//echo $result_set;

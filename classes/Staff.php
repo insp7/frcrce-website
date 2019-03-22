@@ -32,4 +32,13 @@ class Staff
         $result_row = $ps->fetch(PDO::FETCH_ASSOC); // Only one row is expected
         return $result_row;
     }
+
+    public function getAllStaff() {
+        $sql = "SELECT * FROM staff WHERE is_deleted = 0";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute();
+        $result_set = $ps->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result_set;
+    }
 }

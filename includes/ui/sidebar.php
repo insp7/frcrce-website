@@ -59,7 +59,7 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="admin/events.php?q=create"><i class="fa fa-circle-o"></i> Create</a></li>
+                                <li><a href="admin/events.php?q=add"><i class="fa fa-circle-o"></i> Create</a></li>
                                 <li><a href="admin/events.php"><i class="fa fa-circle-o"></i> View</a></li>
                             </ul>
                         </li>
@@ -74,7 +74,7 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="admin/news.php?q=create"><i class="fa fa-circle-o"></i> Create</a></li>
+                                <li><a href="admin/news.php?q=add"><i class="fa fa-circle-o"></i> Create</a></li>
                                 <li><a href="admin/news.php"><i class="fa fa-circle-o"></i> View</a></li>
                             </ul>
                         </li> <!-- End of News -->
