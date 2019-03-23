@@ -5,3 +5,24 @@
     list-style: none;
     color: #000000;
 }
+
+.gallery-mine {
+    margin: 10px 50px;
+}
+
+.gallery-img-mine {
+    width: 230px;
+    padding: 10px;
+
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    transition: 0.5s;
+}
+
+.gallery-img-mine:hover {
+    transform: scale(1.1);
+}

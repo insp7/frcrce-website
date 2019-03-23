@@ -66,12 +66,12 @@
 
 
     <!--EDIT BUTTON MODAL-->
-    <div class="modal modal-warning fade -th-large" tabindex="-1" role="dialog" id="edit_event_modal">
+    <div class="modal fade" tabindex="-1" role="dialog" id="edit_event_modal">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Edit Category!</h4>
+                    <h4 class="modal-title">Edit Events!</h4>
                 </div>
 
                 <div class="modal-body">
@@ -87,7 +87,7 @@
 
                                 <div class="form-group clearfix">
                                     <label class="control-label col-md-3">Event name
-                                        <span class="required"> * </span>
+                                        <span class="required">*</span>
                                     </label>
                                     <div class="col-md-9">
                                         <input type="text" id="event_name" name="event_name" class="form-control" placeholder="Event name" />
@@ -96,7 +96,7 @@
 
                                 <div class="form-group clearfix">
                                     <label class="control-label col-md-3">Event Details
-                                        <span class="required"> * </span>
+                                        <span class="required">*</span>
                                     </label>
                                     <div class="col-md-9">
                                         <input type="text" id="event_details" name="event_details" class="form-control" placeholder="Event Details" />
@@ -105,7 +105,7 @@
 
                                 <div class="form-group clearfix">
                                     <label class="control-label col-md-3">Address
-                                        <span class="required"> * </span>
+                                        <span class="required">*</span>
                                     </label>
                                     <div class="col-md-9">
                                         <input type="text" id="address" name="address" class="form-control" placeholder="Address" />
@@ -114,7 +114,7 @@
 
                                 <div class="form-group clearfix">
                                     <label class="control-label col-md-3">Event type
-                                        <span class="required"> * </span>
+                                        <span class="required">*</span>
                                     </label>
                                     <div class="col-md-9">
                                         <input type="text" id="event_type" name="event_type" class="form-control" placeholder="Event type" />
@@ -123,7 +123,7 @@
 
                                 <div class="form-group clearfix">
                                     <label class="control-label col-md-3">Institute funding
-                                        <span class="required"> * </span>
+                                        <span class="required">*</span>
                                     </label>
                                     <div class="col-md-9">
                                         <input type="number" id="institute_funding" name="institute_funding" class="form-control" placeholder="Institute funding" />
@@ -131,8 +131,8 @@
                                 </div>
 
                                 <div class="form-group clearfix">
-                                    <label class="control-label col-md-3">sponsor_funding
-                                        <span class="required"> * </span>
+                                    <label class="control-label col-md-3">Sponsor funding
+                                        <span class="required">*</span>
                                     </label>
                                     <div class="col-md-9">
                                         <input type="number" id="sponsor_funding" name="sponsor_funding" class="form-control" placeholder="Sponsor funding" />
@@ -141,7 +141,7 @@
 
                                 <div class="form-group clearfix">
                                     <label class="control-label col-md-3">Event Expenditure
-                                        <span class="required"> * </span>
+                                        <span class="required">*</span>
                                     </label>
                                     <div class="col-md-9">
                                         <input type="number" id="event_expenditure" name="event_expenditure" class="form-control" placeholder="Event Expenditure" />
@@ -150,7 +150,7 @@
 
                                 <div class="form-group clearfix">
                                     <label class="control-label col-md-3">start_date
-                                        <span class="required"> * </span>
+                                        <span class="required">*</span>
                                     </label>
                                     <div class="col-md-9">
                                         <input type="date" id="start_date" name="start_date" class="form-control" placeholder="start_date" />
@@ -159,7 +159,7 @@
 
                                 <div class="form-group clearfix">
                                     <label class="control-label col-md-3">end_date
-                                        <span class="required"> * </span>
+                                        <span class="required">*</span>
                                     </label>
                                     <div class="col-md-9">
                                         <input type="date" id="end_date" name="end_date" class="form-control" placeholder="end_date" />
@@ -167,8 +167,8 @@
                                 </div>
 
                                 <div class="form-group clearfix">
-                                    <label class="control-label col-md-3">internal_participants_count
-                                        <span class="required"> * </span>
+                                    <label class="control-label col-md-3">internal_participants
+                                        <span class="required">*</span>
                                     </label>
                                     <div class="col-md-9">
                                         <input type="number" id="internal_participants_count" name="internal_participants_count" class="form-control" placeholder="internal_participants_count" />
@@ -176,8 +176,8 @@
                                 </div>
 
                                 <div class="form-group clearfix">
-                                    <label class="control-label col-md-3">external_participants_count
-                                        <span class="required"> * </span>
+                                    <label class="control-label col-md-3">external_participants
+                                        <span class="required">*</span>
                                     </label>
                                     <div class="col-md-9">
                                         <input type="number" id="external_participants_count" name="external_participants_count" class="form-control" placeholder="external_participants_count" />
@@ -214,7 +214,7 @@
                     <p>Are you sure, you want to delete this entry</p>
                 </div>
                 <div class="modal-footer">
-                    <form action="http://localhost/frcrce/admin/scripts/news/delete.php" method="POST">
+                    <form action="http://localhost/frcrce/admin/scripts/events/delete.php" method="POST">
                         <input type="hidden" id="event_id" name="event_id">
                         <button type="submit" class="btn red" name="deleteBtn" id="delete_event" >Yes</button>
                         <button type="button" class="btn blue" data-dismiss="modal">No</button>

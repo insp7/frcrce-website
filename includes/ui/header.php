@@ -33,8 +33,10 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 
     <!-- select2 -->
-    <link rel="stylesheet" href="node_modules\select2\dist\css\select2.min.css">
+    <link rel="stylesheet" type="text/css" href="node_modules\select2\dist\css\select2.min.css">
 
+    <!-- Light-box -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->

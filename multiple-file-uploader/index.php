@@ -20,7 +20,7 @@
 				
 				$counter = 0;
 
-				foreach($_FILES["files"]["tmp_name"] as $key=>$tmp_name){
+				foreach($_FILES["files"]["tmp_name"] as $key=>$tmp_name) {
 					$temp = $_FILES["files"]["tmp_name"][$key];
 					$name = $_FILES["files"]["name"][$key];
 					
