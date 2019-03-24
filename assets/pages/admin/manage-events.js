@@ -96,7 +96,27 @@ var TableDatatables = function() {
         //DELETE
         eventTable.on('click', '.delete', function(e) {
             $id = $(this).attr('id');
-            $("#recordID").val($id);
+            $('#event_id').val($id);
+
+            $('#delete_event').on('click', function (e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: "http://localhost/frcrce/admin/scripts/events/delete.php",
+                    method: "POST",
+                    data: 'delete_event_id=' + $id,
+                    dataType: "text",
+                    success: function (response) {
+                        if(response === "true") {
+                            $('#delete_event_modal').modal('hide');
+                            window.location.pathname = 'frcrce/admin/events.php'; // Later remove this refresh
+                        } else {
+                            alert(response);
+                            console.log(response);
+                        }
+                    }
+                });
+            });
         });
 
     }

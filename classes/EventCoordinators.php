@@ -35,4 +35,15 @@ class EventCoordinators {
 
         return $result;
     }
+
+    public function deleteCoordinatorByEventId($event_id) {
+        $sql = "UPDATE event_coordinators SET is_deleted = 1 WHERE event_id = :event_id";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute(["event_id" => $event_id]);
+
+        if($ps->rowCount() >= 1)
+            return "true";
+        else
+            return "False; No of affected rows: " . $ps->rowCount();
+    }
 }

@@ -108,50 +108,6 @@ desired effect
                     <!-- Post -->
                     <div class="post">
                         <div class="user-block">
-                            <img class="img-circle img-bordered-sm" src="assets/img/user1-128x128.jpg" alt="user image">
-                            <span class="username">
-                                <a href="#">Jonathan Burke Jr.</a>
-                                <a href="#" class="pull-right btn-box-tool">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </span>
-                            <span class="description">Shared publicly - 7:30 PM today</span>
-                        </div>
-                        <!-- /.user-block -->
-                        <p>
-                            Lorem ipsum represents a long-held tradition for designers,
-                            typographers and the like. Some people hate it and argue for
-                            its demise, but others ignore the hate as they create awesome
-                            tools to help create filler text for everyone from bacon lovers
-                            to Charlie Sheen fans.
-                        </p>
-                    </div>
-                    <!-- /.post -->
-
-                    <!-- Post -->
-                    <div class="post clearfix">
-                        <div class="user-block">
-                            <img class="img-circle img-bordered-sm" src="assets/img/user7-128x128.jpg" alt="User Image">
-                            <span class="username">
-                                <a href="#">Sarah Ross</a>
-                                <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                            </span>
-                            <span class="description">Sent you a message - 3 days ago</span>
-                        </div>
-                        <!-- /.user-block -->
-                        <p>
-                            Lorem ipsum represents a long-held tradition for designers,
-                            typographers and the like. Some people hate it and argue for
-                            its demise, but others ignore the hate as they create awesome
-                            tools to help create filler text for everyone from bacon lovers
-                            to Charlie Sheen fans.
-                        </p>
-                    </div>
-                    <!-- /.post -->
-
-                    <!-- Post -->
-                    <div class="post">
-                        <div class="user-block">
                             <img class="img-circle img-bordered-sm" src="assets/img/user6-128x128.jpg" alt="User Image">
                             <span class="username">
                                 <a href="#">Adam Jones</a>
@@ -161,34 +117,76 @@ desired effect
                         </div>
                         <!-- /.user-block -->
                         <div class="row margin-bottom">
-                            <div class="col-sm-6">
-                                <img class="img-responsive" src="assets/img/photo1.png" alt="Photo">
+                            <div class="gallery-mine">
+                                <?php
+                                    require_once('classes/NewsImages.php');
+
+                                    $news_images = new NewsImages();
+                                    $news_result_set = $news_images->getAllNewsImages();
+
+                                    $i = 0;
+                                    foreach($news_result_set as $row) {
+                                        $i++;
+                                        if ($i < 7) {
+                                            ?>
+                                            <a href="upload-folder/<?php echo $row['news_image_path']; ?>" data-toggle="lightbox" data-gallery="hidden-images">
+                                                <img src="upload-folder/<?php echo $row['news_image_path']; ?>" class="gallery-img-mine" alt="news_image!">
+                                            </a>
+                                            <?php
+                                        } else {
+//                                            ?>
+<!--                                            IF this issue is not solved, then create a hidden modal, and display the remaining images in it... -->
+<!--                                            later upon a button click show the modal! -->
+                                            <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn bg-orange">See more</button>
+
+<!--                                            <!-- elements not showing, use data-remote -->
+<!--                                            <div data-toggle="lightbox" data-gallery="hidden-images" data-remote="https://localhost/frcrce/uploadFolder/--><?php //echo $row['news_image_path']; ?><!--"></div>-->
+                                            <?php
+                                            break;
+                                        }
+                                    }
+                                ?>
                             </div>
-                            <!-- /.col -->
-                            <div class="col-sm-6">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <img class="img-responsive" src="assets/img/photo2.png" alt="Photo">
-                                        <br>
-                                        <img class="img-responsive" src="assets/img/photo3.jpg" alt="Photo">
-                                    </div>
-                                    <!-- /.col -->
-                                    <div class="col-sm-6">
-                                        <img class="img-responsive" src="assets/img/photo4.jpg" alt="Photo">
-                                        <br>
-                                        <img class="img-responsive" src="assets/img/photo1.png" alt="Photo">
-                                    </div>
-                                    <!-- /.col -->
-                                </div>
-                                <!-- /.row -->
-                            </div>
-                            <!-- /.col -->
+                            <!-- /.gallery-mine -->
                         </div>
                         <!-- /.row -->
+                        <p>
+                            <?php echo $description; ?>
+                        </p>
                     </div>
                     <!-- /.post -->
+
                 </div>
                 <!-- /.col-md-9 -->
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-mine" role="document">
+                        <div class="modal-content modal-content-mine">
+                            <div class="modal-header-mine">
+<!--                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="gallery-mine">
+                                    <?php
+                                        foreach($news_result_set as $row) {
+
+                                            ?>
+                                            <a href="upload-folder/<?php echo $row['news_image_path']; ?>" data-toggle="lightbox" data-gallery="hidden-images">
+                                                <img src="upload-folder/<?php echo $row['news_image_path']; ?>" class="gallery-img-mine" alt="news_image!">
+                                            </a>
+                                            <?php
+                                        }
+                                    ?>
+                                </div>
+                                <!-- /.gallery-mine -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="col-md-3">
 
@@ -278,8 +276,18 @@ desired effect
     <!-- AdminLTE App -->
     <script src="assets/js/adminlte.min.js"></script>
 
+    <!-- light-box.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+
     <!-- My custom scripts -->
     <script src="assets/js/scripts.js"></script>
+
+    <script>
+        $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        });
+    </script>
     <!-- End of Plugins and scripts required by this view-->
 </body>
 </html>
