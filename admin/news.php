@@ -100,6 +100,8 @@
     <!--Manage Script-->
     <script src="assets/pages/admin/manage-news.js"></script>
 
+    <!-- Scripts -->
+    <script src="assets/js/scripts.js"></script>
     <!-- End of Plugins and scripts required by this view-->
 </body>
 </html>
