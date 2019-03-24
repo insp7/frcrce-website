@@ -7,7 +7,7 @@
 }
 
 .gallery-mine {
-    margin: 10px 50px;
+    margin: 0px 50px;
 }
 
 .gallery-img-mine {
@@ -52,3 +52,4 @@
     -ms-filter: blur(8px);
     filter: blur(8px);
 }
+

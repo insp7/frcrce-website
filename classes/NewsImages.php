@@ -50,7 +50,7 @@ class NewsImages {
         $sql = "SELECT * FROM news_images WHERE news_id = :news_id";
         $ps = $this->connection->prepare($sql);
         $ps->execute(["news_id" => $news_id]);
-        $result_row = $ps->fetch(PDO::FETCH_ASSOC); // Only one row is expected
+        $result_row = $ps->fetchAll(PDO::FETCH_ASSOC); // Only one row is expected
 
         return $result_row;
     }

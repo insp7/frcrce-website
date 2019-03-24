@@ -69,4 +69,13 @@ class NewsFeed {
 
         return $result;
     }
+
+    public function countNews() {
+        $sql = "SELECT count(*) AS total_news_count FROM news_feed WHERE is_deleted = 0";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute();
+        $result_set = $ps->fetch(PDO::FETCH_ASSOC);
+
+        return $result_set;
+    }
 }

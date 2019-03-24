@@ -112,4 +112,13 @@ class Events {
 
         return $result;
     }
+
+    public function countEvents() {
+        $sql = "SELECT count(*) AS total_events_count FROM events WHERE is_deleted = 0";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute();
+        $result_set = $ps->fetch(PDO::FETCH_ASSOC);
+
+        return $result_set;
+    }
 }

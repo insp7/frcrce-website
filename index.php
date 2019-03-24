@@ -10,6 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     ob_start();
     define('BASE_URL', '');
     require_once(BASE_URL . 'classes/NewsFeed.php');
+    require_once(BASE_URL . 'classes/NewsImages.php');
     require_once(BASE_URL . 'authenticate.php');
 ?>
 <!--END OF INIT-->
@@ -75,6 +76,36 @@ desired effect
                 -------------------------->
                 <div class="col-md-9">
 
+<!--                    --><?php
+//                        $news_feed = new NewsFeed();
+//                        $result_set = $news_feed->getAllNews();
+//
+//                        foreach($result_set as $row) {
+//                            extract($row);
+//                            ?>
+<!--                            <!-- Post -->
+<!--                            <div class="post">-->
+<!--                                <div class="user-block">-->
+<!--                                    <img class="img-circle img-bordered-sm"-->
+<!--                                         src="assets/img/user1-128x128.jpg" alt="user image">-->
+<!--                                    <span class="username">-->
+<!--                                        <a href="#">--><?php //echo $title; ?><!--</a>-->
+<!--                                        <a href="#" class="pull-right btn-box-tool">-->
+<!--                                            <i class="fa fa-times"></i>-->
+<!--                                        </a>-->
+<!--                                    </span>-->
+<!--                                    <span class="description">--><?php //echo $created_at; ?><!--</span>-->
+<!--                                </div>-->
+<!--                                <!-- /.user-block -->
+<!--                                <p>-->
+<!--                                    --><?php //echo $description; ?>
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                            <!-- /.post -->
+<!--                            --><?php
+//                        }
+//                    ?>
+
                     <?php
                         $news_feed = new NewsFeed();
                         $result_set = $news_feed->getAllNews();
@@ -85,77 +116,58 @@ desired effect
                             <!-- Post -->
                             <div class="post">
                                 <div class="user-block">
-                                    <img class="img-circle img-bordered-sm"
-                                         src="assets/img/user1-128x128.jpg" alt="user image">
+                                    <img class="img-circle img-bordered-sm" src="assets/img/user6-128x128.jpg" alt="User Image">
                                     <span class="username">
                                         <a href="#"><?php echo $title; ?></a>
-                                        <a href="#" class="pull-right btn-box-tool">
-                                            <i class="fa fa-times"></i>
-                                        </a>
                                     </span>
                                     <span class="description"><?php echo $created_at; ?></span>
                                 </div>
-                                <!-- /.user-block -->
                                 <p>
                                     <?php echo $description; ?>
                                 </p>
+                                <!-- /.user-block -->
+                                <div class="row margin-bottom">
+                                    <div class="gallery-mine">
+                                        <?php
+
+                                            $show_button = 0;
+                                            $news_images = new NewsImages();
+                                            $news_result_set = $news_images->getNewsImagesById($news_id);
+
+                                            $i = 0;
+                                            foreach($news_result_set as $row2) {
+                                                $i++;
+                                                if ($i < 7) {
+                                                    ?>
+                                                    <a href="upload-folder/<?php echo $row2['news_image_path']; ?>" data-toggle="lightbox" data-gallery="for-news-id-<?php echo $news_id; ?>">
+                                                        <img src="upload-folder/<?php echo $row2['news_image_path']; ?>" class="gallery-img-mine" alt="news_image!">
+                                                    </a>
+                                                    <?php
+                                                } else {
+                                                    $show_button = 1;
+                                                    break;
+                                                }
+                                            }
+                                        ?>
+                                    </div>
+                                    <!-- /.gallery-mine -->
+
+                                    <?php
+                                        if($show_button === 1) {
+                                            ?>
+                                            <!-- IF this issue is not solved, then create a hidden modal, and display the remaining images in it... -->
+                                            <!-- later upon a button click show the modal! -->
+                                            <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn bg-orange" name="show-all-images" id="<?php echo $news_id; ?>">See more</button>
+                                            <?php
+                                        }
+                                    ?>
+                                </div>
+                                <!-- /.row -->
                             </div>
                             <!-- /.post -->
                             <?php
                         }
                     ?>
-
-                    <!-- Post -->
-                    <div class="post">
-                        <div class="user-block">
-                            <img class="img-circle img-bordered-sm" src="assets/img/user6-128x128.jpg" alt="User Image">
-                            <span class="username">
-                                <a href="#">Adam Jones</a>
-                                <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                            </span>
-                            <span class="description">Posted 5 photos - 5 days ago</span>
-                        </div>
-                        <!-- /.user-block -->
-                        <div class="row margin-bottom">
-                            <div class="gallery-mine">
-                                <?php
-                                    require_once('classes/NewsImages.php');
-
-                                    $news_images = new NewsImages();
-                                    $news_result_set = $news_images->getAllNewsImages();
-
-                                    $i = 0;
-                                    foreach($news_result_set as $row) {
-                                        $i++;
-                                        if ($i < 7) {
-                                            ?>
-                                            <a href="upload-folder/<?php echo $row['news_image_path']; ?>" data-toggle="lightbox" data-gallery="hidden-images">
-                                                <img src="upload-folder/<?php echo $row['news_image_path']; ?>" class="gallery-img-mine" alt="news_image!">
-                                            </a>
-                                            <?php
-                                        } else {
-//                                            ?>
-<!--                                            IF this issue is not solved, then create a hidden modal, and display the remaining images in it... -->
-<!--                                            later upon a button click show the modal! -->
-                                            <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn bg-orange">See more</button>
-
-<!--                                            <!-- elements not showing, use data-remote -->
-<!--                                            <div data-toggle="lightbox" data-gallery="hidden-images" data-remote="https://localhost/frcrce/uploadFolder/--><?php //echo $row['news_image_path']; ?><!--"></div>-->
-                                            <?php
-                                            break;
-                                        }
-                                    }
-                                ?>
-                            </div>
-                            <!-- /.gallery-mine -->
-                        </div>
-                        <!-- /.row -->
-                        <p>
-                            <?php echo $description; ?>
-                        </p>
-                    </div>
-                    <!-- /.post -->
-
                 </div>
                 <!-- /.col-md-9 -->
 
@@ -170,17 +182,8 @@ desired effect
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <div class="gallery-mine">
-                                    <?php
-                                        foreach($news_result_set as $row) {
-
-                                            ?>
-                                            <a href="upload-folder/<?php echo $row['news_image_path']; ?>" data-toggle="lightbox" data-gallery="hidden-images">
-                                                <img src="upload-folder/<?php echo $row['news_image_path']; ?>" class="gallery-img-mine" alt="news_image!">
-                                            </a>
-                                            <?php
-                                        }
-                                    ?>
+                                <div class="gallery-mine" id="the-hidden-gallery">
+<!--                                    Dynamically images will be loaded here-->
                                 </div>
                                 <!-- /.gallery-mine -->
                             </div>
@@ -286,6 +289,25 @@ desired effect
         $(document).on('click', '[data-toggle="lightbox"]', function(event) {
             event.preventDefault();
             $(this).ekkoLightbox();
+        });
+
+        $('[name="show-all-images"]').on('click', function () {
+            $id = $(this).attr('id');
+            if(!$('#inside-the-hidden-gallery').length) {
+                $.ajax({
+                    url:"http://localhost/frcrce/manage-ajax.php",
+                    method: "POST",
+                    data: {news_id: $id},
+                    dataType: "json",
+                    success: function(data) {
+                        for(var i=0; i < data.length; i++) {
+                            console.log(data);
+                            $('#the-hidden-gallery').append('<a href="upload-folder/' + data[i]["news_image_path"] + '" id="inside-the-hidden-gallery" data-toggle="lightbox" data-gallery="hidden-images"><img src="upload-folder/' + data[i]["news_image_path"] + '" class="gallery-img-mine" alt="news_image!"></a>');
+                        }
+                        $("#exampleModal").modal('show');
+                    },
+                });
+            }
         });
     </script>
     <!-- End of Plugins and scripts required by this view-->

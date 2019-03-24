@@ -82,4 +82,16 @@
                 break;
         }
     }
+
+    if(isset($_POST['news_id'])) {
+        require_once('classes/NewsImages.php');
+
+        $news_images = new NewsImages();
+        $result_set = $news_images->getNewsImagesById($_POST['news_id']);
+
+        echo json_encode($result_set);
+    } else {
+        echo "news_id NOT SET";
+    }
+
 ?>
