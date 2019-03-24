@@ -26,3 +26,29 @@
 .gallery-img-mine:hover {
     transform: scale(1.1);
 }
+
+.modal-content-mine {
+    background-color: transparent !important;
+    height: auto !important;
+    min-height: 100% !important;
+    border-radius: 0 !important;
+}
+
+.modal-header-mine {
+    padding: 15px !important;
+}
+
+.modal-dialog-mine {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.blur-contents-mine {
+    -webkit-filter: blur(8px);
+    -moz-filter: blur(8px);
+    -o-filter: blur(8px);
+    -ms-filter: blur(8px);
+    filter: blur(8px);
+}

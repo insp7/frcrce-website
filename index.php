@@ -137,15 +137,17 @@ desired effect
 //                                            ?>
 <!--                                            IF this issue is not solved, then create a hidden modal, and display the remaining images in it... -->
 <!--                                            later upon a button click show the modal! -->
+                                            <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn bg-orange">See more</button>
 
-                                            <!-- elements not showing, use data-remote -->
-                                            <div data-toggle="lightbox" data-gallery="hidden-images" data-remote="https://localhost/frcrce/uploadFolder/<?php echo $row['news_image_path']; ?>"></div>
+<!--                                            <!-- elements not showing, use data-remote -->
+<!--                                            <div data-toggle="lightbox" data-gallery="hidden-images" data-remote="https://localhost/frcrce/uploadFolder/--><?php //echo $row['news_image_path']; ?><!--"></div>-->
                                             <?php
+                                            break;
                                         }
                                     }
                                 ?>
                             </div>
-                            <!-- /.col -->
+                            <!-- /.gallery-mine -->
                         </div>
                         <!-- /.row -->
                         <p>
@@ -156,6 +158,35 @@ desired effect
 
                 </div>
                 <!-- /.col-md-9 -->
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-mine" role="document">
+                        <div class="modal-content modal-content-mine">
+                            <div class="modal-header-mine">
+<!--                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="gallery-mine">
+                                    <?php
+                                        foreach($news_result_set as $row) {
+
+                                            ?>
+                                            <a href="upload-folder/<?php echo $row['news_image_path']; ?>" data-toggle="lightbox" data-gallery="hidden-images">
+                                                <img src="upload-folder/<?php echo $row['news_image_path']; ?>" class="gallery-img-mine" alt="news_image!">
+                                            </a>
+                                            <?php
+                                        }
+                                    ?>
+                                </div>
+                                <!-- /.gallery-mine -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="col-md-3">
 
