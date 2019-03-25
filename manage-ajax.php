@@ -90,8 +90,5 @@
         $result_set = $news_images->getNewsImagesById($_POST['news_id']);
 
         echo json_encode($result_set);
-    } else {
-        echo "news_id NOT SET";
     }
-
 ?>

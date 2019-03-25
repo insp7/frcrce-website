@@ -12,7 +12,7 @@
 			if(isset($_POST["btnSubmit"])) {
 				$errors = array();
 				$uploadedFiles = array();
-				$extension = array("jpeg","jpg","png","gif");
+				$extension = array("jpeg", "jpg", "png", "gif");
 				$bytes = 1024;
 				$KB = 1024;
 				$totalBytes = $bytes * $KB;

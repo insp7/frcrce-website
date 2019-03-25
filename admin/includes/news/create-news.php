@@ -85,7 +85,7 @@
 
             $ext = pathinfo($name, PATHINFO_EXTENSION);
 
-            if(in_array($ext, $extension) == false) {
+            if(in_array(strtolower($ext), $extension) == false) {
                 $UploadOk = false;
                 array_push($errors, $name . " is invalid file type.");
             }

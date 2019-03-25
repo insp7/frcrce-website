@@ -50,6 +50,7 @@
                         <th>Description</th>
                         <th>Edit</th>
                         <th>Delete</th>
+                        <th>View Images</th>
                     </tr>
                     </thead>
                 </table>

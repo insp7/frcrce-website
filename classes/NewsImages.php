@@ -47,11 +47,22 @@ class NewsImages {
     }
 
     public function getNewsImagesById($news_id) {
-        $sql = "SELECT * FROM news_images WHERE news_id = :news_id";
+        $sql = "SELECT * FROM news_images WHERE news_id = :news_id AND is_deleted = 0";
         $ps = $this->connection->prepare($sql);
         $ps->execute(["news_id" => $news_id]);
         $result_row = $ps->fetchAll(PDO::FETCH_ASSOC); // Only one row is expected
 
         return $result_row;
+    }
+
+    public function deleteNewsImageById($news_image_id) {
+        $sql = "UPDATE news_images SET is_deleted = 1 WHERE news_images_id = :news_image_id";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute(["news_image_id" => $news_image_id]);
+
+        if($ps->rowCount() >= 1)
+            return "true";
+        else
+            return "False; No of affected rows: " . $ps->rowCount();
     }
 }

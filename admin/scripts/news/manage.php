@@ -42,8 +42,9 @@ while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
     $sub_array[] = $row["news_id"];
     $sub_array[] = $row["title"];
     $sub_array[] = $row["description"];
-    $sub_array[] = "<button class='edit fa fa-pencil btn btn-success' id='".$row['news_id']."' data-toggle='modal' data-target='#edit_news_modal'></button>";
-    $sub_array[] = "<button class='delete fa fa-trash btn btn-danger' id='".$row['news_id']."' data-toggle='modal' data-target='#delete_news_modal'></button>";
+    $sub_array[] = "<button class='edit fa fa-pencil btn btn-success' id='" . $row['news_id'] . "' data-toggle='modal' data-target='#edit_news_modal'></button>";
+    $sub_array[] = "<button class='delete fa fa-trash btn btn-danger' id='" . $row['news_id'] . "' data-toggle='modal' data-target='#delete_news_modal'></button>";
+    $sub_array[] = "<a href='admin/news.php?q=" . $row['news_id'] . "' class='btn btn-info'><i class='fa fa-eye'></i></a>";
     //I may have to add some columns !!!
 
     $data[] = $sub_array;

@@ -65,14 +65,18 @@
                         $q = $_GET['q'];
                     }
 
-                    switch ($q) {
-                        case 'add':
-                            include_once('includes/news/create-news.php');
-                            break;
+                    if(intval($q)) {
+                        include_once('includes/news_images/manage-news-images.php');
+                    } else {
+                        switch ($q) {
+                            case 'add':
+                                include_once('includes/news/create-news.php');
+                                break;
 
-                        default:
-                            include_once('includes/news/manage-news.php');
-                            break;
+                            default:
+                                include_once('includes/news/manage-news.php');
+                                break;
+                        }
                     }
                 ?>
 
