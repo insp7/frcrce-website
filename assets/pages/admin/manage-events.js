@@ -119,6 +119,29 @@ var TableDatatables = function() {
             });
         });
 
+        $('#event_images_list').on('click', '.delete-event-image', function (e) {
+            $id = $(this).attr('id');
+
+            $('#delete_event_image').on('click', function (e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: "http://localhost/frcrce/admin/scripts/events/delete-image.php",
+                    method: "POST",
+                    data: 'delete_event_image_id=' + $id,
+                    dataType: "text",
+                    success: function (response) {
+                        if(response === "true") {
+                            $('#delete_event_image_modal').modal('hide');
+                            window.location.pathname = 'frcrce/admin/events.php'; // Later remove this refresh
+                        } else {
+                            alert(response);
+                            console.log(response);
+                        }
+                    }
+                });
+            });
+        });
     }
     return {
         //main function in javascript to handle all the initialisation part
