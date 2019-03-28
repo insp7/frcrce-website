@@ -286,7 +286,21 @@
                         </li>
                     </ul>
                 </li>
+
             </ul>
         </div>
     </nav>
 </header>
+<script>
+    function btnSignOutClicked(event) {
+        event.preventDefault();
+
+        $.ajax({
+            type : 'POST' ,
+            data: "manage=sign_out",
+            url: "manage-ajax.php"
+        }).done(function() {
+            window.location.pathname = "frcrce/login.php";
+        });
+    }
+</script>

@@ -78,6 +78,20 @@
                                 <li><a href="admin/news.php"><i class="fa fa-circle-o"></i> View</a></li>
                             </ul>
                         </li> <!-- End of News -->
+
+                                                                                                           <!-- News -->
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-folder"></i> <span>Staff</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="admin/add-staff.php"><i class="fa fa-circle-o"></i> Create</a></li>
+                                <li><a href="admin/manage-staff.php"><i class="fa fa-circle-o"></i> View</a></li>
+                            </ul>
+                        </li> <!-- End of News -->
                         <?php
                     }
                 }

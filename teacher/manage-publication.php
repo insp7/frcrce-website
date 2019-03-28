@@ -62,15 +62,6 @@
                 <div class="box-header">
                     <div class="pull-left">
                         <a href="admin/add-staff.php" class="btn btn-danger">ADD <i class="fa fa-plus"></i></a>
-
-                        <?php
-                            if(isset($_GET['export'])){
-                                echo '<a href="admin/manage-publication.php" class="btn btn-warning">EDITABLE</a>';
-                            }else{
-                                echo '<a href="admin/manage-publication.php?export=true" class="btn btn-success">EXPORTABLE</a>';
-                            }
-                        ?>
-
                     </div>
                     <div class="pull-right" id="export-buttons">
 
@@ -91,12 +82,12 @@
                                 <th>Gender</th>
                                 <th>Number</th>
                                 <?php
-                                if(!isset($_GET['export'])){
-                                    ?>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
-                                    <?php
-                                }
+                                    if(false){
+                                        ?>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                        <?php
+                                    }
                                 ?>
                             </tr>
                             </thead>
@@ -108,14 +99,8 @@
                                 <th>Email</th>
                                 <th>Gender</th>
                                 <th>Number</th>
-                                <?php
-                                if(!isset($_GET['export'])){
-                                    ?>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
-                                    <?php
-                                }
-                                ?>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
                             </tfoot>
                         </table>

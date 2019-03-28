@@ -8,7 +8,6 @@
  *
  * COLUMNS: first_name,last_name,contact_
  */
-
 define('BASE_URL', '../../../');
 require_once(BASE_URL."classes/Database.php");
 
@@ -38,10 +37,6 @@ if($_POST["length"]!=-1){
 
 $statement=$connection->query($query.$query1);
 
-$export = '';
-if(isset($_GET['export'])){
-    $export = $_GET['export'];
-}
 
 $data = array();
 while($row = $statement->fetch(PDO::FETCH_ASSOC)){
@@ -53,10 +48,8 @@ while($row = $statement->fetch(PDO::FETCH_ASSOC)){
     $sub_array[] = $row["email"];
     $sub_array[] = $row["gender"];
     $sub_array[] = $row["contact_no"];
-    if($export == '') {
-        $sub_array[] = "<button class='edit fa fa-pencil btn btn-success' id='" . $row['staff_id'] . "' data-toggle='modal' data-target='#editModal'></button>";
-        $sub_array[] = "<button class='delete fa fa-trash btn btn-danger' id='" . $row['staff_id'] . "' data-toggle='modal' data-target='#deleteModal'></button>";
-    }
+    $sub_array[] = "<button class='edit fa fa-pencil btn btn-success' id='".$row['staff_id']."' data-toggle='modal' data-target='#editModal'></button>";
+    $sub_array[] = "<button class='delete fa fa-trash btn btn-danger' id='".$row['staff_id']."' data-toggle='modal' data-target='#deleteModal'></button>";
     //I may have to add some columns !!!
 
     $data[] = $sub_array;
