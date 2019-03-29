@@ -51,8 +51,12 @@
 
         if($_SESSION['role'] == 'admin')
             header("Location: admin/index.php");
-        else
-            header("Location: index.php");
+        else {
+            if ($staff->isFullyRegistered($staff_id))
+                header("Location: teacher/index.php");
+            else
+                header("Location: teacher/fill-remaning-details.php");
+        }
     }
 ?>
 

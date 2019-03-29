@@ -26,7 +26,7 @@
      */
     class Database {
         private $host       =   "localhost";
-        private $db_name    =   "frcrcedb";
+        private $db_name    =   "frcrcedb1";
         private $username   =   "root";
         private $password   =   "";
         private $conn       =   null;

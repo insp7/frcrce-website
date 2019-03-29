@@ -1,9 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Aniket
- * Date: 3/5/2019
- * Time: 7:54 PM
+ * User: Dhananjay
+ * Date: 2/24/2019
+ * Time: 2:47 PM
  */
 ?>
 
@@ -11,8 +11,6 @@
 <?php
     ob_start();
     define('BASE_URL', '../');
-
-    require_once(BASE_URL . 'authenticate.php');
 ?>
 <!--END OF INIT-->
 
@@ -25,7 +23,6 @@
 <?php
     include_once(BASE_URL . 'includes/ui/header.php');
 ?> <!-- End of HEADER -->
-
 
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -41,6 +38,17 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    Dashboard
+                    <small>Version 2.0</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li class="active">Dashboard</li>
+                </ol>
+            </section>
 
             <!-- Main content -->
             <section class="content container-fluid">
@@ -49,26 +57,7 @@
                 | Your Page Content Here |
                 -------------------------->
 
-                <?php
-                    $q = "";
-                    if(isset($_GET['q'])) {
-                        $q = $_GET['q'];
-                    }
 
-                    if(intval($q)) {
-                        include_once('includes/manage-news-images.php');
-                    } else {
-                        switch ($q) {
-                            case 'add':
-                                include_once('includes/news/create-news.php');
-                                break;
-
-                            default:
-                                include_once('includes/news/manage-news.php');
-                                break;
-                        }
-                    }
-                ?>
 
             </section>
             <!-- /.content -->
@@ -84,18 +73,8 @@
 
 
     <!-- Plugins and scripts required by this view-->
-    <!-- DataTables -->
-    <script src="node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="node_modules/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
-    <!-- AdminLTE App -->
-    <script src="assets/js/adminlte.min.js"></script>
-
-    <!--Manage Script-->
-    <script src="assets/pages/admin/manage-news.js"></script>
-
-    <!-- Scripts -->
-    <script src="assets/js/scripts.js"></script>
     <!-- End of Plugins and scripts required by this view-->
 </body>
 </html>
+

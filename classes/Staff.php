@@ -11,8 +11,7 @@
  */
 
 require_once('Database.php');
-class Staff
-{
+class Staff {
 
     /**
      * Creates a new Staff object and sets the $connection variable for this object equal to the database connection object.
@@ -94,5 +93,30 @@ class Staff
         $result_set = $ps->fetch(PDO::FETCH_ASSOC);
 
         return $result_set;
+    }
+
+    public function isFullyRegistered($staff_id) {
+        $sql = "SELECT * FROM staff WHERE is_deleted = 0 AND staff_id = :staff_id";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute(["staff_id" => $staff_id]);
+        $result = $ps->fetch(PDO::FETCH_ASSOC);
+        if($result['is_fully_registered'] == 0)
+            return false;
+        return true;
+    }
+
+    public function insertStaff($email, $password) {
+        $sql = "INSERT INTO staff(email, password) VALUES(:email, :password)";
+        $ps = $this->connection->prepare($sql);
+        $result = $ps->execute(["email" => $email, "password" => $password]);
+
+        return $result;
+    }
+
+    public function fillRemainingDetails($first_name,$last_name, $staff_id) {
+        $sql = "UPDATE staff set first_name = :first_name, last_name = :last_name, is_fully_registered = 1 where staff_id = :staff_id";
+        $ps = $this->connection->prepare($sql);
+        $result = $ps->execute(["first_name" => $first_name, "last_name" => $last_name, "staff_id" => $staff_id]);
+        return $result;
     }
 }
