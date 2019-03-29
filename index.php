@@ -168,6 +168,72 @@ desired effect
                             <?php
                         }
                     ?>
+
+                    <?php
+                        require_once(BASE_URL . 'classes/Events.php');
+                        require_once(BASE_URL . 'classes/EventImages.php');
+
+                        $events = new Events();
+                        $result_set = $events->getAllEventsToAdvertise();
+
+                        foreach($result_set as $row) {
+                            extract($row);
+                            ?>
+                            <!-- Post -->
+                            <div class="post">
+                                <div class="user-block">
+                                    <img class="img-circle img-bordered-sm" src="assets/img/user6-128x128.jpg" alt="User Image">
+                                    <span class="username">
+                                            <a href="#"><?php echo $event_name; ?></a>
+                                        </span>
+                                    <span class="description"><?php echo $created_at; ?></span>
+                                </div>
+                                <p>
+                                    <?php echo $event_details . " Address: " . $address . " Type: " . $event_type . " Start date: " . $start_date . " End date: " . $end_date; ?>
+                                </p>
+                                <!-- /.user-block -->
+                                <div class="row margin-bottom">
+                                    <div class="gallery-mine">
+                                        <?php
+
+                                        $show_button = 0;
+                                        $event_images = new EventImages();
+                                        $event_images_result = $event_images->getEventImagesById($event_id);
+
+                                        $i = 0;
+                                        foreach($event_images_result as $row2) {
+                                            $i++;
+                                            if ($i < 7) {
+                                                ?>
+                                                <a href="upload-folder/<?php echo $row2['event_image_path']; ?>" data-toggle="lightbox" data-gallery="for-news-id-<?php echo $event_id; ?>">
+                                                    <img src="upload-folder/<?php echo $row2['event_image_path']; ?>" class="gallery-img-mine" alt="news_image!">
+                                                </a>
+                                                <?php
+                                            } else {
+                                                $show_button = 1;
+                                                break;
+                                            }
+                                        }
+                                        ?>
+                                    </div>
+                                    <!-- /.gallery-mine -->
+
+                                    <?php
+                                    if($show_button === 1) {
+                                        ?>
+                                        <!-- IF this issue is not solved, then create a hidden modal, and display the remaining images in it... -->
+                                        <!-- later upon a button click show the modal! -->
+                                        <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn bg-orange" name="show-all-images" id="<?php echo $event_id; ?>">See more</button>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.post -->
+                            <?php
+                        }
+                    ?>
                 </div>
                 <!-- /.col-md-9 -->
 

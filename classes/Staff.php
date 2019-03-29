@@ -50,4 +50,49 @@ class Staff
 
         return $result_set;
     }
+
+    public function countMaleStaff() {
+        $sql = "SELECT count(*) AS total_male_staff_count FROM staff WHERE is_deleted = 0 AND gender = 'm'";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute();
+        $result_set = $ps->fetch(PDO::FETCH_ASSOC);
+
+        return $result_set;
+    }
+
+    public function countPermanentStaff() {
+        $sql = "SELECT count(*) AS permanent_staff_count FROM staff WHERE is_deleted = 0 AND is_permanent = 1";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute();
+        $result_set = $ps->fetch(PDO::FETCH_ASSOC);
+
+        return $result_set;
+    }
+
+    public function countPermanentTeachingSTaff() {
+        $sql = "SELECT count(*) AS permanent_teaching_staff FROM staff WHERE is_deleted = 0 AND is_permanent = 1 AND is_teaching = 1";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute();
+        $result_set = $ps->fetch(PDO::FETCH_ASSOC);
+
+        return $result_set;
+    }
+
+    public function countAdhocStaff() {
+        $sql = "SELECT count(*) AS ad_hoc_staff_count FROM staff WHERE is_deleted = 0 AND is_permanent = 0";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute();
+        $result_set = $ps->fetch(PDO::FETCH_ASSOC);
+
+        return $result_set;
+    }
+
+    public function countAdhocTeachingStaff() {
+        $sql = "SELECT count(*) AS ad_hoc_staff_count FROM staff WHERE is_deleted = 0 AND is_permanent = 0 AND is_teaching = 1";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute();
+        $result_set = $ps->fetch(PDO::FETCH_ASSOC);
+
+        return $result_set;
+    }
 }

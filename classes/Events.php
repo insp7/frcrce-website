@@ -121,4 +121,13 @@ class Events {
 
         return $result_set;
     }
+
+    public function getAllEventsToAdvertise() {
+        $sql = "SELECT * FROM events WHERE is_deleted = 0 AND publish_as_news = 1";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute();
+        $result_set = $ps->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result_set;
+    }
 }

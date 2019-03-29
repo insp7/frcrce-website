@@ -48,5 +48,14 @@
 
             return $result_set;
         }
+
+        public function countMaleStudents() {
+            $sql = "SELECT count(*) AS total_male_students_count FROM students WHERE is_deleted = 0 AND gender = 'm'";
+            $ps = $this->connection->prepare($sql);
+            $ps->execute();
+            $result_set = $ps->fetch(PDO::FETCH_ASSOC);
+
+            return $result_set;
+        }
     }
 ?>
