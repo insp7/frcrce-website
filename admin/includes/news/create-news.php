@@ -13,15 +13,15 @@
 
     require_once(BASE_URL . 'classes/NewsFeed.php');
     require_once(BASE_URL . 'classes/NewsImages.php');
-    ?>
+?>
 <section class="content-header">
     <h1>
         Dashboard
         <small>Version 2.0</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="admin/index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Create News<?php if(isset($result)) echo $result; ?></li>
+        <li><a href="admin/index.php"><i class="fa fa-dashboard"></i> News</a></li>
+        <li class="active">Create News</li>
     </ol>
 </section>
 
@@ -85,7 +85,7 @@
 
             $ext = pathinfo($name, PATHINFO_EXTENSION);
 
-            if(in_array($ext, $extension) == false) {
+            if(in_array(strtolower($ext), $extension) == false) {
                 $UploadOk = false;
                 array_push($errors, $name . " is invalid file type.");
             }

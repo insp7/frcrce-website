@@ -52,8 +52,16 @@
                             <span class="info-box-icon bg-aqua"><i class="fa fa-cogs"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">CPU Traffic</span>
-                                <span class="info-box-number">90<small>%</small></span>
+                                <span class="info-box-text">Students</span>
+                                <span class="info-box-number">
+                                    <?php
+                                        require_once(BASE_URL . 'classes/Students.php');
+                                        $students = new Students();
+                                        $count = $students->countStudents();
+
+                                        echo $count['total_students_count'];
+                                    ?>
+                                </span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>
@@ -65,8 +73,16 @@
                             <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">Likes</span>
-                                <span class="info-box-number">41,410</span>
+                                <span class="info-box-text">Events</span>
+                                <span class="info-box-number">
+                                    <?php
+                                        require_once(BASE_URL . 'classes/Events.php');
+                                        $events = new Events();
+                                        $count = $events->countEvents();
+
+                                        echo $count['total_events_count'];
+                                    ?>
+                                </span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>
@@ -82,8 +98,16 @@
                             <span class="info-box-icon bg-green"><i class="fa fa-shopping-cart"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">Sales</span>
-                                <span class="info-box-number">760</span>
+                                <span class="info-box-text">News</span>
+                                <span class="info-box-number">
+                                    <?php
+                                        require_once(BASE_URL . 'classes/NewsFeed.php');
+                                        $news_feed = new NewsFeed();
+                                        $count = $news_feed->countNews();
+
+                                        echo $count['total_news_count'];
+                                    ?>
+                                </span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>
@@ -95,8 +119,16 @@
                             <span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">New Members</span>
-                                <span class="info-box-number">2,000</span>
+                                <span class="info-box-text">Staff</span>
+                                <span class="info-box-number">
+                                    <?php
+                                        require_once(BASE_URL . 'classes/Staff.php');
+                                        $staff = new Staff();
+                                        $count = $staff->countStaff();
+
+                                        echo $count['total_staff_count'];
+                                    ?>
+                                </span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>

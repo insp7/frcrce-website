@@ -65,14 +65,18 @@
                         $q = $_GET['q'];
                     }
 
-                    switch ($q) {
-                        case 'add':
-                            include_once('includes/events/create-event.php');
-                            break;
+                    if(intval($q)) {
+                        include_once('includes/manage-event-images.php');
+                    } else {
+                        switch ($q) {
+                            case 'add':
+                                include_once('includes/events/create-event.php');
+                                break;
 
-                        default:
-                            include_once('includes/events/manage-events.php');
-                            break;
+                            default:
+                                include_once('includes/events/manage-events.php');
+                                break;
+                        }
                     }
                 ?>
 

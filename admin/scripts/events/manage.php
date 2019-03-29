@@ -32,7 +32,7 @@ $statement = $connection->query($query.$query1);
 $number_filtered_row = $statement->rowCount();
 
 $data = array();
-while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
     $sub_array = array();
 
     $sub_array[] = $row['event_name'];
@@ -44,6 +44,7 @@ while($row = $statement->fetch(PDO::FETCH_ASSOC)){
     $sub_array[] = 'Internal: ' . $row['internal_participants_count'] . ' External: ' . $row['external_participants_count'];
     $sub_array[] = "<button class='edit fa fa-pencil btn btn-success' id='".$row['event_id']."' data-toggle='modal' data-target='#edit_event_modal'></button>";
     $sub_array[] = "<button class='delete fa fa-trash btn btn-danger' id='".$row['event_id']."' data-toggle='modal' data-target='#delete_event_modal'></button>";
+    $sub_array[] = "<a href='admin/events.php?q=" . $row['event_id'] . "' class='btn btn-info'><i class='fa fa-eye'></i></a>";
     //I may have to add some columns !!!
 
     $data[] = $sub_array;

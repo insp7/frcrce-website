@@ -42,6 +42,15 @@ class Staff
         return $result_set;
     }
 
+    public function countStaff() {
+        $sql = "SELECT count(*) AS total_staff_count FROM staff WHERE is_deleted = 0";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute();
+        $result_set = $ps->fetch(PDO::FETCH_ASSOC);
+
+        return $result_set;
+    }
+
     public function isFullyRegistered($staff_id) {
         $sql = "SELECT * FROM staff WHERE is_deleted = 0 AND staff_id = :staff_id";
         $ps = $this->connection->prepare($sql);

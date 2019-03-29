@@ -45,19 +45,19 @@
             <div class="box-body">
                 <table class="table table-striped table-hover table-bordered dataTable" id="event_list">
                     <thead>
-                    <tr>
-                        <th>Event Name</th>
-                        <th>Event Details</th>
-                        <th>Address</th>
-                        <th>Funding</th>
-                        <th>expenditure</th>
-                        <th>event_duration</th>
-                        <th>participant_count</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
+                        <tr>
+                            <th>Event Name</th>
+                            <th>Event Details</th>
+                            <th>Address</th>
+                            <th>Funding</th>
+                            <th>expenditure</th>
+                            <th>event_duration</th>
+                            <th>participant_count</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            <th>View Images</th>
+                        </tr>
                     </thead>
-
                 </table>
             </div>
         </div>

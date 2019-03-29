@@ -39,5 +39,14 @@
 
             return $result_row;
         }
+
+        public function countStudents() {
+            $sql = "SELECT count(*) AS total_students_count FROM students WHERE is_deleted = 0";
+            $ps = $this->connection->prepare($sql);
+            $ps->execute();
+            $result_set = $ps->fetch(PDO::FETCH_ASSOC);
+
+            return $result_set;
+        }
     }
 ?>

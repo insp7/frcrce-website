@@ -264,5 +264,10 @@
             else
                 return "true";
         }
+
+
+        public static function generalInsert($relation_name, $attributes) {
+
+        }
     }
 ?>

@@ -6,6 +6,13 @@
  * Time: 10:28 PM
  */
 ?>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <ol class="breadcrumb">
+        <li><a href="admin/index.php"><i class="fa fa-dashboard"></i> News</a></li>
+        <li class="active">View News</li>
+    </ol>
+</section>
 
 <div class="row">
     <div class="col-md-12">
@@ -50,6 +57,7 @@
                         <th>Description</th>
                         <th>Edit</th>
                         <th>Delete</th>
+                        <th>View Images</th>
                     </tr>
                     </thead>
                 </table>
