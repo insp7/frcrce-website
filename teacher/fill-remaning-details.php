@@ -73,22 +73,33 @@ include_once(BASE_URL . 'includes/ui/header.php');
             <!-------------------------
             | Your Page Content Here |
             -------------------------->
-            <form method="post" id="remaining-details-form" >
+
+            <div class="alert alert-danger" role="alert">
+                <h4>Oh snap!</h4>
+                <p>This form seems to be invalid :(</p>
+            </div>
+
+            <div class="bs-callout bs-callout-info hidden">
+                <h4>Yay!</h4>
+                <p>Everything seems to be ok :)</p>
+            </div>
+
+            <form method="post" id="remaining-details-form" data-parsley-validate="">
                 <div class="form-group">
                     <label for="email_id">First Name</label>
-                    <input id="email_id" name="first_name" class="form-control" placeholder="Email Id">
+                    <input type="email" id="email_id" name="first_name" class="form-control" data-parsley-trigger="change" placeholder="Email Id" data-parsley-required="true">
                 </div>
                 <div class="form-group">
                     <label for="password">Middle Name</label>
-                    <input id="password" name="middle_name" class="form-control" placeholder="Password">
+                    <input  type="password" id="password" name="middle_name" class="form-control" placeholder="Password" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Last Name</label>
-                    <input id="password" name="last_name" class="form-control" placeholder="Password">
+                    <input id="last_name" name="last_name" class="form-control" placeholder="Password" data-parsley-required="true">
                 </div>
                 <div class="form-group">
                     <label for="password">Contact No</label>
-                    <input id="password" name="contact_no" class="form-control" placeholder="Password">
+                    <input id="contact_no" name="contact_no" class="form-control" placeholder="Password">
                 </div>
                 <div class="form-group">
                     <button class="btn btn-instagram" type="submit" name="remaining-details">Submit</button>
@@ -99,13 +110,15 @@ include_once(BASE_URL . 'includes/ui/header.php');
     </div>
     <!-- /.content-wrapper -->
 
+
     <!-- FOOTER -->
     <?php
     include_once(BASE_URL . 'includes/ui/footer.php');
     ?> <!-- End of FOOTER -->
 </div>
 <!-- ./wrapper -->
-
+<script src="node_modules/parsleyjs/dist/parsley.min.js"></script>
+<script src="assets/pages/teacher/fill-remaning-details.js"></script>
 <script src="assets/pages/admin/add-staff.js"></script>
 </body>
 </html>
