@@ -56,6 +56,7 @@
                             <th>Edit</th>
                             <th>Delete</th>
                             <th>View Images</th>
+                            <th>Publish as news</th>
                         </tr>
                     </thead>
                 </table>

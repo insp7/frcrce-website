@@ -9,6 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <?php
     ob_start();
     define('BASE_URL', '');
+
     require_once(BASE_URL . 'classes/NewsFeed.php');
     require_once(BASE_URL . 'classes/NewsImages.php');
     require_once(BASE_URL . 'authenticate.php');
@@ -139,8 +140,8 @@ desired effect
                                                 $i++;
                                                 if ($i < 7) {
                                                     ?>
-                                                    <a href="upload-folder/<?php echo $row2['news_image_path']; ?>" data-toggle="lightbox" data-gallery="for-news-id-<?php echo $news_id; ?>">
-                                                        <img src="upload-folder/<?php echo $row2['news_image_path']; ?>" class="gallery-img-mine" alt="news_image!">
+                                                    <a href="upload-folder/news-images/<?php echo $row2['news_id'] . '/' . $row2['news_image_path']; ?>" data-toggle="lightbox" data-gallery="for-news-id-<?php echo $news_id; ?>">
+                                                        <img src="upload-folder/news-images/<?php echo $row2['news_id'] . '/' . $row2['news_image_path']; ?>" class="gallery-img-mine" alt="news_image!">
                                                     </a>
                                                     <?php
                                                 } else {
@@ -178,42 +179,51 @@ desired effect
 
                         foreach($result_set as $row) {
                             extract($row);
+
+                            $selected_attributes_result = $events->getSelectedAttributes($event_id, $selected_attributes);
+//                            print_r($selected_attributes_result);
                             ?>
+
                             <!-- Post -->
                             <div class="post">
                                 <div class="user-block">
                                     <img class="img-circle img-bordered-sm" src="assets/img/user6-128x128.jpg" alt="User Image">
                                     <span class="username">
-                                            <a href="#"><?php echo $event_name; ?></a>
-                                        </span>
-                                    <span class="description"><?php echo $created_at; ?></span>
+                                        <a href="#"><?php if(isset($selected_attributes_result['event_name'])) echo $event_name; ?></a>
+                                    </span>
+                                    <span class="description"><?php if(isset($selected_attributes_result['created_at'])) echo $created_at; ?></span>
                                 </div>
                                 <p>
-                                    <?php echo $event_details . " Address: " . $address . " Type: " . $event_type . " Start date: " . $start_date . " End date: " . $end_date; ?>
+                                    <?php
+                                        if(isset($selected_attributes_result['event_details'])) echo $event_details . ". ";
+                                        if(isset($selected_attributes_result['address'])) echo "Address: " . $address . ". ";
+                                        if(isset($selected_attributes_result['event_type'])) echo "Type: " . $event_type . ". ";
+                                        if(isset($selected_attributes_result['start_date'])) echo "Start date: " . $start_date . " ";
+                                        if(isset($selected_attributes_result['end_date'])) echo "End date: " . $end_date . " ";
+                                    ?>
                                 </p>
                                 <!-- /.user-block -->
                                 <div class="row margin-bottom">
                                     <div class="gallery-mine">
                                         <?php
+                                            $show_button = 0;
+                                            $event_images = new EventImages();
+                                            $event_images_result = $event_images->getEventImagesById($event_id);
 
-                                        $show_button = 0;
-                                        $event_images = new EventImages();
-                                        $event_images_result = $event_images->getEventImagesById($event_id);
-
-                                        $i = 0;
-                                        foreach($event_images_result as $row2) {
-                                            $i++;
-                                            if ($i < 7) {
-                                                ?>
-                                                <a href="upload-folder/<?php echo $row2['event_image_path']; ?>" data-toggle="lightbox" data-gallery="for-news-id-<?php echo $event_id; ?>">
-                                                    <img src="upload-folder/<?php echo $row2['event_image_path']; ?>" class="gallery-img-mine" alt="news_image!">
-                                                </a>
-                                                <?php
-                                            } else {
-                                                $show_button = 1;
-                                                break;
+                                            $i = 0;
+                                            foreach($event_images_result as $row2) {
+                                                $i++;
+                                                if ($i < 7) {
+                                                    ?>
+                                                    <a href="upload-folder/event-images/<?php echo $row2['event_id'] . '/' . $row2['event_image_path']; ?>" data-toggle="lightbox" data-gallery="for-news-id-<?php echo $event_id; ?>">
+                                                        <img src="upload-folder/event-images/<?php echo $row2['event_id'] . '/' . $row2['event_image_path']; ?>" class="gallery-img-mine" alt="news_image!">
+                                                    </a>
+                                                    <?php
+                                                } else {
+                                                    $show_button = 1;
+                                                    break;
+                                                }
                                             }
-                                        }
                                         ?>
                                     </div>
                                     <!-- /.gallery-mine -->
@@ -359,6 +369,7 @@ desired effect
 
         $('[name="show-all-images"]').on('click', function () {
             $id = $(this).attr('id');
+
             if(!$('#inside-the-hidden-gallery').length) {
                 $.ajax({
                     url:"http://localhost/frcrce/manage-ajax.php",
@@ -367,8 +378,12 @@ desired effect
                     dataType: "json",
                     success: function(data) {
                         for(var i=0; i < data.length; i++) {
-                            console.log(data);
-                            $('#the-hidden-gallery').append('<a href="upload-folder/' + data[i]["news_image_path"] + '" id="inside-the-hidden-gallery" data-toggle="lightbox" data-gallery="hidden-images"><img src="upload-folder/' + data[i]["news_image_path"] + '" class="gallery-img-mine" alt="news_image!"></a>');
+                            // console.log(data);
+                            $('#the-hidden-gallery').append('' +
+                                '<a href="upload-folder/news-images/' + $id + '/' + data[i]["news_image_path"] + '" id="inside-the-hidden-gallery" data-toggle="lightbox" data-gallery="hidden-images">' +
+                                '<img src="upload-folder/news-images/' + $id + '/' + data[i]["news_image_path"] + '" class="gallery-img-mine" alt="news_image!">' +
+                                '</a>'
+                            );
                         }
                         $("#exampleModal").modal('show');
                     },

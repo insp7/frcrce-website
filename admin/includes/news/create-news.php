@@ -30,17 +30,19 @@
     <form method="post" id="news-form" enctype="multipart/form-data">
         <div class="form-group">
             <label for="news_title">News Title</label>
-            <input id="news_title" name="news_title" class="form-control" placeholder="Event Name">
+            <input id="news_title" name="news_title" class="form-control" placeholder="News Title">
         </div>
+
         <div class="form-group">
             <label for="news_description">News Description</label>
-            <textarea name="news_description" id="news_description" class="form-control" cols="30" rows="5" placeholder="Event Details"></textarea>
+            <textarea name="news_description" id="news_description" class="form-control" cols="30" rows="5" placeholder="News Description"></textarea>
         </div>
-<!-- TODO: FOR IMAGE; INTEGRATE THE MULTIPLE FILE SELECTOR MODULE -->
+
         <div class="form-group">
             <label>Select single file to upload:</label>
             <input type="file" name="files[]" multiple="multiple" />
         </div>
+
         <div class="form-group">
             <button class="btn btn-instagram" type="submit" name="create_news">Create News Feed</button>
         </div>
@@ -62,8 +64,15 @@
         $extension = array("jpeg","jpg","png","gif");
         $bytes = 1024;
         $KB = 1024;
-        $totalBytes = $bytes * $KB;
-        $UploadFolder = BASE_URL . "upload-folder";
+        $totalBytes = $bytes * $KB * 5;
+
+        $news_id = $database->getConnection()->lastInsertId();
+
+        if(!file_exists(BASE_URL . 'upload-folder/news-images/' . $news_id)) {
+            mkdir(BASE_URL . 'upload-folder/news-images/' . $news_id);
+        }
+
+        $UploadFolder = BASE_URL . "upload-folder/news-images/" . $database->getConnection()->lastInsertId();
 
         $counter = 0;
 
@@ -80,7 +89,7 @@
 
             if($_FILES["files"]["size"][$key] > $totalBytes) {
                 $UploadOk = false;
-                array_push($errors, $name . " file size is larger than the 1 MB.");
+                array_push($errors, $name . " total files' size is larger than the 5 MB.");
             }
 
             $ext = pathinfo($name, PATHINFO_EXTENSION);
@@ -102,38 +111,41 @@
             }
         }
 
-//        if($counter > 0) {
-//            if(count($errors)>0) {
-//                echo "<b>Errors:</b>";
-//                echo "<br/><ul>";
-//                foreach($errors as $error) {
-//                    echo "<li>" . $error . "</li>";
-//                }
-//                echo "</ul><br/>";
-//            }
-//
-//            if(count($uploadedFiles) > 0) {
-//                echo "<b>Uploaded Files:</b>";
-//                echo "<br/><ul>";
-//                for($i = 0; $i < count($uploadedFiles); $i++) {
-//                    if($i % 2 == 0) continue;
-//                    echo "<li>" . $uploadedFiles[$i] . "</li>";
-//                }
-//                echo "</ul><br/>";
-//
-//                echo count($uploadedFiles) . " file(s) are successfully uploaded.";
-//            }
-//        }
-//        else {
-//            echo "Please, Select file(s) to upload.";
-//        }
+        if($counter > 0) {
+            if(count($errors) > 0) {
+                echo "<b>Errors:</b>";
+                echo "<br/><ul>";
+                foreach($errors as $error) {
+                    echo "<li>" . $error . "</li>";
+                }
+                echo "</ul><br/>";
+            }
 
-        if(count($uploadedFiles) > 0) {
-            // insert image name into database
-            $news_image = new NewsImages();
-            $result = $news_image->insertNewsImages($uploadedFiles);
+            if(count($uploadedFiles) > 0) {
+                // insert image name into database
+                $news_image = new NewsImages();
+                $result = $news_image->insertNewsImages($uploadedFiles);
+
+                echo "<b>Uploaded Files:</b>";
+                echo "<br/><ul>";
+                for($i = 0; $i < count($uploadedFiles); $i++) {
+                    if($i % 2 == 0) continue;
+                    echo "<li>" . $uploadedFiles[$i] . "</li>";
+                }
+                echo "</ul><br/>";
+
+                echo count($uploadedFiles)/2 . " file(s) are successfully uploaded.";
+            }
+        } else {
+            echo "Please, Select file(s) to upload.";
         }
 
-        header("Location: " . BASE_URL . "admin/news.php");
+//        if(count($uploadedFiles) > 0) {
+//            // insert image name into database
+//            $news_image = new NewsImages();
+//            $result = $news_image->insertNewsImages($uploadedFiles);
+//        }
+
+//        header("Location: " . BASE_URL . "admin/news.php");
     }
 ?>

@@ -135,8 +135,6 @@ function btnCreateEventClicked(event) {
     });
 }
 
-
-
 $(document).ready(function () {
 
     // For date picker plugin
@@ -152,5 +150,6 @@ $(document).ready(function () {
         paging: true,
         searching: true
     });
+
 });
 
