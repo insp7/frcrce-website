@@ -11,7 +11,8 @@
  */
 
 require_once('Database.php');
-class Staff
+require_once ('GeneralFunctions.php');
+class Staff extends GeneralFunctions
 {
 
     /**
@@ -69,11 +70,12 @@ class Staff
         return $result;
     }
 
-    public function fillRemainingDetails($first_name,$last_name, $staff_id) {
-        $sql = "UPDATE staff set first_name = :first_name, last_name = :last_name, is_fully_registered = 1 where staff_id = :staff_id";
-        $ps = $this->connection->prepare($sql);
-        $result = $ps->execute(["first_name" => $first_name, "last_name" => $last_name, "staff_id" => $staff_id]);
-        return $result;
+    public function fillRemainingDetails($staff_id) {
+        $data = $_POST;
+
+        unset($data['remaining-details']);
+        $data['is_fully_registered']=1;
+        return self::generalUpdate('staff',$data,"staff_id = $staff_id");
     }
 
 }
