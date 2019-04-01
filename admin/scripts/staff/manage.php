@@ -39,7 +39,7 @@ if($_POST["length"]!=-1) {
 $statement=$connection->query($query.$query1);
 
 $export = '';
-if(isset($_GET['export'])){
+if(isset($_GET['export'])) {
     $export = $_GET['export'];
 }
 
