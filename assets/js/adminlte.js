@@ -2,7 +2,7 @@
 * ================
 * Main JS application file for AdminLTE v2. This file
 * should be included in all pages. It controls some layout
-* options and implements exclusive AdminLTE plugins.
+* options and implements exclusive AdminLTE thirdparty.
 *
 * @Author  Almsaeed Studio
 * @Support <https://www.almsaeedstudio.com>

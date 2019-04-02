@@ -54,6 +54,8 @@ while($row = $statement->fetch(PDO::FETCH_ASSOC)){
     $sub_array[] = $row["gender"];
     $sub_array[] = $row["contact_no"];
     if($export == '') {
+        $sub_array[] = "<a href='admin/view-staff.php?id=".$row["staff_id"]."' class='edit btn btn-bitbucket fa fa-eye'>
+</a>";
         $sub_array[] = "<button class='edit fa fa-pencil btn btn-success' id='" . $row['staff_id'] . "' data-toggle='modal' data-target='#editModal'></button>";
         $sub_array[] = "<button class='delete fa fa-trash btn btn-danger' id='" . $row['staff_id'] . "' data-toggle='modal' data-target='#deleteModal'></button>";
     }

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2019 at 08:00 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Generation Time: Apr 02, 2019 at 07:21 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `frcrcedb`
+-- Database: `frcrcedb1`
 --
 
 -- --------------------------------------------------------
@@ -38,7 +38,7 @@ CREATE TABLE `events` (
   `sponsor_funding` int(11) NOT NULL,
   `event_expenditure` int(11) NOT NULL,
   `start_date` date NOT NULL,
-  `end_date` date NOT NULL,
+  `end_date` int(11) NOT NULL,
   `internal_participants_count` int(11) NOT NULL,
   `external_participants_count` int(11) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -53,39 +53,16 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`event_id`, `event_name`, `event_details`, `address`, `event_type`, `institute_funding`, `sponsor_funding`, `event_expenditure`, `start_date`, `end_date`, `internal_participants_count`, `external_participants_count`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_deleted`) VALUES
-(28, 'Machine Learning ', 'Some event details', 'LOL', 'fdp', 123, 1231, 223, '2019-12-12', '2019-12-27', 123123, 12312, '2019-03-17 16:27:33', 3, '0000-00-00 00:00:00', 0, b'0'),
-(29, 'lol', 'lol', 'jhkh', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-19 19:46:52', 0, '0000-00-00 00:00:00', 0, b'0'),
-(30, 'lol', 'lol', 'jhkh', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-19 19:46:52', 0, '0000-00-00 00:00:00', 0, b'0'),
-(31, 'lol', 'lol', 'jhkh', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-19 19:46:53', 0, '0000-00-00 00:00:00', 0, b'0'),
-(32, 'lol', 'asd', 'asdas', 'test', 123, 123, 123, '0000-00-00', '0000-00-00', 123112, 123, '2019-03-19 19:46:53', 0, '2019-03-22 04:36:56', 3, b'0'),
-(33, 'lol', 'lol', 'jhkh', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-19 19:46:53', 0, '0000-00-00 00:00:00', 0, b'0'),
-(34, 'Test', 'Test2', 'Test3', 'Test4', 999, 999, 999, '2019-03-22', '2019-03-24', 99999, 999991, '2019-03-19 19:46:53', 0, '2019-03-22 04:37:40', 3, b'0'),
-(35, 'TEsting thsi new eente', 'ahaha', 'this addres', 'sadfknhww', 12312, 123213, 21312, '2019-03-13', '2019-03-27', 21321, 21321, '2019-03-22 10:03:37', 3, '0000-00-00 00:00:00', 0, b'0'),
-(36, 'TEsting thsi new eente', 'ahaha', 'this addres', 'sadfknhww', 12312, 123213, 21312, '2019-03-13', '2019-03-27', 21321, 21321, '2019-03-22 10:03:38', 3, '0000-00-00 00:00:00', 0, b'0'),
-(37, 'TEsting thsi new eente', 'ahaha', 'this addres', 'sadfknhww', 12312, 123213, 21312, '2019-03-13', '2019-03-27', 21321, 21321, '2019-03-22 10:03:38', 3, '0000-00-00 00:00:00', 0, b'0'),
-(38, 'lets sese', 'sfas', 'all 4', 'dasf', 12312, 12312, 21321, '2019-03-19', '2019-03-31', 12321, 12312, '2019-03-22 10:04:29', 3, '0000-00-00 00:00:00', 0, b'0'),
-(39, 'asdas', '', '', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-22 10:13:32', 3, '0000-00-00 00:00:00', 0, b'0'),
-(40, 'asdas', '', '', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-22 10:13:42', 3, '0000-00-00 00:00:00', 0, b'0'),
-(41, 'dfsfgb', '', '', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-22 10:14:21', 3, '0000-00-00 00:00:00', 0, b'0'),
-(42, 'as23', '', '', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-22 10:15:09', 3, '0000-00-00 00:00:00', 0, b'0'),
-(43, 'asdf', '', '', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-22 10:15:55', 3, '0000-00-00 00:00:00', 0, b'0'),
-(44, 'asdfasd', '', '', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-22 10:16:17', 3, '0000-00-00 00:00:00', 0, b'0'),
-(45, 'saf', '', '', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-22 10:23:48', 3, '0000-00-00 00:00:00', 0, b'1'),
-(46, 'asdf', '', '', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-22 10:25:42', 3, '0000-00-00 00:00:00', 0, b'0'),
-(47, 'gg', '', '', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-22 10:26:11', 3, '0000-00-00 00:00:00', 0, b'0'),
-(48, 'asdf', '', '', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-22 10:26:43', 3, '0000-00-00 00:00:00', 0, b'0'),
-(49, 'asda', '', '', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-22 10:35:35', 3, '0000-00-00 00:00:00', 0, b'0'),
-(50, 'asda', '', '', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-22 10:35:36', 3, '0000-00-00 00:00:00', 0, b'0'),
-(51, 'asda', '', '', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-22 10:36:16', 3, '0000-00-00 00:00:00', 0, b'0'),
-(52, 'asda', '', '', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-22 10:36:46', 3, '0000-00-00 00:00:00', 0, b'0'),
-(53, 'asd', '', '', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-22 10:36:52', 3, '0000-00-00 00:00:00', 0, b'0'),
-(54, 'asdg', '', '', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-22 10:37:31', 3, '0000-00-00 00:00:00', 0, b'0'),
-(55, 'asf', '', '', '', 0, 0, 0, '0000-00-00', '0000-00-00', 0, 0, '2019-03-22 10:37:53', 3, '0000-00-00 00:00:00', 0, b'0'),
-(56, 'test', 'sadf', 'safd', 'sads', 231, 213, 123, '2019-03-12', '2019-03-26', 213, 3213, '2019-03-27 23:36:14', 3, '0000-00-00 00:00:00', 0, b'0'),
-(57, 'test2', 'sadf', 'asdf', 'asfs', 213, 213, 123, '2019-03-11', '0000-00-00', 3211, 12312, '2019-03-27 23:37:20', 3, '0000-00-00 00:00:00', 0, b'0'),
-(58, 'test2', 'sadf', 'asdf', 'asfs', 213, 213, 123, '2019-03-11', '0000-00-00', 3211, 12312, '2019-03-27 23:38:08', 3, '0000-00-00 00:00:00', 0, b'0'),
-(59, 'sad', 'asd', 'asd', 'asd', 213, 123, 12312, '2019-03-14', '2019-03-12', 2131, 213, '2019-03-28 00:15:30', 3, '0000-00-00 00:00:00', 0, b'0'),
-(60, 'aniket', 'asdas', 'asdas', 'adas', 12312, 1231, 21321, '2019-03-11', '2322-02-13', 21321, 2131, '2019-03-28 00:16:18', 3, '0000-00-00 00:00:00', 0, b'0');
+(28, 'Machine Learning ', 'Some event details1', 'LOL', 'fdp', 123, 1231, 222, '2019-03-27', 0, 123123, 12312, '2019-03-17 16:27:33', 3, '2019-03-22 10:46:44', 3, b'0'),
+(29, 'lol', 'lol', 'jhkh', '', 0, 0, 0, '0000-00-00', 0, 0, 0, '2019-03-19 19:46:52', 0, '0000-00-00 00:00:00', 0, b'0'),
+(30, 'lol', 'lol', 'jhkh', '', 0, 0, 0, '0000-00-00', 0, 0, 0, '2019-03-19 19:46:52', 0, '0000-00-00 00:00:00', 0, b'0'),
+(31, 'lol', 'lol', 'jhkh', '', 0, 0, 0, '0000-00-00', 0, 0, 0, '2019-03-19 19:46:53', 0, '0000-00-00 00:00:00', 0, b'0'),
+(32, 'lol', 'lol', 'jhkh', '', 0, 0, 0, '0000-00-00', 0, 0, 0, '2019-03-19 19:46:53', 0, '0000-00-00 00:00:00', 0, b'0'),
+(33, 'lol', 'lol', 'jhkh', '', 0, 0, 0, '0000-00-00', 0, 0, 0, '2019-03-19 19:46:53', 0, '0000-00-00 00:00:00', 0, b'0'),
+(34, 'lol', 'lol', 'jhkh', '', 0, 0, 0, '0000-00-00', 0, 0, 0, '2019-03-19 19:46:53', 0, '0000-00-00 00:00:00', 0, b'0'),
+(35, 'asdada', 'asdas', '', '', 0, 0, 2121, '0000-00-00', 0, 0, 0, '2019-03-22 15:15:51', 3, '0000-00-00 00:00:00', 0, b'0'),
+(36, 'right now', '', '', '', 0, 0, 0, '0000-00-00', 0, 0, 0, '2019-03-22 15:16:27', 3, '0000-00-00 00:00:00', 0, b'0'),
+(37, 'some', 'lol', 'asd', 'sad', 123123, 1231, 12312, '2019-04-24', 2019, 123, 123, '2019-04-01 13:47:29', 3, '0000-00-00 00:00:00', 0, b'0');
 
 -- --------------------------------------------------------
 
@@ -110,40 +87,11 @@ CREATE TABLE `event_coordinators` (
 
 INSERT INTO `event_coordinators` (`ec_id`, `event_id`, `staff_id`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_deleted`) VALUES
 (1, 28, 3, '2019-03-17 20:57:33', 3, '0000-00-00 00:00:00', 0, b'0'),
-(2, 0, 3, '2019-03-22 10:00:38', 3, '0000-00-00 00:00:00', 0, b'0'),
-(3, 0, 5, '2019-03-22 10:00:38', 3, '0000-00-00 00:00:00', 0, b'0'),
-(4, 35, 3, '2019-03-22 10:03:37', 3, '0000-00-00 00:00:00', 0, b'0'),
-(5, 35, 5, '2019-03-22 10:03:38', 3, '0000-00-00 00:00:00', 0, b'0'),
-(6, 36, 3, '2019-03-22 10:03:38', 3, '0000-00-00 00:00:00', 0, b'0'),
-(7, 36, 5, '2019-03-22 10:03:38', 3, '0000-00-00 00:00:00', 0, b'0'),
-(8, 37, 3, '2019-03-22 10:03:38', 3, '0000-00-00 00:00:00', 0, b'0'),
-(9, 37, 5, '2019-03-22 10:03:38', 3, '0000-00-00 00:00:00', 0, b'0'),
-(10, 38, 1, '2019-03-22 10:04:29', 3, '0000-00-00 00:00:00', 0, b'0'),
-(11, 38, 3, '2019-03-22 10:04:29', 3, '0000-00-00 00:00:00', 0, b'0'),
-(12, 38, 4, '2019-03-22 10:04:29', 3, '0000-00-00 00:00:00', 0, b'0'),
-(13, 38, 5, '2019-03-22 10:04:29', 3, '0000-00-00 00:00:00', 0, b'0'),
-(14, 40, 3, '2019-03-22 10:13:42', 3, '0000-00-00 00:00:00', 0, b'0'),
-(15, 41, 3, '2019-03-22 10:14:21', 3, '0000-00-00 00:00:00', 0, b'0'),
-(16, 42, 5, '2019-03-22 10:15:10', 3, '0000-00-00 00:00:00', 0, b'0'),
-(17, 43, 1, '2019-03-22 10:15:55', 3, '0000-00-00 00:00:00', 0, b'0'),
-(18, 44, 3, '2019-03-22 10:16:17', 3, '0000-00-00 00:00:00', 0, b'0'),
-(19, 45, 3, '2019-03-22 10:23:48', 3, '0000-00-00 00:00:00', 0, b'1'),
-(20, 45, 4, '2019-03-22 10:23:49', 3, '0000-00-00 00:00:00', 0, b'1'),
-(21, 46, 5, '2019-03-22 10:25:43', 3, '0000-00-00 00:00:00', 0, b'0'),
-(22, 47, 3, '2019-03-22 10:26:11', 3, '0000-00-00 00:00:00', 0, b'0'),
-(23, 48, 4, '2019-03-22 10:26:43', 3, '0000-00-00 00:00:00', 0, b'0'),
-(24, 49, 3, '2019-03-22 10:35:35', 3, '0000-00-00 00:00:00', 0, b'0'),
-(25, 50, 3, '2019-03-22 10:35:36', 3, '0000-00-00 00:00:00', 0, b'0'),
-(26, 51, 3, '2019-03-22 10:36:16', 3, '0000-00-00 00:00:00', 0, b'0'),
-(27, 52, 3, '2019-03-22 10:36:46', 3, '0000-00-00 00:00:00', 0, b'0'),
-(28, 53, 3, '2019-03-22 10:36:52', 3, '0000-00-00 00:00:00', 0, b'0'),
-(29, 54, 4, '2019-03-22 10:37:31', 3, '0000-00-00 00:00:00', 0, b'0'),
-(30, 55, 3, '2019-03-22 10:37:53', 3, '0000-00-00 00:00:00', 0, b'0'),
-(31, 56, 3, '2019-03-27 23:36:14', 3, '0000-00-00 00:00:00', 0, b'0'),
-(32, 57, 3, '2019-03-27 23:37:20', 3, '0000-00-00 00:00:00', 0, b'0'),
-(33, 58, 3, '2019-03-27 23:38:08', 3, '0000-00-00 00:00:00', 0, b'0'),
-(34, 59, 4, '2019-03-28 00:15:30', 3, '0000-00-00 00:00:00', 0, b'0'),
-(35, 60, 3, '2019-03-28 00:16:18', 3, '0000-00-00 00:00:00', 0, b'0');
+(2, 35, 3, '2019-03-22 15:15:51', 3, '0000-00-00 00:00:00', 0, b'0'),
+(3, 35, 5, '2019-03-22 15:15:51', 3, '0000-00-00 00:00:00', 0, b'0'),
+(4, 35, 6, '2019-03-22 15:15:51', 3, '0000-00-00 00:00:00', 0, b'0'),
+(5, 36, 5, '2019-03-22 15:16:27', 3, '0000-00-00 00:00:00', 0, b'0'),
+(6, 37, 3, '2019-04-01 13:47:29', 3, '0000-00-00 00:00:00', 0, b'0');
 
 -- --------------------------------------------------------
 
@@ -162,14 +110,23 @@ CREATE TABLE `event_images` (
   `is_deleted` bit(1) NOT NULL DEFAULT b'0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `event_images`
+-- Table structure for table `ipr`
 --
 
-INSERT INTO `event_images` (`event_images_id`, `event_id`, `event_image_path`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_deleted`) VALUES
-(5, 60, 'moonlight.jpg', '2019-03-28 00:30:12', 0, '0000-00-00 00:00:00', 0, b'0'),
-(6, 60, 'Penguins.jpg', '2019-03-28 00:30:12', 0, '0000-00-00 00:00:00', 0, b'0'),
-(7, 60, 'wallpaper-4c2229d.jpeg', '2019-03-28 00:30:12', 0, '0000-00-00 00:00:00', 0, b'0');
+CREATE TABLE `ipr` (
+  `ipr_id` int(11) NOT NULL,
+  `year` varchar(255) NOT NULL,
+  `patents_published{_count` int(11) NOT NULL,
+  `patents_granted_count` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `updated_by` int(11) NOT NULL,
+  `is_deleted` bit(1) NOT NULL DEFAULT b'0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -199,26 +156,14 @@ INSERT INTO `news_feed` (`news_id`, `title`, `description`, `created_at`, `creat
 (7, 'lol', 'asdas', '2019-03-20 13:32:34', 0, '0000-00-00 00:00:00', 0, b'0'),
 (8, '', '', '2019-03-20 13:32:35', 0, '0000-00-00 00:00:00', 0, b'0'),
 (9, '', '', '2019-03-20 13:33:04', 0, '0000-00-00 00:00:00', 0, b'0'),
-(10, 'lol', 'asdas', '2019-03-20 13:33:22', 0, '0000-00-00 00:00:00', 0, b'1'),
-(11, 'asd', 'asd', '2019-03-20 13:33:34', 0, '0000-00-00 00:00:00', 0, b'0'),
-(12, 'this news! ', 'lets see if this still works', '2019-03-20 13:34:10', 0, '2019-03-21 15:58:49', 3, b'0'),
+(10, 'lol', 'asdas', '2019-03-20 13:33:22', 0, '0000-00-00 00:00:00', 0, b'0'),
+(11, 'asd', 'asdasdas', '2019-03-20 13:33:34', 0, '2019-03-22 10:18:20', 3, b'1'),
+(12, 'this news! ', 'lol', '2019-03-20 13:34:10', 0, '0000-00-00 00:00:00', 0, b'1'),
 (13, 'asdas', 'asdassadas', '2019-03-20 13:34:27', 0, '0000-00-00 00:00:00', 0, b'0'),
-(14, 'asdf', 'asd', '2019-03-20 13:35:01', 0, '0000-00-00 00:00:00', 0, b'0'),
-(15, 'LOL', 'asdas', '2019-03-21 20:10:28', 0, '0000-00-00 00:00:00', 0, b'0'),
-(16, 'new news with images !', 'lets see! ', '2019-03-23 20:47:32', 0, '0000-00-00 00:00:00', 0, b'0'),
-(17, 'lolo', 'fdf', '2019-03-23 20:50:35', 0, '0000-00-00 00:00:00', 0, b'0'),
-(18, 'lolo', 'fdf', '2019-03-23 20:53:14', 0, '0000-00-00 00:00:00', 0, b'0'),
-(19, 'sfd', '332ds', '2019-03-23 20:54:21', 0, '0000-00-00 00:00:00', 0, b'0'),
-(20, 'sfd', '332ds', '2019-03-23 20:55:21', 0, '0000-00-00 00:00:00', 0, b'0'),
-(21, 'sfd', '332ds', '2019-03-23 20:59:19', 0, '0000-00-00 00:00:00', 0, b'0'),
-(22, 'gh', 'ghgh', '2019-03-23 20:59:30', 0, '0000-00-00 00:00:00', 0, b'0'),
-(23, 'Testing the news images!', 'lolol', '2019-03-23 21:00:55', 0, '0000-00-00 00:00:00', 0, b'0'),
-(24, 'Testing the news images!', 'lolol', '2019-03-23 21:54:25', 0, '0000-00-00 00:00:00', 0, b'0'),
-(25, 'Testing the news images!', 'lolol', '2019-03-23 21:58:19', 0, '0000-00-00 00:00:00', 0, b'0'),
-(26, 'news without description!', 'eanlakdasd', '2019-03-23 21:58:42', 0, '0000-00-00 00:00:00', 0, b'0'),
-(27, 'this is yet another news! ', 'LOLOL', '2019-03-23 22:18:04', 0, '0000-00-00 00:00:00', 0, b'0'),
-(28, 'ads', 'asdf', '2019-03-24 00:26:16', 0, '0000-00-00 00:00:00', 0, b'0'),
-(29, 'test', 'asdas', '2019-03-28 00:24:28', 0, '0000-00-00 00:00:00', 0, b'0');
+(14, 'qwdkjqwdlqw', 'asd', '2019-03-20 13:35:01', 0, '2019-03-22 10:44:49', 3, b'0'),
+(15, 'This sample news!', 'dnsfkjdsgsdf', '2019-03-22 14:46:08', 0, '0000-00-00 00:00:00', 0, b'0'),
+(16, 'Machine Learning', 'A very lorem ipsum sit dollar mat', '2019-03-24 20:17:50', 0, '0000-00-00 00:00:00', 0, b'0'),
+(17, 'ttrhtr', 'hthtrh', '2019-03-28 23:58:05', 0, '0000-00-00 00:00:00', 0, b'0');
 
 -- --------------------------------------------------------
 
@@ -242,9 +187,73 @@ CREATE TABLE `news_images` (
 --
 
 INSERT INTO `news_images` (`news_images_id`, `news_id`, `news_image_path`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_deleted`) VALUES
-(54, 28, '20352.jpg', '2019-03-28 00:29:44', 0, '0000-00-00 00:00:00', 0, b'0'),
-(55, 28, '715167337.jpg', '2019-03-28 00:29:44', 0, '0000-00-00 00:00:00', 0, b'0'),
-(56, 28, '5247115864_579f9c88df.jpg', '2019-03-28 00:29:44', 0, '0000-00-00 00:00:00', 0, b'0');
+(1, 16, 'avatar3.png', '2019-03-24 20:17:50', 1, '0000-00-00 00:00:00', 0, b'0');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `publications`
+--
+
+CREATE TABLE `publications` (
+  `publication_id` int(11) NOT NULL,
+  `teacher_id` int(11) NOT NULL,
+  `year` date NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `journal` varchar(50) NOT NULL,
+  `is_ugc_approved` bit(1) NOT NULL DEFAULT b'0',
+  `created_at` datetime NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `updated_by` int(11) NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `is_deleted` bit(1) NOT NULL DEFAULT b'0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `publications`
+--
+
+INSERT INTO `publications` (`publication_id`, `teacher_id`, `year`, `title`, `journal`, `is_ugc_approved`, `created_at`, `created_by`, `updated_by`, `updated_at`, `is_deleted`) VALUES
+(1, 1, '2019-04-03', 'rofl', 'asdas', b'1', '2019-04-01 00:00:00', 1, 0, '0000-00-00 00:00:00', b'0'),
+(2, 1, '2019-04-03', 'rofl', 'asdas', b'1', '2019-04-01 00:00:00', 1, 0, '0000-00-00 00:00:00', b'0');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `published_books`
+--
+
+CREATE TABLE `published_books` (
+  `published_books_id` int(11) NOT NULL,
+  `teacher_id` int(11) NOT NULL,
+  `book_chapt_publication` varchar(255) NOT NULL,
+  `publication_details` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `updated_by` int(11) NOT NULL,
+  `is_deleted` bit(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `research_projects`
+--
+
+CREATE TABLE `research_projects` (
+  `research_projects_id` int(11) NOT NULL,
+  `principal_investigator` varchar(50) NOT NULL,
+  `details_of_grant` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `year` date NOT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `updated_by` int(11) NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `is_deleted` bit(1) NOT NULL DEFAULT b'0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -265,6 +274,13 @@ CREATE TABLE `staff` (
   `gender` varchar(1) NOT NULL,
   `is_permanent` bit(1) NOT NULL,
   `is_teaching` bit(1) NOT NULL,
+  `pan` varchar(255) NOT NULL,
+  `employee_id` int(11) NOT NULL,
+  `is_ad_hoc` int(1) NOT NULL,
+  `is_bos_chairman` int(1) NOT NULL,
+  `is_bos_member` int(11) NOT NULL,
+  `is_staff_selection_committee_member` int(1) NOT NULL,
+  `is_fully_registered` bit(1) NOT NULL DEFAULT b'0',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `created_by` int(11) NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -276,11 +292,27 @@ CREATE TABLE `staff` (
 -- Dumping data for table `staff`
 --
 
-INSERT INTO `staff` (`staff_id`, `first_name`, `middle_name`, `last_name`, `contact_no`, `date_of_birth`, `role`, `email`, `password`, `gender`, `is_permanent`, `is_teaching`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_deleted`) VALUES
-(1, 'Nilesh', 'mid-name', 'sir', 1234567890, '2019-02-04', 'teacher', 'ns@gmail.com', 'ns123', '', b'1', b'1', '2019-02-25 00:00:00', 3, '0000-00-00 00:00:00', 0, b'0'),
-(3, 'Garima ', 'mid-name', 'ma\'am', 341343223, '2019-03-13', 'admin', 'gm@gmail.com', 'gm123', '', b'1', b'1', '2019-03-04 00:00:00', 3, '0000-00-00 00:00:00', 0, b'0'),
-(4, 'fdgdf', '', '', 0, '0000-00-00', '', '', '', '', b'1', b'1', '2019-03-21 12:45:33', 0, '0000-00-00 00:00:00', 0, b'0'),
-(5, 'fdgdf', '', '', 0, '0000-00-00', '', '', '', '', b'1', b'1', '2019-03-21 12:45:36', 0, '0000-00-00 00:00:00', 0, b'0');
+INSERT INTO `staff` (`staff_id`, `first_name`, `middle_name`, `last_name`, `contact_no`, `date_of_birth`, `role`, `email`, `password`, `gender`, `is_permanent`, `is_teaching`, `pan`, `employee_id`, `is_ad_hoc`, `is_bos_chairman`, `is_bos_member`, `is_staff_selection_committee_member`, `is_fully_registered`, `created_at`, `created_by`, `updated_at`, `updated_by`, `is_deleted`) VALUES
+(1, 'Nilesh', 'Sir', 'Sur', 1231212312, '0000-00-00', 'teacher', 'ns@gmail.com', 'ns123', 'm', b'0', b'1', '', 0, 0, 0, 0, 0, b'1', '2019-02-25 00:00:00', 3, '0000-00-00 00:00:00', 0, b'0'),
+(3, 'Garima ', 'mid-name', 'ma\'am', 341343223, '2019-03-13', 'admin', 'gm@gmail.com', 'gm123', '', b'0', b'0', '', 0, 0, 0, 0, 0, b'0', '2019-03-04 00:00:00', 3, '0000-00-00 00:00:00', 0, b'0'),
+(4, 'vishal', '', 'Deshpande', 1234567890, '2019-03-07', 'teacher', 'vishal@gmail.com', 'secret11', 'm', b'0', b'0', '', 0, 0, 0, 0, 0, b'0', '2019-03-20 14:34:27', 0, '0000-00-00 00:00:00', 0, b'0'),
+(5, 'danish', '', 'khan', 1234567890, '2019-03-13', 'teacher', 'd@gmail.com', 'secret12', 'm', b'0', b'0', '', 0, 0, 0, 0, 0, b'0', '2019-03-20 14:34:27', 0, '0000-00-00 00:00:00', 0, b'0'),
+(6, 'Jay', 'A', 'Borade', 12345678, '2019-03-19', 'teacher', 'axb@gmail.com', '1234567890', '', b'0', b'0', '', 0, 0, 0, 0, 0, b'0', '2019-03-20 14:50:11', 0, '0000-00-00 00:00:00', 0, b'0'),
+(7, 'XYZ', 'N ', 'ABC', 12364521, '2019-03-04', 'teacher', 'xyzqwe@gmail.com', '12345', '', b'0', b'0', '', 0, 0, 0, 0, 0, b'0', '2019-03-20 14:51:21', 0, '0000-00-00 00:00:00', 0, b'0'),
+(8, 'dhhfhgsdhg', '', 'hjhjkhjhjh', 67676786, '2019-03-14', 'teacher', 'dshjkdshfjh', '', '', b'0', b'0', '', 0, 0, 0, 0, 0, b'0', '2019-03-20 14:54:37', 0, '0000-00-00 00:00:00', 0, b'0'),
+(9, 'fdslkjjfdsh', '', 'hjkhjhj', 435435444, '2019-03-13', 'teacher', 'djhfjdhf', '', '', b'0', b'0', '', 0, 0, 0, 0, 0, b'0', '2019-03-20 14:54:37', 0, '0000-00-00 00:00:00', 0, b'0'),
+(10, '', '', '', 0, '0000-00-00', '', 'cxzcxz', 'xzxczc', '', b'0', b'0', '', 0, 0, 0, 0, 0, b'0', '2019-03-24 20:46:19', 0, '0000-00-00 00:00:00', 0, b'0'),
+(11, 'dasjdhasj', '', 'hjhj', 0, '0000-00-00', 'teacher', 'jay@gmail.com', 'jay', '', b'0', b'0', '', 0, 0, 0, 0, 0, b'1', '2019-03-24 20:47:12', 0, '0000-00-00 00:00:00', 0, b'0'),
+(14, '', '', '', 0, '0000-00-00', '', 'dhananjayghumare12@gmail.com', 'Dhananjay@10', '', b'0', b'0', '', 0, 0, 0, 0, 0, b'0', '2019-03-30 14:15:32', 0, '0000-00-00 00:00:00', 0, b'0'),
+(15, '', '', '', 0, '0000-00-00', '', 'dhananjayghumare12@gmail.com', 'Dhananjay@10', '', b'0', b'0', '', 0, 0, 0, 0, 0, b'0', '2019-03-30 14:16:24', 0, '0000-00-00 00:00:00', 0, b'0'),
+(16, '', '', '', 0, '0000-00-00', '', 'dhananjayghumare12@gmail.com', 'Dhananjay@10', '', b'0', b'0', '', 0, 0, 0, 0, 0, b'0', '2019-03-30 14:17:53', 0, '0000-00-00 00:00:00', 0, b'0'),
+(17, '', '', '', 0, '0000-00-00', '', 'dhananjayghumare12@gmail.com', 'Dhananjay@10', '', b'0', b'0', '', 0, 0, 0, 0, 0, b'0', '2019-03-30 14:21:58', 0, '0000-00-00 00:00:00', 0, b'0'),
+(18, '', '', '', 0, '0000-00-00', '', 'dhananjayghumare12@gmail.com', 'Dhananjay@10', '', b'0', b'0', '', 0, 0, 0, 0, 0, b'0', '2019-03-30 14:22:54', 0, '0000-00-00 00:00:00', 0, b'0'),
+(19, '', '', '', 0, '0000-00-00', '', 'dhananjayghumare12@gmail.com', 'Dhananjay@10', '', b'0', b'0', '', 0, 0, 0, 0, 0, b'0', '2019-03-30 14:23:00', 0, '0000-00-00 00:00:00', 0, b'0'),
+(20, '', '', '', 0, '0000-00-00', '', 'dhananjayghumare12@gmail.com', 'Dhananjay@10', '', b'0', b'0', '', 0, 0, 0, 0, 0, b'0', '2019-03-30 14:23:39', 0, '0000-00-00 00:00:00', 0, b'0'),
+(21, '', '', '', 0, '0000-00-00', '', 'dhananjayghumare12@gmail.com', 'Dhananjay@10', '', b'0', b'0', '', 0, 0, 0, 0, 0, b'0', '2019-03-30 14:24:00', 0, '0000-00-00 00:00:00', 0, b'0'),
+(22, '', '', '', 0, '0000-00-00', '', 'dhananjayghumare12@gmail.com', 'Dhananjay@10', '', b'0', b'0', '', 0, 0, 0, 0, 0, b'0', '2019-03-30 14:25:15', 0, '0000-00-00 00:00:00', 0, b'0'),
+(25, 'cdjhjcmsdh', 'jjhhjkh', 'hjkh', 2147483647, '0000-00-00', '', 'dhananjay62.dg@gmail.com', 'Dhananjay@10', 'm', b'0', b'0', '', 0, 0, 0, 0, 0, b'1', '2019-04-01 14:00:15', 0, '0000-00-00 00:00:00', 0, b'0');
 
 -- --------------------------------------------------------
 
@@ -343,6 +375,12 @@ ALTER TABLE `event_images`
   ADD PRIMARY KEY (`event_images_id`);
 
 --
+-- Indexes for table `ipr`
+--
+ALTER TABLE `ipr`
+  ADD PRIMARY KEY (`ipr_id`);
+
+--
 -- Indexes for table `news_feed`
 --
 ALTER TABLE `news_feed`
@@ -353,6 +391,24 @@ ALTER TABLE `news_feed`
 --
 ALTER TABLE `news_images`
   ADD PRIMARY KEY (`news_images_id`);
+
+--
+-- Indexes for table `publications`
+--
+ALTER TABLE `publications`
+  ADD PRIMARY KEY (`publication_id`);
+
+--
+-- Indexes for table `published_books`
+--
+ALTER TABLE `published_books`
+  ADD PRIMARY KEY (`published_books_id`);
+
+--
+-- Indexes for table `research_projects`
+--
+ALTER TABLE `research_projects`
+  ADD PRIMARY KEY (`research_projects_id`);
 
 --
 -- Indexes for table `staff`
@@ -374,37 +430,61 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `event_coordinators`
 --
 ALTER TABLE `event_coordinators`
-  MODIFY `ec_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `ec_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `event_images`
 --
 ALTER TABLE `event_images`
-  MODIFY `event_images_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `event_images_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ipr`
+--
+ALTER TABLE `ipr`
+  MODIFY `ipr_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `news_feed`
 --
 ALTER TABLE `news_feed`
-  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `news_images`
 --
 ALTER TABLE `news_images`
-  MODIFY `news_images_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `news_images_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `publications`
+--
+ALTER TABLE `publications`
+  MODIFY `publication_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `published_books`
+--
+ALTER TABLE `published_books`
+  MODIFY `published_books_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `research_projects`
+--
+ALTER TABLE `research_projects`
+  MODIFY `research_projects_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `students`

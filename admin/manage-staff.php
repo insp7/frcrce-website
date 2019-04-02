@@ -93,6 +93,7 @@
                                 <?php
                                 if(!isset($_GET['export'])){
                                     ?>
+                                    <th>View</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                     <?php
@@ -111,6 +112,7 @@
                                 <?php
                                 if(!isset($_GET['export'])){
                                     ?>
+                                    <th>View</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                     <?php
