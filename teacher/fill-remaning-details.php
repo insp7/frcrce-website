@@ -100,7 +100,7 @@ include_once(BASE_URL . 'includes/ui/header.php');
 
                 <div class="form-group">
                     <label for="middle_name">Middle Name</label>
-                    <input  type="text" id="middle_name" name="middle_name" class="form-control" placeholder="Middle Name" data-parsley-trigger="change" data-parsley-required="true">
+                    <input  type="text" id="middle_name" name="middle_name" class="form-control" placeholder="Middle Name" data-parsley-trigger="change keyup" data-parsley-required="true">
                 </div>
 
                 <div class="form-group">
@@ -141,11 +141,27 @@ include_once(BASE_URL . 'includes/ui/header.php');
                 <!-- checkbox -->
                 <div class="form-group">
                     <label>
-                        <input type="checkbox" class="minimal" name="is_teaching" value="1">
-                        Teaching
+                        Are you teaching???
                     </label>
+                    <input type="checkbox"  name="is_teaching" value="1">
                 </div>
 
+
+                <div id="bos_accordion" class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                Are you member of bos ???   <label for=""> <input id="bos_check" type="checkbox"  name="is_bos" value="1" onclick="$('#bos_a').click();"></label>
+                                <a data-toggle="collapse" data-parent="#bos_accordion" href="#bos_collapse" id="bos_a"></a>
+                            </h4>
+                        </div>
+                        <div id="bos_collapse" class="panel-collapse collapse">
+                            <div class="panel-body">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <button class="btn btn-instagram" type="submit" name="remaining-details">Submit</button>

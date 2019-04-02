@@ -93,6 +93,64 @@
                             </ul>
                         </li> <!-- End of News -->
                         <?php
+                    } else if($_SESSION['role'] === 'teacher') {
+                        ?>
+                        <!-- Events -->
+                        <li class="treeview">
+                            <a href="">
+                                <i class="fa fa-newspaper-o"></i> <span>Publications</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="teacher/add-publication.php"><i class="fa fa-circle-o"></i> Create</a></li>
+                                <li><a href="teacher/manage-publications.php"><i class="fa fa-circle-o"></i> View</a></li>
+                            </ul>
+                        </li>
+                        <!-- End of Events -->
+
+                        <!-- News -->
+                        <li class="treeview">
+                            <a href="">
+                                <i class="fa fa-book"></i> <span>Published Books</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="teacher/add-published-book"><i class="fa fa-circle-o"></i> Create</a></li>
+                                <li><a href="teaher/create-published-books"><i class="fa fa-circle-o"></i> View</a></li>
+                            </ul>
+                        </li> <!-- End of News -->
+
+                              <!-- News -->
+                        <li class="treeview">
+                            <a href="">
+                                <i class="fa fa-line-chart"></i> <span>Research Projects</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="admin/add-research-project.php"><i class="fa fa-circle-o"></i> Create</a></li>
+                                <li><a href="admin/manage-research-project.php"><i class="fa fa-circle-o"></i> View</a></li>
+                            </ul>
+                        </li> <!-- End of News -->
+
+                        <li class="treeview">
+                            <a href="">
+                                <i class="fa fa-sticky-note"></i> <span>IPR</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="teacher/add-ipr.php"><i class="fa fa-circle-o"></i> Create</a></li>
+                                <li><a href="teacher/manage-ipr.php"><i class="fa fa-circle-o"></i> View</a></li>
+                            </ul>
+                        </li> <!-- End of News -->
+                        <?php
                     }
                 }
             ?>

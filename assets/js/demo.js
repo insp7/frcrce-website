@@ -8,7 +8,7 @@ $(function () {
     'use strict'
 
     /**
-     * Get access to plugins
+     * Get access to thirdparty
      */
 
     $('[data-toggle="control-sidebar"]').controlSidebar()

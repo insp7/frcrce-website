@@ -17,15 +17,16 @@
 
 
 <?php
-global $database;
+    global $database;
 
-if(isset($_POST['add-staff'])) {
-    // Insert into news_feed
-    $staff = new Staff();
-    $result = $staff->insertStaff($_POST['email'], $_POST['password']);
+    if(isset($_POST['add-staff'])) {
+        // Insert into news_feed
+        $staff = new Staff();
+        $result = $staff->insertStaff($_POST['email'], $_POST['password']);
 
-    header("Location: " . BASE_URL . "admin/manage-publications.php");
-}
+        header("Location: " . BASE_URL . "admin/manage-publications.php");
+
+    }
 ?>
 
 

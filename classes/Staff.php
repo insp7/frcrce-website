@@ -34,6 +34,16 @@ class Staff extends GeneralFunctions {
         return $result_row;
     }
 
+    public function getStaffDetailsById($id) {
+        $sql = "SELECT * FROM staff WHERE staff_id = :staff_id";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute(["staff_id" => $id]);
+        if($ps->rowCount()!=1)
+            return false;
+        $result_row = $ps->fetch(PDO::FETCH_ASSOC); // Only one row is expected
+        return $result_row;
+    }
+
     public function getAllStaff() {
         $sql = "SELECT * FROM staff WHERE is_deleted = 0";
         $ps = $this->connection->prepare($sql);
@@ -111,15 +121,38 @@ class Staff extends GeneralFunctions {
         $sql = "INSERT INTO staff(email, password) VALUES(:email, :password)";
         $ps = $this->connection->prepare($sql);
         $result = $ps->execute(["email" => $email, "password" => $password]);
-
+        $this->emailPassword($email,$password);
         return $result;
     }
 
     public function fillRemainingDetails($staff_id) {
         $data = $_POST;
-
         unset($data['remaining-details']);
         $data['is_fully_registered'] = 1;
         return self::generalUpdate('staff', $data,"staff_id = $staff_id");
     }
+<<<<<<< HEAD
+=======
+
+    private function emailPassword($email, $password){
+        require_once("Mailer.php");
+        $mailer = new Mailer();
+        $user_email = "$email";
+        $subject = "FRCRCEIT Login Info";
+
+        $body = "
+        <div style='font-family:Roboto; font-size:16px; max-width: 600px; line-height: 21px;'>    
+            Hello,
+            Your FRCRCEIT Account is Ready.
+            <br>  
+            PASSWORD: $password
+            <br>
+            Sincerely,
+            The FRCRCEIT Team.
+            </div>";
+
+        $mailer->send_mail($user_email, $body, $subject);
+    }
+
+>>>>>>> 96abfccc8258b5eb2e8094d52ca03546293630e8
 }

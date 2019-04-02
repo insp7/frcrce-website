@@ -24,8 +24,14 @@
         $staff = new Staff();
         $result = $staff->insertStaff($_POST['email'], $_POST['password']);
 
+<<<<<<< HEAD
         header("Location: " . BASE_URL . "admin/manage-publications.php");
     }
+=======
+
+    header("Location: " . BASE_URL . "admin/manage-publication.php");
+}
+>>>>>>> 96abfccc8258b5eb2e8094d52ca03546293630e8
 ?>
 
 
