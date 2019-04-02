@@ -12,7 +12,7 @@
     ob_start();
     define('BASE_URL', '../');
 
-    require_once(BASE_URL . 'authenticate.php');
+    require_once(BASE_URL . 'admin/authenticate-admin.php');
 ?>
 <!--END OF INIT-->
 

@@ -25,7 +25,7 @@
 ?> <!-- End of HEADER -->
 
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
+    <div class="wrapper">
     <!-- NAVIGATION -->
     <?php
             include_once(BASE_URL . 'includes/ui/navigation.php');
@@ -61,13 +61,13 @@
 
                 <div class="box-header">
                     <div class="pull-left">
-                        <a href="admin/add-staff.php" class="btn btn-danger">ADD <i class="fa fa-plus"></i></a>
+                        <a href="teacher/add-publication.php" class="btn btn-danger">ADD <i class="fa fa-plus"></i></a>
 
                         <?php
-                            if(isset($_GET['export'])){
-                                echo '<a href="admin/manage-publications.php" class="btn btn-warning">EDITABLE</a>';
-                            }else{
-                                echo '<a href="admin/manage-publications.php?export=true" class="btn btn-success">EXPORTABLE</a>';
+                            if(isset($_GET['export'])) {
+                                echo '<a href="teacher/manage-publications.php" class="btn btn-warning">EDITABLE</a>';
+                            } else {
+                                echo '<a href="teacher/manage-publications.php?export=true" class="btn btn-success">EXPORTABLE</a>';
                             }
                         ?>
 
@@ -81,17 +81,17 @@
                 <div class="box-body">
 
                     <div class="table-responsive">
-                        <table id="staff-table" class="display nowrap"  style="width:100%">
+                        <table id="publications-table" class="display nowrap"  style="width:100%">
                             <thead>
                             <tr>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>DOB</th>
-                                <th>Email</th>
-                                <th>Gender</th>
-                                <th>Number</th>
+                                <th>Staff ID</th>
+                                <th>Title</th>
+                                <th>Year</th>
+                                <th>Journal</th>
+                                <th>UGC Approved?</th>
+                                <th>Citation</th>
                                 <?php
-                                if(!isset($_GET['export'])){
+                                if(!isset($_GET['export'])) {
                                     ?>
                                     <th>Edit</th>
                                     <th>Delete</th>
@@ -102,12 +102,12 @@
                             </thead>
                             <tfoot>
                             <tr>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>DOB</th>
-                                <th>Email</th>
-                                <th>Gender</th>
-                                <th>Number</th>
+                                <th>Staff ID</th>
+                                <th>Title</th>
+                                <th>Year</th>
+                                <th>Journal</th>
+                                <th>UGC Approved?</th>
+                                <th>Citation</th>
                                 <?php
                                 if(!isset($_GET['export'])){
                                     ?>
@@ -123,7 +123,6 @@
 
                 </div>
             </div>
-
         </section>
         <!-- /.content -->
     </div>
@@ -134,21 +133,21 @@
             include_once(BASE_URL . 'includes/ui/footer.php');
         ?> <!-- End of FOOTER -->
 </div>
-<!-- ./wrapper -->
+    <!-- ./wrapper -->
 
 
 
 
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js"></script>
 
-<script src="assets/pages/admin/manage-staff.js"></script>
+    <script src="assets/pages/teacher/manage-publications.js"></script>
 </body>
 </html>

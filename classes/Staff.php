@@ -119,7 +119,7 @@ class Staff extends GeneralFunctions {
         $data = $_POST;
 
         unset($data['remaining-details']);
-        $data['is_fully_registered']=1;
-        return self::generalUpdate('staff',$data,"staff_id = $staff_id");
+        $data['is_fully_registered'] = 1;
+        return self::generalUpdate('staff', $data,"staff_id = $staff_id");
     }
 }

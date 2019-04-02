@@ -24,7 +24,7 @@ if(isset($_POST['add-staff'])) {
     $staff = new Staff();
     $result = $staff->insertStaff($_POST['email'], $_POST['password']);
 
-    header("Location: " . BASE_URL . "admin/manage-publication.php");
+    header("Location: " . BASE_URL . "admin/manage-publications.php");
 }
 ?>
 
