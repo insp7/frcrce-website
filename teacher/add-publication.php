@@ -11,28 +11,8 @@
 <?php
     ob_start();
     define('BASE_URL', '../');
-    require_once(BASE_URL . 'classes/Staff.php');
 ?>
 <!--END OF INIT-->
-
-
-<?php
-    global $database;
-
-    if(isset($_POST['add-staff'])) {
-        // Insert into news_feed
-        $staff = new Staff();
-        $result = $staff->insertStaff($_POST['email'], $_POST['password']);
-
-<<<<<<< HEAD
-        header("Location: " . BASE_URL . "admin/manage-publications.php");
-    }
-=======
-
-    header("Location: " . BASE_URL . "admin/manage-publication.php");
-}
->>>>>>> 96abfccc8258b5eb2e8094d52ca03546293630e8
-?>
 
 
 
@@ -78,17 +58,35 @@
             <!-------------------------
             | Your Page Content Here |
             -------------------------->
-            <form method="post" id="staff-form" >
+            <form method="post" id="add-publication-form" >
                 <div class="form-group">
-                    <label for="email_id">Email id</label>
-                    <input id="email_id" name="email" class="form-control" placeholder="Email Id">
+                    <label for="title">Title</label>
+                    <input id="title" name="title" class="form-control" placeholder="Title">
                 </div>
+
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input id="password" name="password" class="form-control" placeholder="Password">
+                    <label for="year">Year</label>
+                    <input type="date" id="year" name="year" class="form-control" placeholder="Year">
                 </div>
+
                 <div class="form-group">
-                    <button class="btn btn-instagram" type="submit" name="add-staff">Add Staff</button>
+                    <label for="journal">Journal</label>
+                    <input type="text" id="journal" name="journal" class="form-control" placeholder="Journal">
+                </div>
+
+                <!-- checkbox -->
+                <div class="form-group">
+                    <input type="checkbox" id="is_ugc_approved" name="is_ugc_approved" value="1">
+                    <label for="is_ugc_approved">&nbsp;UGC approved</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="citation">Citation</label>
+                    <input type="text" id="citation" name="citation" class="form-control" placeholder="Citation">
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-instagram" name="add-publication" id="add-publication">Add Publication</button>
                 </div>
             </form>
         </section>
@@ -103,6 +101,6 @@
 </div>
 <!-- ./wrapper -->
 
-<script src="assets/pages/admin/add-staff.js"></script>
+<script src="assets/pages/teacher/add-publication.js"></script>
 </body>
 </html>

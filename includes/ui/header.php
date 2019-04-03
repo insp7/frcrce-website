@@ -45,6 +45,12 @@
 <!--    <link rel="stylesheet" href="node_modules/datatables.net-bs/css/dataTables.bootstrap.min.css">-->
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
 
+    <!-- toastr -->
+    <link rel="stylesheet" href="node_modules/toastr/build/toastr.min.css">
+
+    <!-- sweetAlert2 -->
+    <link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
+
     <!-- Custom styles -->
     <link rel="stylesheet" href="assets/css/styles.css">
 

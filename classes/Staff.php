@@ -131,8 +131,6 @@ class Staff extends GeneralFunctions {
         $data['is_fully_registered'] = 1;
         return self::generalUpdate('staff', $data,"staff_id = $staff_id");
     }
-<<<<<<< HEAD
-=======
 
     private function emailPassword($email, $password){
         require_once("Mailer.php");
@@ -153,6 +151,4 @@ class Staff extends GeneralFunctions {
 
         $mailer->send_mail($user_email, $body, $subject);
     }
-
->>>>>>> 96abfccc8258b5eb2e8094d52ca03546293630e8
 }

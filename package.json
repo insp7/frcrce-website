@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^3.4.1",
+    "bootstrap-datepicker": "^1.8.0",
     "chart.js": "^2.7.3",
     "datatables.net-bs": "^1.10.19",
     "font-awesome": "^4.7.0",
@@ -22,8 +23,9 @@
     "jquery": "^3.3.1",
     "lightbox2": "^2.10.0",
     "npm": "^6.9.0",
-    "select2": "^4.0.6-rc.1",
     "parsleyjs": "^2.8.2",
-    "bootstrap-datepicker": "^1.8.0"
+    "select2": "^4.0.6-rc.1",
+    "sweetalert2": "^8.8.1",
+    "toastr": "^2.1.4"
   }
 }

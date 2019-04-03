@@ -11,6 +11,7 @@
 <?php
     ob_start();
     define('BASE_URL', '../');
+
     require_once(BASE_URL . 'classes/Staff.php');
 ?>
 <!--END OF INIT-->
