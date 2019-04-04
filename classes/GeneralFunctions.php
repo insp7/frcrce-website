@@ -301,9 +301,12 @@
                 $i++;
             }
             $sql = "UPDATE $table SET $columnValueSet WHERE $condition";
+            echo $sql;
             $ps = $conn->prepare($sql);
 
             $result = $ps->execute();
+            print_r($ps->errorInfo());
+
             if($result){
                 return $ps->rowCount();
             }else{

@@ -83,9 +83,43 @@ class Staff extends GeneralFunctions
     public function fillRemainingDetails($staff_id) {
         $data = $_POST;
         unset($data['remaining-details']);
+        unset($data['bos_chairman_certificate']);unset($data['bos_member_certificate']);unset($data['industry_certificate']);unset($data['subject_chairman_certificate']);unset($data['subject_expert_certificate']);unset($data['staff_selection_certificate']);unset($data['department_advisory_board_certificate']);unset($data['academic_audit_certificate']);unset($data['subject_expert_phd_certificate']);
+        unset($data['other_universities_examiner_certificate']);unset($data['examination_auditor_certificate']);unset($data['subject_co-ordinator_src_certificate']);
         $data['is_fully_registered']=1;
+        foreach($data as $key=>$value)
+        {
+            if(is_null($value) || $value == '')
+                unset($data[$key]);
+        }
+        print_r($data);
         return self::generalUpdate('staff',$data,"staff_id = $staff_id");
     }
+
+    public function uploadRemainingDetailsFiles() {
+        $uploaded_file_names = array("bos_chairman_certificate","bos_member_certificate","industry_certificate","subject_chairman_certificate","subject_expert_certificate","staff_selection_certificate","department_advisory_board_certificate","academic_audit_certificate","subject_expert_phd_certificate","other_universities_examiner_certificate","examination_auditor_certificate","subject_co-ordinator_src_certificate");
+        $target_dir = $_SERVER['DOCUMENT_ROOT'] ."/frcrce/teacher/upload/".$_SESSION['staff_id']."/";
+        foreach ($uploaded_file_names as $uploaded_file_name){
+            echo "Are you there";
+            echo isset($_FILES[$uploaded_file_name]);
+            if (isset($_FILES[$uploaded_file_name]) && $_FILES[$uploaded_file_name]['name']!=""){
+// Where the file is going to be stored
+                $file = $_FILES[$uploaded_file_name]['name'];
+                $path = pathinfo($file);
+                $filename = $uploaded_file_name;
+                $ext = $path['extension'];
+                $temp_name = $_FILES[$uploaded_file_name]['tmp_name'];
+                $path_filename_ext = $target_dir.$filename.".".$ext;
+
+// Check if file already exists
+                    echo "moved";
+                move_uploaded_file($temp_name,$path_filename_ext);
+
+
+            }
+        }
+        die("show error");
+    }
+
 
     private function emailPassword($email, $password){
         require_once("Mailer.php");
