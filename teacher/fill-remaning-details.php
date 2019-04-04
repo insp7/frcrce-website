@@ -7,16 +7,14 @@
  */
 ?>
 
-
-
 <!--INIT-->
 <?php
-session_start();
-ob_start();
-define('BASE_URL', '../');
-require_once(BASE_URL . 'classes/Staff.php');
+    session_start();
+    ob_start();
+    define('BASE_URL', '../');
+    require_once(BASE_URL . 'classes/Staff.php');
 
-/*TODO FIELDS TO BE FILLED IN REMAINING DETAILS `first_name`, `middle_name`, `last_name`, `contact_no`, `date_of_birth`, 'password',`gender`, `is_permanent`, `is_teaching`, `pan`, `employee_id`, `is_ad_hoc`, `is_bos_chairman`, `is_bos_member`, `is_staff_selection_committee_member`*/
+    /*TODO FIELDS TO BE FILLED IN REMAINING DETAILS `first_name`, `middle_name`, `last_name`, `contact_no`, `date_of_birth`, 'password',`gender`, `is_permanent`, `is_teaching`, `pan`, `employee_id`, `is_ad_hoc`, `is_bos_chairman`, `is_bos_member`, `is_staff_selection_committee_member`*/
 ?>
 <!--END OF INIT-->
 
@@ -50,12 +48,13 @@ if(isset($_POST['remaining-details'])) {
 
 <!-- HEADER -->
 <?php
-include_once(BASE_URL . 'includes/ui/header.php');
+    include_once(BASE_URL . 'includes/ui/header.php');
 ?> <!-- End of HEADER -->
 <!-- iCheck for checkboxes and radio inputs -->
 <link rel="stylesheet" href="assets/plugins/iCheck/all.css">
 
 <body class="hold-transition skin-blue sidebar-mini">
+
 <div class="wrapper">
     <!-- NAVIGATION -->
     <?php
@@ -566,21 +565,17 @@ include_once(BASE_URL . 'includes/ui/header.php');
 
         </section>
         <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
 
+    <!-- ./wrapper -->
 
-    <!-- FOOTER -->
-    <?php
-    include_once(BASE_URL . 'includes/ui/footer.php');
-    ?> <!-- End of FOOTER -->
-</div>
-<!-- ./wrapper -->
-<script src="node_modules/parsleyjs/dist/parsley.min.js"></script>
-<!-- bootstrap datepicker -->
-<script src="node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-<!-- iCheck 1.0.1 -->
-<script src="assets/plugins/iCheck/icheck.min.js"></script>
-<script src="assets/pages/teacher/fill-remaning-details.js"></script>
+    <script src="node_modules/parsleyjs/dist/parsley.min.js"></script>
+
+    <!-- bootstrap datepicker -->
+    <script src="node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- iCheck 1.0.1 -->
+    <script src="assets/plugins/iCheck/icheck.min.js"></script>
+
+    <script src="assets/pages/teacher/fill-remaning-details.js"></script>
 </body>
 </html>

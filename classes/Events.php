@@ -121,4 +121,30 @@ class Events {
 
         return $result_set;
     }
+
+    public function getAllEventsToAdvertise() {
+        $sql = "SELECT * FROM events WHERE is_deleted = 0 AND publish_as_news = 1";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute();
+        $result_set = $ps->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result_set;
+    }
+
+    public function getSelectedAttributes($event_id, $selected_attributes_String) {
+        $sql = "SELECT $selected_attributes_String FROM events WHERE event_id = :event_id";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute(["event_id" =>$event_id]);
+        $result = $ps->fetch(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
+    public function publishAsNews($event_id, $selected_attributes_string) {
+        $sql = "UPDATE events SET selected_attributes = :selected_attributes_string, publish_as_news = 1 WHERE event_id = :event_id";
+        $ps = $this->connection->prepare($sql);
+        $result = $ps->execute(["selected_attributes_string" => $selected_attributes_string, "event_id" => $event_id]);
+
+        return $result;
+    }
 }

@@ -9,25 +9,10 @@
 
 <!--INIT-->
 <?php
-ob_start();
-define('BASE_URL', '../');
-require_once(BASE_URL . 'classes/Staff.php');
+    ob_start();
+    define('BASE_URL', '../');
 ?>
 <!--END OF INIT-->
-
-
-<?php
-global $database;
-
-if(isset($_POST['add-staff'])) {
-    // Insert into news_feed
-    $staff = new Staff();
-    $result = $staff->insertStaff($_POST['email'], $_POST['password']);
-
-
-    header("Location: " . BASE_URL . "admin/manage-publication.php");
-}
-?>
 
 
 
@@ -38,66 +23,92 @@ if(isset($_POST['add-staff'])) {
 
 <!-- HEADER -->
 <?php
-include_once(BASE_URL . 'includes/ui/header.php');
+    include_once(BASE_URL . 'includes/ui/header.php');
 ?> <!-- End of HEADER -->
 
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
-    <!-- NAVIGATION -->
-    <?php
-    include_once(BASE_URL . 'includes/ui/navigation.php');
-    ?> <!-- End of NAVIGATION -->
+    <div class="wrapper">
+        <!-- NAVIGATION -->
+        <?php
+            include_once(BASE_URL . 'includes/ui/navigation.php');
+        ?> <!-- End of NAVIGATION -->
 
-    <!-- SIDEBAR -->
-    <?php
-    include_once(BASE_URL . 'includes/ui/sidebar.php');
-    ?> <!-- End of SIDEBAR -->
+        <!-- SIDEBAR -->
+        <?php
+            include_once(BASE_URL . 'includes/ui/sidebar.php');
+        ?> <!-- End of SIDEBAR -->
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Dashboard
-                <small>Version 2.0</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Add Staff</li>
-            </ol>
-        </section>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    Publication
+                    <small>Add</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Publication</a></li>
+                    <li class="active">Add</li>
+                </ol>
+            </section>
 
-        <!-- Main content -->
-        <section class="content container-fluid">
+            <!-- Main content -->
+            <section class="content container-fluid">
 
-            <!-------------------------
-            | Your Page Content Here |
-            -------------------------->
-            <form method="post" id="staff-form" >
-                <div class="form-group">
-                    <label for="email_id">Email id</label>
-                    <input id="email_id" name="email" class="form-control" placeholder="Email Id">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input id="password" name="password" class="form-control" placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-instagram" type="submit" name="add-staff">Add Staff</button>
-                </div>
-            </form>
-        </section>
-        <!-- /.content -->
+                <!-------------------------
+                | Your Page Content Here |
+                -------------------------->
+                <form method="post" id="add-publication-form" >
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input id="title" name="title" class="form-control" placeholder="Title">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="year">Year</label>
+                        <input type="date" id="year" name="year" class="form-control" placeholder="Year">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="journal">Journal</label>
+                        <input type="text" id="journal" name="journal" class="form-control" placeholder="Journal">
+                    </div>
+
+                    <!-- checkbox -->
+                    <div class="form-group">
+                        <input type="checkbox" id="is_ugc_approved" name="is_ugc_approved" value="1">
+                        <label for="is_ugc_approved">&nbsp;UGC approved</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="citation">Citation</label>
+                        <input type="text" id="citation" name="citation" class="form-control" placeholder="Citation">
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-instagram" name="add-publication" id="add-publication">Add Publication</button>
+                    </div>
+                </form>
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <!-- FOOTER -->
+        <?php
+            include_once(BASE_URL . 'includes/ui/footer.php');
+        ?> <!-- End of FOOTER -->
     </div>
-    <!-- /.content-wrapper -->
+    <!-- ./wrapper -->
 
-    <!-- FOOTER -->
-    <?php
-    include_once(BASE_URL . 'includes/ui/footer.php');
-    ?> <!-- End of FOOTER -->
-</div>
-<!-- ./wrapper -->
+    <!-- Plugins and scripts required by this view-->
 
-<script src="assets/pages/admin/add-staff.js"></script>
+    <!-- toastr -->
+    <script src="node_modules/toastr/build/toastr.min.js"></script>
+
+    <!-- custom js -->
+    <script src="assets/pages/teacher/add-publication.js"></script>
+
+    <!-- End of Plugins and scripts required by this view-->
 </body>
 </html>

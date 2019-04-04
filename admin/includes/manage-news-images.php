@@ -22,8 +22,13 @@
         $extension = array("jpeg", "jpg", "png", "gif");
         $bytes = 1024;
         $KB = 1024;
-        $totalBytes = $bytes * $KB;
-        $UploadFolder = BASE_URL . "upload-folder";
+        $totalBytes = $bytes * $KB * 5;
+
+        if(!file_exists(BASE_URL . 'upload-folder/news-images/' . $_GET['q'])) {
+            mkdir(BASE_URL . 'upload-folder/news-images/' . $_GET['q']);
+        }
+
+        $UploadFolder = BASE_URL . "upload-folder/news-images/" . $_GET['q'];
 
         $counter = 0;
 
@@ -40,7 +45,7 @@
 
             if ($_FILES["files"]["size"][$key] > $totalBytes) {
                 $UploadOk = false;
-                array_push($errors, $name . " file size is larger than the 1 MB.");
+                array_push($errors, $name . " total files' size is larger than the 5 MB.");
             }
 
             $ext = pathinfo($name, PATHINFO_EXTENSION);
@@ -62,13 +67,43 @@
             }
         }
 
-        if(count($uploadedFiles) > 0) {
-            // insert image name into database
-            $news_image = new NewsImages();
-            $result = $news_image->insertNewsImages($uploadedFiles);
+        if($counter > 0) {
+            if(count($errors) > 0) {
+                echo "<b>Errors:</b>";
+                echo "<br/><ul>";
+                foreach($errors as $error) {
+                    echo "<li>".$error."</li>";
+                }
+                echo "</ul><br/>";
+            }
+
+            if(count($uploadedFiles)>0) {
+                // insert image name into database
+                $news_image = new NewsImages();
+                $result = $news_image->insertNewsImages($uploadedFiles);
+
+                echo "<b>Uploaded Files:</b>";
+                echo "<br/><ul>";
+                foreach($uploadedFiles as $fileName) {
+                    if($fileName == $_GET['q']) continue;
+                    echo "<li>".$fileName."</li>";
+                }
+                echo "</ul><br/>";
+
+                echo (count($uploadedFiles)/2) . " file(s) are successfully uploaded.";
+            }
+        }
+        else {
+            echo "Please, Select file(s) to upload.";
         }
 
-        header("Location: " . BASE_URL . "admin/news.php");
+//        if(count($uploadedFiles) > 0) {
+//            // insert image name into database
+//            $news_image = new NewsImages();
+//            $result = $news_image->insertNewsImages($uploadedFiles);
+//        }
+
+//        header("Location: " . BASE_URL . "admin/news.php");
     }
 
 ?>
@@ -131,7 +166,7 @@
                             <tr>
                                 <td><?php echo $row['news_images_id']; ?></td>
                                 <td><?php echo $row['news_id']; ?></td>
-                                <td><img src="upload-folder/<?php echo $row['news_image_path']; ?>" class="img-responsive" alt="<?php echo $row['news_image_path']; ?>" height="300px" width="300px"></td>
+                                <td><img src="upload-folder/news-images/<?php echo $row['news_id'] . '/' . $row['news_image_path']; ?>" class="img-responsive" alt="<?php echo $row['news_image_path']; ?>" height="300px" width="300px"></td>
                                 <td><button class='delete-news-image fa fa-trash btn btn-danger' id='<?php echo $row['news_images_id']; ?>' data-toggle='modal' data-target='#delete_news_image_modal'></button></td>
                             </tr>
                             <?php

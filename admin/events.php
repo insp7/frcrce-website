@@ -12,7 +12,7 @@
     ob_start();
     define('BASE_URL', '../');
 
-    require_once(BASE_URL . 'authenticate.php');
+    require_once(BASE_URL . 'admin/authenticate-admin.php');
 ?>
 <!--END OF INIT-->
 
@@ -66,7 +66,11 @@
                     }
 
                     if(intval($q)) {
-                        include_once('includes/manage-event-images.php');
+                        if(isset($_GET['action']) && $_GET['action'] === "publish-as-news") {
+                            include_once('includes/events/publish-event.php');
+                        } else {
+                            include_once('includes/manage-event-images.php');
+                        }
                     } else {
                         switch ($q) {
                             case 'add':
@@ -114,6 +118,32 @@
         // For select2 plugin
         $(document).ready(function() {
             $('#event_coordinator').select2();
+            $('#event_attr').select2();
+            
+            $('#publish_as_news').on('click', function (event) {
+                event.preventDefault();
+
+                var event_id = $('#event-to-publish').val();
+
+                var eventToPublish = {
+                    event_attr: $('#event_attr').select2('data'),
+                    event_id: event_id
+                };
+
+                // Ajax send request
+                $.ajax({
+                    type : 'POST' ,
+                    data: "event_to_publish=" + JSON.stringify(eventToPublish) + "&manage=publish_event_as_news",
+                    url: "admin/scripts/events/publish-as-news.php"
+                }).done(function(response) {
+                    if(response === "true") {
+                        window.location.pathname = 'frcrce/admin/events.php';
+                    } else {
+                        alert(response);
+                        console.log(response);
+                    }
+                });
+            });
         });
     </script>
     <!-- End of Plugins and scripts required by this view-->

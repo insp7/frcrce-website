@@ -9,24 +9,25 @@
 
 <!--INIT-->
 <?php
-ob_start();
-define('BASE_URL', '../');
-require_once(BASE_URL . 'classes/Staff.php');
+    ob_start();
+    define('BASE_URL', '../');
+
+    require_once(BASE_URL . 'classes/Staff.php');
 ?>
 <!--END OF INIT-->
 
 
 <?php
-global $database;
+    global $database;
 
-if(isset($_POST['add-staff'])) {
-    // Insert into news_feed
-    $staff = new Staff();
-    $result = $staff->insertStaff($_POST['email'], $_POST['password']);
+    if(isset($_POST['add-staff'])) {
+        // Insert into news_feed
+        $staff = new Staff();
+        $result = $staff->insertStaff($_POST['email'], $_POST['password']);
 
+        header("Location: " . BASE_URL . "admin/manage-publications.php");
 
-    header("Location: " . BASE_URL . "admin/manage-publication.php");
-}
+    }
 ?>
 
 
@@ -38,19 +39,19 @@ if(isset($_POST['add-staff'])) {
 
 <!-- HEADER -->
 <?php
-include_once(BASE_URL . 'includes/ui/header.php');
+    include_once(BASE_URL . 'includes/ui/header.php');
 ?> <!-- End of HEADER -->
 
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
     <!-- NAVIGATION -->
     <?php
-    include_once(BASE_URL . 'includes/ui/navigation.php');
+        include_once(BASE_URL . 'includes/ui/navigation.php');
     ?> <!-- End of NAVIGATION -->
 
     <!-- SIDEBAR -->
     <?php
-    include_once(BASE_URL . 'includes/ui/sidebar.php');
+        include_once(BASE_URL . 'includes/ui/sidebar.php');
     ?> <!-- End of SIDEBAR -->
 
     <!-- Content Wrapper. Contains page content -->
@@ -93,7 +94,7 @@ include_once(BASE_URL . 'includes/ui/header.php');
 
     <!-- FOOTER -->
     <?php
-    include_once(BASE_URL . 'includes/ui/footer.php');
+        include_once(BASE_URL . 'includes/ui/footer.php');
     ?> <!-- End of FOOTER -->
 </div>
 <!-- ./wrapper -->

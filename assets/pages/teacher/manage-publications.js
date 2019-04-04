@@ -6,7 +6,7 @@ for (var i = 0; i < parts.length; i++) {
 }
 
 var hidden_staff_id =$('#hidden_staff_id').text();
-console.log(hidden_staff_id);
+// console.log(hidden_staff_id);
 // window.alert("Value is"+hidden_staff_id);
 
 // alert($_GET.bar);
@@ -17,19 +17,18 @@ if ($_GET['export'] == undefined){
     url = "teacher/scripts/publications/manage.php?export=true&staff_id="+hidden_staff_id;
 }
 
-var staffTable;
-var StaffDatatable = function(){
+var publicationsTable;
+var publicationsDatatable = function(){
 
-    var handleStaffTable = function(){
+    var handlePublicationsTable = function(){
 
-        staffTable = $("#publications-table");
+        publicationsTable = $("#publications-table");
 
-        staffTable.dataTable({
+        publicationsTable.dataTable({
             "processing": true,
             "serverSide": true,
             "ajax":{
-                url:
-                url,
+                url: url,
                 type: "POST",
             },
             "lengthMenu": [
@@ -53,48 +52,55 @@ var StaffDatatable = function(){
             ]
         });
 
-
-
-        //EDIT
-        staffTable.on('click', '.edit', function(e){
-            $id = $(this).attr('id');
-            $("#edit_event_id").val($id);
-            //fetching all other values from database using ajax and loading them onto their respective edit fields!
-            //alert($id); to print for checking
-            $.ajax({
-                url:"http://localhost/erp/pages/scripts/event/fetch.php",
-                method: "POST",
-                data: {event_id:$id},
-                dataType: "json",
-                success: function(data){
-                    $("#event_name").val(data.event_name);
-                    $("#hsn_code").val(data.hsn_code);
-                    $("#gst_rate").val(data.gst_rate);
-                    $("#editModal").modal('show');
-                },
-            });
-        });
-
         //DELETE
-        staffTable.on('click', '.delete', function(e){
+        publicationsTable.on('click', '.delete', function(e) {
             $id = $(this).attr('id');
-            $("#recordID").val($id);
+
+            Swal.fire({
+                    title: 'Are you sure?',
+                    text: "For reverting this delete, contact admin",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#28a745',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, Delete it'
+            }).then((result) => {
+                if (result.value) {
+                    $.ajax({
+                        url: "http://localhost/frcrce/teacher/scripts/publications/delete.php",
+                        method: "POST",
+                        data: "delete_publication_id=" + $id,
+                        dataType: "text",
+                        success: function (data) {
+                            console.log(data);
+                        }
+                    });
+
+                    // Swal.fire(
+                    //     'Deleted!',
+                    //     'Selected Entry has been deleted.',
+                    //     'success'
+                    // );
+
+                    location.reload(); // refresh the current page, later write custom javascript to hide that entry and uncomment swal.fire
+                }
+            })
         });
 
     }
     return{
         //main function in javascript to handle all the initialisation part
         init: function(){
-            handleStaffTable();
+            handlePublicationsTable();
         }
     };
 }();
 
 jQuery(document).ready(function(){
-    StaffDatatable.init();
+    publicationsDatatable.init();
 
 
-    var buttons = new $.fn.dataTable.Buttons(staffTable, {
+    var buttons = new $.fn.dataTable.Buttons(publicationsTable, {
         buttons: [
             'copyHtml5',
             'excelHtml5',
@@ -116,5 +122,5 @@ jQuery(document).ready(function(){
     $(".buttons-excel").addClass("btn btn-danger");
     $(".buttons-copy").addClass("btn btn-success");
     $(".buttons-csv").addClass("btn btn-warning");
-    $('[name="staff-table_length"]').addClass("input-sm");
+    $('[name="publications-table_length"]').addClass("input-sm");
 });

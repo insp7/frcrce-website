@@ -119,8 +119,8 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="teacher/add-published-book"><i class="fa fa-circle-o"></i> Create</a></li>
-                                <li><a href="teaher/create-published-books"><i class="fa fa-circle-o"></i> View</a></li>
+                                <li><a href="teacher/add-published-book.php"><i class="fa fa-circle-o"></i> Create</a></li>
+                                <li><a href="teacher/manage-published-books.php"><i class="fa fa-circle-o"></i> View</a></li>
                             </ul>
                         </li> <!-- End of News -->
 
@@ -133,8 +133,8 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="admin/add-research-project.php"><i class="fa fa-circle-o"></i> Create</a></li>
-                                <li><a href="admin/manage-research-project.php"><i class="fa fa-circle-o"></i> View</a></li>
+                                <li><a href="teacher/add-research-project.php"><i class="fa fa-circle-o"></i> Create</a></li>
+                                <li><a href="teacher/manage-research-projects.php"><i class="fa fa-circle-o"></i> View</a></li>
                             </ul>
                         </li> <!-- End of News -->
 

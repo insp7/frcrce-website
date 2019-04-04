@@ -12,8 +12,8 @@
 
 require_once('Database.php');
 require_once ('GeneralFunctions.php');
-class Staff extends GeneralFunctions
-{
+
+class Staff extends GeneralFunctions {
 
     /**
      * Creates a new Staff object and sets the $connection variable for this object equal to the database connection object.
@@ -62,6 +62,51 @@ class Staff extends GeneralFunctions
         return $result_set;
     }
 
+    public function countMaleStaff() {
+        $sql = "SELECT count(*) AS total_male_staff_count FROM staff WHERE is_deleted = 0 AND gender = 'm'";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute();
+        $result_set = $ps->fetch(PDO::FETCH_ASSOC);
+
+        return $result_set;
+    }
+
+    public function countPermanentStaff() {
+        $sql = "SELECT count(*) AS permanent_staff_count FROM staff WHERE is_deleted = 0 AND is_permanent = 1";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute();
+        $result_set = $ps->fetch(PDO::FETCH_ASSOC);
+
+        return $result_set;
+    }
+
+    public function countPermanentTeachingSTaff() {
+        $sql = "SELECT count(*) AS permanent_teaching_staff FROM staff WHERE is_deleted = 0 AND is_permanent = 1 AND is_teaching = 1";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute();
+        $result_set = $ps->fetch(PDO::FETCH_ASSOC);
+
+        return $result_set;
+    }
+
+    public function countAdhocStaff() {
+        $sql = "SELECT count(*) AS ad_hoc_staff_count FROM staff WHERE is_deleted = 0 AND is_permanent = 0";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute();
+        $result_set = $ps->fetch(PDO::FETCH_ASSOC);
+
+        return $result_set;
+    }
+
+    public function countAdhocTeachingStaff() {
+        $sql = "SELECT count(*) AS ad_hoc_staff_count FROM staff WHERE is_deleted = 0 AND is_permanent = 0 AND is_teaching = 1";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute();
+        $result_set = $ps->fetch(PDO::FETCH_ASSOC);
+
+        return $result_set;
+    }
+
     public function isFullyRegistered($staff_id) {
         $sql = "SELECT * FROM staff WHERE is_deleted = 0 AND staff_id = :staff_id";
         $ps = $this->connection->prepare($sql);
@@ -83,6 +128,7 @@ class Staff extends GeneralFunctions
     public function fillRemainingDetails($staff_id) {
         $data = $_POST;
         unset($data['remaining-details']);
+
         unset($data['bos_chairman_certificate']);unset($data['bos_member_certificate']);unset($data['industry_certificate']);unset($data['subject_chairman_certificate']);unset($data['subject_expert_certificate']);unset($data['staff_selection_certificate']);unset($data['department_advisory_board_certificate']);unset($data['academic_audit_certificate']);unset($data['subject_expert_phd_certificate']);
         unset($data['other_universities_examiner_certificate']);unset($data['examination_auditor_certificate']);unset($data['subject_co-ordinator_src_certificate']);
         $data['is_fully_registered']=1;
@@ -92,7 +138,8 @@ class Staff extends GeneralFunctions
                 unset($data[$key]);
         }
         print_r($data);
-        return self::generalUpdate('staff',$data,"staff_id = $staff_id");
+        $data['is_fully_registered'] = 1;
+        return self::generalUpdate('staff', $data,"staff_id = $staff_id");
     }
 
     public function uploadRemainingDetailsFiles() {
@@ -141,4 +188,12 @@ class Staff extends GeneralFunctions
         $mailer->send_mail($user_email, $body, $subject);
     }
 
+    public function getStaffNameById($staff_id) {
+        $sql = "SELECT first_name, last_name FROM staff WHERE staff_id = :staff_id AND is_deleted = 0";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute(["staff_id" => $staff_id]);
+        $result = $ps->fetch(PDO::FETCH_ASSOC);
+
+        return $result['first_name'] . " " . $result['last_name'];
+    }
 }

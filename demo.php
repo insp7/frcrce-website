@@ -6,26 +6,21 @@
  * Time: 9:35 PM
  */
 
-
-
-class Database{
+class Database {
     private $host       =   "localhost";
     private $db_name    =   "frcrcedb";
     private $username   =   "root";
     private $password   =   "";
     private $conn       =   null;
 
-    /**
-     * Database constructor.
-     */
-    public function __construct(){
-        try{
+    public function __construct() {
+        try {
             $this->conn = new PDO("mysql:host={$this->host};dbname={$this->db_name}", $this->username, $this->password);
-        }catch(PDOException $e){
+        } catch(PDOException $e) {
             die("Issue : " . $e->getMessage());
         }
     }
-    public function getConnection(){
+    public function getConnection() {
         return $this->conn;
     }
 }
