@@ -2,18 +2,17 @@
 /**
  * Created by PhpStorm.
  * User: Aniket
- * Date: 4/2/2019
- * Time: 9:26 PM
+ * Date: 4/4/2019
+ * Time: 6:28 AM
  */
 
-    // INIT
     ob_start();
     define('BASE_URL', '../');
 
-    require_once(BASE_URL . 'classes/Publications.php');
+    require_once(BASE_URL . 'classes/PublishedBooks.php');
 
-    $publications = new Publications();
-    $result = $publications->getPublicationById($_GET['id']);
+    $published_books = new PublishedBooks();
+    $result = $published_books->getPublishedBookById($_GET['id']);
 ?>
 <!--END OF INIT-->
 
@@ -44,11 +43,11 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Publications
+                    Published books
                     <small>Edit</small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Publications</a></li>
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Published Books</a></li>
                     <li class="active">Edit</li>
                 </ol>
             </section>
@@ -59,35 +58,14 @@
                 <!-------------------------
                 | Your Page Content Here |
                 -------------------------->
-                <form method="post" id="edit-publication-form" >
+                <form method="post" id="edit-published-book-form" >
                     <div class="form-group">
-                        <label for="title">Title</label>
-                        <input id="title" name="title" class="form-control" placeholder="Title" value="<?php echo $result['title']; ?>">
+                        <label for="details">Details</label>
+                        <input id="details" name="details" class="form-control" placeholder="Detail" value="<?php echo $result['details']; ?>">
                     </div>
 
                     <div class="form-group">
-                        <label for="year">Year</label>
-                        <input type="date" id="year" name="year" class="form-control" placeholder="Year" value="<?php echo $result['year']; ?>">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="journal">Journal</label>
-                        <input type="text" id="journal" name="journal" class="form-control" placeholder="Journal" value="<?php echo $result['journal']; ?>">
-                    </div>
-
-                    <!-- checkbox -->
-                    <div class="form-group">
-                        <input type="checkbox" id="is_ugc_approved" name="is_ugc_approved" <?php if($result['is_ugc_approved'] == 1) echo "checked"; ?>>
-                        <label for="is_ugc_approved">&nbsp;UGC approved</label>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="citation">Citation</label>
-                        <input type="text" id="citation" name="citation" class="form-control" placeholder="Citation" value="<?php echo $result['citation']; ?>">
-                    </div>
-
-                    <div class="form-group">
-                        <button class="btn btn-danger" name="update-publication" id="<?php echo $_GET['id']; ?>">Update Publication</button>
+                        <button class="btn btn-danger" name="update-published-book" id="<?php echo $_GET['id']; ?>">Update Published book</button>
                     </div>
                 </form>
             </section>
@@ -102,31 +80,24 @@
     </div>
     <!-- ./wrapper -->
 
-
-    <!-- Plugins and scripts required by this view-->
-
     <!-- toastr -->
     <script src="node_modules/toastr/build/toastr.min.js"></script>
 
     <!-- script for when update button is clicked -->
     <script>
         $(document).ready(function (e) {
-            $('[name="update-publication"]').on('click', function (e) {
+            $('[name="update-published-book"]').on('click', function (e) {
                 e.preventDefault();
 
-                var updated_publication_details = {
-                    "publication_id": $(this).attr('id'),
-                    "year": $('#year').val(),
-                    "journal": $('#journal').val(),
-                    "is_ugc_approved": $('#is_ugc_approved').val(),
-                    "citation": $('#citation').val(),
-                    "title": $('#title').val()
+                var updated_published_book_details = {
+                    "published_books_id": $(this).attr('id'),
+                    "details": $('#details').val()
                 };
 
                 $.ajax({
-                    url: "http://localhost/frcrce/teacher/scripts/publications/update.php",
+                    url: "http://localhost/frcrce/teacher/scripts/published-books/update.php",
                     method: "POST",
-                    data: "update_publication_json_string=" + JSON.stringify(updated_publication_details),
+                    data: "update_published_books_json_string=" + JSON.stringify(updated_published_book_details),
                     dataType: "text",
                     success: function(data) {
                         if(data){
@@ -150,7 +121,7 @@
                                 "hideMethod": "fadeOut"
                             };
 
-                            toastr["info"]("Publication details updated!", "Success");
+                            toastr["info"]("Published Book details updated!", "Success");
                         } else {
                             alert('Some problem' + data);
                             console.log(data);

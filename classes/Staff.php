@@ -151,4 +151,13 @@ class Staff extends GeneralFunctions {
 
         $mailer->send_mail($user_email, $body, $subject);
     }
+
+    public function getStaffNameById($staff_id) {
+        $sql = "SELECT first_name, last_name FROM staff WHERE staff_id = :staff_id AND is_deleted = 0";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute(["staff_id" => $staff_id]);
+        $result = $ps->fetch(PDO::FETCH_ASSOC);
+
+        return $result['first_name'] . " " . $result['last_name'];
+    }
 }

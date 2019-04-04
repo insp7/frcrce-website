@@ -1,14 +1,11 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Dhananjay
- * Date: 3/19/2019
- * Time: 8:44 PM
+ * User: Aniket
+ * Date: 4/4/2019
+ * Time: 5:58 AM
  */
-?>
 
-<!--INIT-->
-<?php
     ob_start();
     define('BASE_URL', '../');
 ?>
@@ -43,11 +40,11 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Publication
+                    IPR
                     <small>Add</small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Publication</a></li>
+                    <li><a href="#"><i class="fa fa-dashboard"></i> IPR</a></li>
                     <li class="active">Add</li>
                 </ol>
             </section>
@@ -58,11 +55,7 @@
                 <!-------------------------
                 | Your Page Content Here |
                 -------------------------->
-                <form method="post" id="add-publication-form" >
-                    <div class="form-group">
-                        <label for="title">Title</label>
-                        <input id="title" name="title" class="form-control" placeholder="Title">
-                    </div>
+                <form method="post" id="add-ipr-form">
 
                     <div class="form-group">
                         <label for="year">Year</label>
@@ -70,25 +63,20 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="journal">Journal</label>
-                        <input type="text" id="journal" name="journal" class="form-control" placeholder="Journal">
-                    </div>
-
-                    <!-- checkbox -->
-                    <div class="form-group">
-                        <input type="checkbox" id="is_ugc_approved" name="is_ugc_approved" value="1">
-                        <label for="is_ugc_approved">&nbsp;UGC approved</label>
+                        <label for="patents_published_count">Patents Published</label>
+                        <input type="number" id="patents_published_count" name="patents_published_count" class="form-control" placeholder="No. of Patents Published">
                     </div>
 
                     <div class="form-group">
-                        <label for="citation">Citation</label>
-                        <input type="text" id="citation" name="citation" class="form-control" placeholder="Citation">
+                        <label for="patents_granted_count">Patents Granted</label>
+                        <input type="text" id="patents_granted_count" name="patents_granted_count" class="form-control" placeholder="No. of Patents Granted">
                     </div>
 
                     <div class="form-group">
-                        <button class="btn btn-instagram" name="add-publication" id="add-publication">Add Publication</button>
+                        <button class="btn btn-instagram" name="add-ipr" id="add-ipr">Add IPR</button>
                     </div>
                 </form>
+                <!-- /.add-ipr-form -->
             </section>
             <!-- /.content -->
         </div>
@@ -101,14 +89,11 @@
     </div>
     <!-- ./wrapper -->
 
-    <!-- Plugins and scripts required by this view-->
 
     <!-- toastr -->
     <script src="node_modules/toastr/build/toastr.min.js"></script>
 
     <!-- custom js -->
-    <script src="assets/pages/teacher/add-publication.js"></script>
-
-    <!-- End of Plugins and scripts required by this view-->
+    <script src="assets/pages/teacher/add-ipr.js"></script>
 </body>
 </html>

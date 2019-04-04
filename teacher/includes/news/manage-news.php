@@ -17,6 +17,7 @@
 <div class="row">
 
     <div class="col-md-12">
+
         <!--ACTION ROW-->
         <div class="row">
             <div class="col-md-6 pull-right">
@@ -38,19 +39,20 @@
                 </div>
             </div>
         </div>
+
         <!--TABLE-->
         <br>
         <div class="box">
             <div class="box-body">
                 <table class="table table-striped table-hover table-bordered dataTable" id="news_list">
                     <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>News title</th>
-                        <th>Description</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
+                        <tr>
+                            <th>ID</th>
+                            <th>News title</th>
+                            <th>Description</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
                     </thead>
                 </table>
             </div>

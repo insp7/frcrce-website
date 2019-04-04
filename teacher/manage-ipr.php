@@ -1,14 +1,11 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Dhananjay
- * Date: 3/19/2019
- * Time: 8:44 PM
+ * User: Aniket
+ * Date: 4/3/2019
+ * Time: 9:11 PM
  */
-?>
 
-<!--INIT-->
-<?php
     ob_start();
     define('BASE_URL', '../');
 ?>
@@ -56,19 +53,20 @@
                 <!-------------------------
                 | Your Page Content Here |
                 -------------------------->
+                <p hidden id="hidden_staff_id"><?php echo $_SESSION['staff_id']; ?></p>
 
                 <div class="box">
 
                     <div class="box-header">
                         <div class="pull-left">
-                            <a href="admin/add-staff.php" class="btn btn-danger">ADD <i class="fa fa-plus"></i></a>
+                            <a href="teacher/add-ipr.php" class="btn btn-danger">ADD <i class="fa fa-plus"></i></a>
 
                             <?php
-                                if(isset($_GET['export'])) {
-                                    echo '<a href="admin/manage-publications.php" class="btn btn-warning">EDITABLE</a>';
-                                } else {
-                                    echo '<a href="admin/manage-publications.php?export=true" class="btn btn-success">EXPORTABLE</a>';
-                                }
+                            if(isset($_GET['export'])) {
+                                echo '<a href="admin/manage-ipr.php" class="btn btn-warning">EDITABLE</a>';
+                            } else {
+                                echo '<a href="admin/manage-ipr.php?export=true" class="btn btn-success">EXPORTABLE</a>';
+                            }
                             ?>
 
                         </div>
@@ -81,19 +79,15 @@
                     <div class="box-body">
 
                         <div class="table-responsive">
-                            <table id="staff-table" class="display nowrap"  style="width:100%">
+                            <table id="ipr-table" class="display nowrap"  style="width:100%">
                                 <thead>
                                 <tr>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>DOB</th>
-                                    <th>Email</th>
-                                    <th>Gender</th>
-                                    <th>Number</th>
+                                    <th>Year</th>
+                                    <th>Patents published</th>
+                                    <th>Patents Granted</th>
                                     <?php
                                         if(!isset($_GET['export'])) {
                                             ?>
-                                            <th>View</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                             <?php
@@ -102,29 +96,26 @@
                                 </tr>
                                 </thead>
                                 <tfoot>
-                                <tr>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>DOB</th>
-                                    <th>Email</th>
-                                    <th>Gender</th>
-                                    <th>Number</th>
-                                    <?php
-                                        if(!isset($_GET['export'])) {
-                                            ?>
-                                            <th>View</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
-                                            <?php
-                                        }
-                                    ?>
-                                </tr>
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>Patents published</th>
+                                        <th>Patents Granted</th>
+                                        <?php
+                                            if(!isset($_GET['export'])) {
+                                                ?>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                                <?php
+                                            }
+                                        ?>
+                                    </tr>
                                 </tfoot>
                             </table>
                         </div>
 
                     </div>
                 </div>
+
 
             </section>
             <!-- /.content -->
@@ -139,7 +130,7 @@
     <!-- ./wrapper -->
 
 
-
+    <!-- Plugins and scripts required by this view-->
 
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
@@ -151,6 +142,12 @@
     <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js"></script>
 
-    <script src="assets/pages/admin/manage-staff.js"></script>
+    <!-- sweetalert2 -->
+    <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+
+    <!-- custom js -->
+    <script src="assets/pages/teacher/manage-ipr.js"></script>
+
+    <!-- End of Plugins and scripts required by this view-->
 </body>
 </html>

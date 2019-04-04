@@ -1,20 +1,15 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Dhananjay
- * Date: 3/19/2019
- * Time: 8:44 PM
+ * User: Aniket
+ * Date: 4/4/2019
+ * Time: 6:38 AM
  */
-?>
-
-<!--INIT-->
-<?php
+    // init
     ob_start();
     define('BASE_URL', '../');
 ?>
 <!--END OF INIT-->
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,11 +38,11 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Publication
+                    Published Books
                     <small>Add</small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Publication</a></li>
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Published Books</a></li>
                     <li class="active">Add</li>
                 </ol>
             </section>
@@ -58,37 +53,17 @@
                 <!-------------------------
                 | Your Page Content Here |
                 -------------------------->
-                <form method="post" id="add-publication-form" >
+                <form method="post" id="add-published-books-form" >
                     <div class="form-group">
-                        <label for="title">Title</label>
-                        <input id="title" name="title" class="form-control" placeholder="Title">
+                        <label for="details">Details</label>
+                        <input id="details" name="details" class="form-control" placeholder="Details">
                     </div>
 
                     <div class="form-group">
-                        <label for="year">Year</label>
-                        <input type="date" id="year" name="year" class="form-control" placeholder="Year">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="journal">Journal</label>
-                        <input type="text" id="journal" name="journal" class="form-control" placeholder="Journal">
-                    </div>
-
-                    <!-- checkbox -->
-                    <div class="form-group">
-                        <input type="checkbox" id="is_ugc_approved" name="is_ugc_approved" value="1">
-                        <label for="is_ugc_approved">&nbsp;UGC approved</label>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="citation">Citation</label>
-                        <input type="text" id="citation" name="citation" class="form-control" placeholder="Citation">
-                    </div>
-
-                    <div class="form-group">
-                        <button class="btn btn-instagram" name="add-publication" id="add-publication">Add Publication</button>
+                        <button class="btn btn-instagram" name="add-published-book" id="add-published-book">Add Publication</button>
                     </div>
                 </form>
+                <!-- /.add-published-books-form -->
             </section>
             <!-- /.content -->
         </div>
@@ -101,14 +76,8 @@
     </div>
     <!-- ./wrapper -->
 
-    <!-- Plugins and scripts required by this view-->
-
-    <!-- toastr -->
     <script src="node_modules/toastr/build/toastr.min.js"></script>
 
-    <!-- custom js -->
-    <script src="assets/pages/teacher/add-publication.js"></script>
-
-    <!-- End of Plugins and scripts required by this view-->
+    <script src="assets/pages/teacher/add-published-books.js"></script>
 </body>
 </html>

@@ -1,18 +1,14 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Dhananjay
- * Date: 4/1/2019
- * Time: 12:20 PM
+ * User: Aniket
+ * Date: 4/3/2019
+ * Time: 6:11 PM
  */
-?>
 
-<!-- TODO publication_id`, `year`, `title`, `journal`, `is_ugc_approved`, `created_at`, `created_by`, `updated_by`, `updated_at`, `is_deleted-->
-
-<!--INIT-->
-<?php
-ob_start();
-define('BASE_URL', '../');
+    // <!--INIT-->
+    ob_start();
+    define('BASE_URL', '../');
 ?>
 <!--END OF INIT-->
 
@@ -43,11 +39,11 @@ define('BASE_URL', '../');
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Publications
-                <small>View</small>
+                Research Projects
+                <small>view</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Publications</a></li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> Research Projects</a></li>
                 <li class="active">View</li>
             </ol>
         </section>
@@ -64,13 +60,13 @@ define('BASE_URL', '../');
 
                 <div class="box-header">
                     <div class="pull-left">
-                        <a href="teacher/add-publication.php" class="btn btn-danger">ADD <i class="fa fa-plus"></i></a>
+                        <a href="teacher/add-research-project.php" class="btn btn-danger">ADD <i class="fa fa-plus"></i></a>
 
                         <?php
                         if(isset($_GET['export'])) {
-                            echo '<a href="admin/manage-publication.php" class="btn btn-warning">EDITABLE</a>';
+                            echo '<a href="admin/manage-research-project.php" class="btn btn-warning">EDITABLE</a>';
                         } else {
-                            echo '<a href="admin/manage-publication.php?export=true" class="btn btn-success">EXPORTABLE</a>';
+                            echo '<a href="admin/manage-research-project.php?export=true" class="btn btn-success">EXPORTABLE</a>';
                         }
                         ?>
 
@@ -84,14 +80,14 @@ define('BASE_URL', '../');
                 <div class="box-body">
 
                     <div class="table-responsive">
-                        <table id="publications-table" class="display nowrap"  style="width:100%">
+                        <table id="research-projects-table" class="display nowrap"  style="width:100%">
                             <thead>
                             <tr>
+                                <th>Principal Investigator</th>
+                                <th>Grant Details</th>
                                 <th>Title</th>
+                                <th>Amount</th>
                                 <th>Year</th>
-                                <th>Journal</th>
-                                <th>UGC Approved</th>
-                                <th>citation</th>
                                 <?php
                                     if(!isset($_GET['export'])) {
                                         ?>
@@ -104,11 +100,11 @@ define('BASE_URL', '../');
                             </thead>
                             <tfoot>
                                 <tr>
+                                    <th>Principal Investigator</th>
+                                    <th>Grant Details</th>
                                     <th>Title</th>
+                                    <th>Amount</th>
                                     <th>Year</th>
-                                    <th>Journal</th>
-                                    <th>UGC Approved</th>
-                                    <th>citation</th>
                                     <?php
                                         if(!isset($_GET['export'])) {
                                             ?>
@@ -154,7 +150,7 @@ define('BASE_URL', '../');
 <!-- sweetalert2 -->
 <script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
 
-<script src="assets/pages/teacher/manage-publications.js"></script>
+<script src="assets/pages/teacher/manage-research-projects.js"></script>
 
 <!-- End of Plugins and scripts required by this view-->
 </body>

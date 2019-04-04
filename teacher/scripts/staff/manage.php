@@ -8,19 +8,20 @@
  *
  * COLUMNS: first_name,last_name,contact_
  */
+
 define('BASE_URL', '../../../');
 require_once(BASE_URL."classes/Database.php");
 
 $columns = array("first_name","last_name","contact_no","date_of_birth","email","gender");
 $query = "SELECT * FROM staff WHERE role != 'admin' AND";
 
-if(isset($_POST["search"]["value"])){
+if(isset($_POST["search"]["value"])) {
     $query .= " (first_name like '%".$_POST["search"]["value"]."%' OR last_name like '%". $_POST['search']['value']."%')";
 }
-if(isset($_POST["order"])){
+if(isset($_POST["order"])) {
     $query .= " ORDER BY ".$columns[$_POST['order']['0']['column']]." ".$_POST['order']['0']['dir'];
 }
-else{
+else {
     $query .=" ORDER BY ".$columns[0]." ASC";
 }
 
@@ -31,7 +32,7 @@ $number_filtered_row = $statement->rowCount();
 
 $query1 = "";
 
-if($_POST["length"]!=-1){
+if($_POST["length"]!=-1) {
     $query1 = ' LIMIT '.$_POST['start'] .','.$_POST['length'];
 }
 
@@ -39,7 +40,7 @@ $statement=$connection->query($query.$query1);
 
 
 $data = array();
-while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
     $sub_array = array();
 
     $sub_array[] = $row["first_name"];
@@ -55,7 +56,7 @@ while($row = $statement->fetch(PDO::FETCH_ASSOC)){
     $data[] = $sub_array;
 }
 
-function get_all_data(){
+function get_all_data() {
     global $connection;
     $query = "SELECT * from staff WHERE role != 'admin'";
     $statement=$connection->query($query);
@@ -68,5 +69,6 @@ $output = array(
     "recordsFiltered" => $number_filtered_row,/*CALCULATING WITH HELP OF THIS NOT TOTAL RECORDS*/
     "data" => $data,
 );
+
 echo json_encode($output);
 

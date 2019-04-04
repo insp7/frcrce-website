@@ -1,45 +1,40 @@
 $(document).ready(function () {
 
-    $('#add-publication').on('click', function (e) {
+
+
+    $('#add-research-project').on('click', function (e) {
         e.preventDefault();
 
         var title = $('#title').val();
         var year = $('#year').val();
-        var journal = $('#journal').val();
-
-        var is_ugc_approved;
-        if($('#is_ugc_approved').prop("checked") == true) {
-            is_ugc_approved = 1;
-        } else if($('#is_ugc_approved').prop("checked") == false) {
-            is_ugc_approved = 0;
-        }
-
-        var citation = $('#citation').val();
+        var principal_investigator = $('#principal_investigator option:selected').attr('value');
+        var grant_details = $('#grant_details').val();
+        var amount = $('#amount').val();
 
         var dataToSend = {
             "title": title,
             "year": year,
-            "journal": journal,
-            "is_ugc_approved": is_ugc_approved,
-            "citation": citation,
-            "manage": "add-publication"
+            "principal_investigator": principal_investigator,
+            "grant_details": grant_details,
+            "amount": amount,
+            "manage": "add-research-project"
         };
 
+        // console.log(JSON.stringify(dataToSend));
+
         $.ajax({
-            url: "http://localhost/frcrce/teacher/scripts/publications/add.php",
+            url: "http://localhost/frcrce/teacher/scripts/research-projects/add.php",
             method: "POST",
-            data: "publication_details_json_string=" + JSON.stringify(dataToSend),
+            data: "research_project_details_json_string=" + JSON.stringify(dataToSend),
             dataType: "text",
             success: function(data) {
-                if(data) {
-                    // $('#add-publication-form').submit();
-
-                    // SET BLANK
+                if(data){
+                    // SET all values to blank !
                     $('#title').val('');
                     $('#year').val('');
-                    $('#journal').val('');
-                    $('#is_ugc_approved').val('');
-                    $('#citation').val('');
+                    $('#principal_investigator').val('Please Choose...');
+                    $('#grant_details').val('');
+                    $('#amount').val('');
 
                     // SET toastr options
                     toastr.options = {
@@ -60,7 +55,7 @@ $(document).ready(function () {
                         "hideMethod": "fadeOut"
                     };
 
-                    toastr["success"]("Publication Added", "Success");
+                    toastr["success"]("Research Project Added", "Success");
                 } else {
                     alert('Some problem' + data);
                     console.log(data);

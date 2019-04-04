@@ -32,18 +32,37 @@ class Publications {
         $staff_id = $_SESSION['staff_id'];
         extract($publication_details);
 
-        $sql = "INSERT INTO publications (staff_id, title, year, journal, is_ugc_approved, citation, created_by) VALUES ";
-        $sql .= "(:staff_id, :title, :year, :journal, :is_ugc_approved, :citation, :created_by)";
-        $ps = $this->connection->prepare($sql);
-        $result = $ps->execute([
-            "staff_id" => $staff_id,
-            "title" => $title,
-            "year" => $year,
-            "journal" => $journal,
-            "is_ugc_approved" => $is_ugc_approved,
-            "citation" => $citation,
-            "created_by" => $staff_id
-        ]);
+        // Doing this, because there is a problem: the 0 value of a checkbox is not getting inserted into database...
+        // its set to 1 even if check box is unchecked
+        // echo $is_ugc_approved;
+        if($is_ugc_approved == 0) {
+            $sql = "INSERT INTO publications (staff_id, title, year, journal, citation, created_by) VALUES ";
+            $sql .= "(:staff_id, :title, :year, :journal, :citation, :created_by)";
+
+            $ps = $this->connection->prepare($sql);
+            $result = $ps->execute([
+                "staff_id" => $staff_id,
+                "title" => $title,
+                "year" => $year,
+                "journal" => $journal,
+                "citation" => $citation,
+                "created_by" => $staff_id
+            ]);
+        } else if($is_ugc_approved == 1) {
+            $sql = "INSERT INTO publications (staff_id, title, year, journal, is_ugc_approved, citation, created_by) VALUES ";
+            $sql .= "(:staff_id, :title, :year, :journal, :is_ugc_approved, :citation, :created_by)";
+
+            $ps = $this->connection->prepare($sql);
+            $result = $ps->execute([
+                "staff_id" => $staff_id,
+                "title" => $title,
+                "year" => $year,
+                "journal" => $journal,
+                "is_ugc_approved" => $is_ugc_approved,
+                "citation" => $citation,
+                "created_by" => $staff_id
+            ]);
+        }
 
         return $result;
     }
@@ -65,7 +84,7 @@ class Publications {
         $updated_by = $_SESSION['staff_id'];
 
         $sql = "UPDATE publications SET title = :title, year = :year, journal = :journal, citation = :citation, is_ugc_approved = :is_ugc_approved, updated_by = :updated_by, updated_at = :updated_at WHERE publication_id = :publication_id";
-        echo $sql;
+//        echo $sql;
         $ps = $this->connection->prepare($sql);
         $ps->execute([
             "title" => $title,

@@ -2,18 +2,17 @@
 /**
  * Created by PhpStorm.
  * User: Aniket
- * Date: 4/2/2019
- * Time: 9:26 PM
+ * Date: 4/4/2019
+ * Time: 5:51 AM
  */
 
-    // INIT
     ob_start();
     define('BASE_URL', '../');
 
-    require_once(BASE_URL . 'classes/Publications.php');
+    require_once(BASE_URL . 'classes/IPR.php');
 
-    $publications = new Publications();
-    $result = $publications->getPublicationById($_GET['id']);
+    $ipr = new IPR();
+    $result = $ipr->getIPRById($_GET['id']);
 ?>
 <!--END OF INIT-->
 
@@ -44,11 +43,11 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Publications
+                    IPR
                     <small>Edit</small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Publications</a></li>
+                    <li><a href="#"><i class="fa fa-dashboard"></i> IPR</a></li>
                     <li class="active">Edit</li>
                 </ol>
             </section>
@@ -59,11 +58,7 @@
                 <!-------------------------
                 | Your Page Content Here |
                 -------------------------->
-                <form method="post" id="edit-publication-form" >
-                    <div class="form-group">
-                        <label for="title">Title</label>
-                        <input id="title" name="title" class="form-control" placeholder="Title" value="<?php echo $result['title']; ?>">
-                    </div>
+                <form method="post" id="edit-ipr-form" >
 
                     <div class="form-group">
                         <label for="year">Year</label>
@@ -71,23 +66,17 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="journal">Journal</label>
-                        <input type="text" id="journal" name="journal" class="form-control" placeholder="Journal" value="<?php echo $result['journal']; ?>">
-                    </div>
-
-                    <!-- checkbox -->
-                    <div class="form-group">
-                        <input type="checkbox" id="is_ugc_approved" name="is_ugc_approved" <?php if($result['is_ugc_approved'] == 1) echo "checked"; ?>>
-                        <label for="is_ugc_approved">&nbsp;UGC approved</label>
+                        <label for="patents_published_count">Patents Published</label>
+                        <input type="number" id="patents_published_count" name="patents_published_count" class="form-control" placeholder="No. of Patents Published" value="<?php echo $result['patents_published_count']; ?>">
                     </div>
 
                     <div class="form-group">
-                        <label for="citation">Citation</label>
-                        <input type="text" id="citation" name="citation" class="form-control" placeholder="Citation" value="<?php echo $result['citation']; ?>">
+                        <label for="patents_granted_count">Patents Granted</label>
+                        <input type="text" id="patents_granted_count" name="patents_granted_count" class="form-control" placeholder="No. of Patents Granted" value="<?php echo $result['patents_granted_count']; ?>">
                     </div>
 
                     <div class="form-group">
-                        <button class="btn btn-danger" name="update-publication" id="<?php echo $_GET['id']; ?>">Update Publication</button>
+                        <button class="btn btn-danger" name="update-ipr" id="<?php echo $_GET['id']; ?>">Update IPR</button>
                     </div>
                 </form>
             </section>
@@ -111,25 +100,24 @@
     <!-- script for when update button is clicked -->
     <script>
         $(document).ready(function (e) {
-            $('[name="update-publication"]').on('click', function (e) {
+            $('[name="update-ipr"]').on('click', function (e) {
                 e.preventDefault();
 
-                var updated_publication_details = {
-                    "publication_id": $(this).attr('id'),
+                var updated_ipr_details = {
+                    "ipr_id": $(this).attr('id'),
                     "year": $('#year').val(),
-                    "journal": $('#journal').val(),
-                    "is_ugc_approved": $('#is_ugc_approved').val(),
-                    "citation": $('#citation').val(),
-                    "title": $('#title').val()
+                    "patents_published_count": $('#patents_published_count').val(),
+                    "patents_granted_count": $('#patents_granted_count').val()
                 };
 
                 $.ajax({
-                    url: "http://localhost/frcrce/teacher/scripts/publications/update.php",
+                    url: "http://localhost/frcrce/teacher/scripts/ipr/update.php",
                     method: "POST",
-                    data: "update_publication_json_string=" + JSON.stringify(updated_publication_details),
+                    data: "update_ipr_json_string=" + JSON.stringify(updated_ipr_details),
                     dataType: "text",
                     success: function(data) {
                         if(data){
+                            console.log(data);
                             // console.log(data);
                             // SET toastr options
                             toastr.options = {
