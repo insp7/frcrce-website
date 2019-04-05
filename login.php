@@ -49,9 +49,15 @@
         $_SESSION['email'] = $email;
         $_SESSION['role'] = $role;
 
-        if($_SESSION['role'] == 'admin')
-            header("Location: admin/index.php");
-        else {
+
+        if($_SESSION['role'] == 'admin'){
+
+            if ($staff->isFullyRegistered($staff_id))
+                header("Location: admin/index.php");
+            else
+                header("Location: admin/fill-remaning-details.php");
+
+        }else{
             if ($staff->isFullyRegistered($staff_id))
                 header("Location: teacher/index.php");
             else

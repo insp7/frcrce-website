@@ -12,9 +12,9 @@ require_once(BASE_URL . "classes/Database.php");
 $staff_id = $_GET['staff_id'];
 
 $columns = array("year", "patents_published_count", "patents_granted_count");
-$query = "SELECT * FROM ipr where staff_id = " . $staff_id . " AND is_deleted = 0"
+$query = "SELECT * FROM ipr where staff_id = " . $staff_id . " AND is_deleted = 0";
 
-if(isset($_POST["search"]["value"])){
+if(isset($_POST["search"]["value"])) {
 //    $query .= "AND (first_name like '%".$_POST["search"]["value"]."%' OR last_name like '%". $_POST['search']['value']."%')";
 }
 if(isset($_POST["order"])){
@@ -59,6 +59,6 @@ $output = array(
     "recordsTotal" => get_all_data(),
     "recordsFiltered" => $number_filtered_row, /*CALCULATING WITH HELP OF THIS NOT TOTAL RECORDS*/
     "data" => $data,
-)
+);
 
 echo json_encode($output);

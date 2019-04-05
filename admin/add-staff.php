@@ -25,7 +25,13 @@
         $staff = new Staff();
         $result = $staff->insertStaff($_POST['email'], $_POST['password']);
 
-        header("Location: " . BASE_URL . "admin/manage-publications.php");
+        if($result == false){
+            header("Location: " . BASE_URL . "admin/add-staff.php?error=true");
+        }else{
+            header("Location: " . BASE_URL . "admin/manage-staff.php");
+        }
+
+
 
     }
 ?>
@@ -74,17 +80,38 @@
             <!-------------------------
             | Your Page Content Here |
             -------------------------->
-            <form method="post" id="staff-form" >
+            <?php
+            if(isset($_GET['error'])) {
+                ?>
+                <div class="alert alert-danger form-danger" role="alert">
+                    <h4>Oh snap!</h4>
+                    <p>Email already exists :(</p>
+                </div>
+                <?php
+            }
+            ?>
+
+            <form method="post" id="staff-form" data-parsley-validate="">
                 <div class="form-group">
                     <label for="email_id">Email id</label>
-                    <input id="email_id" name="email" class="form-control" placeholder="Email Id">
+                    <input type="email" id="email_id" name="email" class="form-control" placeholder="Email Id" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input id="password" name="password" class="form-control" placeholder="Password">
+                    <input id="password" name="password" class="form-control" placeholder="Password"
+                           data-parsley-required="true" data-parsley-trigger="change"  data-parsley-minlength="8"
+                           data-parsley-required-message="Please enter your new password."
+                           data-parsley-uppercase="1"
+                           data-parsley-lowercase="1"
+                           data-parsley-number="1"
+                           data-parsley-special="1">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-instagram" type="submit" name="add-staff">Add Staff</button>
+                    <label for="re_new_password">Re-enter new password</label>
+                    <input id="re_new_password" type="password" class="form-control" placeholder="Password"  data-parsley-trigger="change" data-parsley-equalto="#password" required>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-instagram" type="submit" name="add-staff" id="add-staff">Add Staff</button>
                 </div>
             </form>
         </section>
@@ -98,6 +125,7 @@
     ?> <!-- End of FOOTER -->
 </div>
 <!-- ./wrapper -->
+<script src="node_modules/parsleyjs/dist/parsley.min.js"></script>
 
 <script src="assets/pages/admin/add-staff.js"></script>
 </body>

@@ -77,6 +77,7 @@ function validateAdminLogin(email, password) {
         data: "admin_email="+ email + "&admin_password=" + password + "&manage=admin_login",
         url: "manage-ajax.php"
     }).done(function(response) {
+        console.log(response);
         if(response === "true")
             $admin_login_form.submit();
         else if(response === "false")

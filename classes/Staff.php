@@ -118,6 +118,15 @@ class Staff extends GeneralFunctions {
     }
 
     public function insertStaff($email, $password) {
+        $sql = "SELECT * FROM staff WHERE email = :email";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute(["email"=>$email]);
+//        die("Value is ".$ps->rowcount());
+        if($ps->rowCount() > 0) {
+
+            return false;
+        }
+
         $sql = "INSERT INTO staff(email, password) VALUES(:email, :password)";
         $ps = $this->connection->prepare($sql);
         $result = $ps->execute(["email" => $email, "password" => $password]);
@@ -144,7 +153,7 @@ class Staff extends GeneralFunctions {
 
     public function uploadRemainingDetailsFiles() {
         $uploaded_file_names = array("bos_chairman_certificate","bos_member_certificate","industry_certificate","subject_chairman_certificate","subject_expert_certificate","staff_selection_certificate","department_advisory_board_certificate","academic_audit_certificate","subject_expert_phd_certificate","other_universities_examiner_certificate","examination_auditor_certificate","subject_co-ordinator_src_certificate");
-        $target_dir = $_SERVER['DOCUMENT_ROOT'] ."/frcrce/teacher/upload/".$_SESSION['staff_id']."/";
+        $target_dir = $_SERVER['DOCUMENT_ROOT'] ."/frcrce/upload-folder/staff-details-images/".$_SESSION['staff_id']."/";
         foreach ($uploaded_file_names as $uploaded_file_name){
             echo "Are you there";
             echo isset($_FILES[$uploaded_file_name]);
@@ -159,12 +168,14 @@ class Staff extends GeneralFunctions {
 
 // Check if file already exists
                     echo "moved";
+                if ( ! is_dir($target_dir)) {
+                    mkdir($target_dir);
+                }
+
                 move_uploaded_file($temp_name,$path_filename_ext);
-
-
             }
         }
-        die("show error");
+
     }
 
 

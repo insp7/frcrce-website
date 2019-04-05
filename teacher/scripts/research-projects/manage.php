@@ -11,7 +11,7 @@ require_once(BASE_URL . "classes/Database.php");
 require_once(BASE_URL . "classes/Staff.php");
 
 $staff_id = $_GET['staff_id'];
-$columns = array("title","year","journal","is_ugc_approved");
+$columns = array("title", "year", "principal_investigator", "grant_details", "amount");
 
 $query = "SELECT * FROM research_projects where staff_id = " . $staff_id . " AND is_deleted = 0";
 
@@ -26,6 +26,7 @@ else {
 }
 $connection = $database->getConnection();
 //echo $query;
+//print_r($_POST);
 $statement = $connection->query($query);
 $number_filtered_row = $statement->rowCount();
 $query1 = "";

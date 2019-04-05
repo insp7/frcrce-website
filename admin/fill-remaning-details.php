@@ -30,10 +30,10 @@ if(isset($_POST['remaining-details'])) {
         /*UPLOAD FILES*/
 
         $staff->uploadRemainingDetailsFiles();
-        header("Location: " . BASE_URL . "teacher/index.php");
+        header("Location: " . BASE_URL . "admin/index.php");
     }
     else{
-        die('wpw');
+        header("Location: " . BASE_URL . "/login.php");
     }
 
 }
@@ -583,6 +583,6 @@ if(isset($_POST['remaining-details'])) {
     <!-- iCheck 1.0.1 -->
     <script src="assets/plugins/iCheck/icheck.min.js"></script>
 
-    <script src="assets/pages/teacher/fill-remaning-details.js"></script>
+    <script src="assets/pages/admin/fill-remaning-details.js"></script>
 </body>
 </html>

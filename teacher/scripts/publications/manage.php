@@ -17,10 +17,10 @@ if(isset($_POST["search"]["value"])) {
 //    $query .= "AND (first_name like '%".$_POST["search"]["value"]."%' OR last_name like '%". $_POST['search']['value']."%')";
 }
 if(isset($_POST["order"])) {
-    $query .= " ORDER BY ".$columns[$_POST['order']['0']['column']]." ".$_POST['order']['0']['dir'];
+    $query .= " ORDER BY " . $columns[$_POST['order']['0']['column']] . " " . $_POST['order']['0']['dir'];
 }
 else {
-    $query .=" ORDER BY ".$columns[0]." ASC";
+    $query .=" ORDER BY " . $columns[0] . " ASC";
 }
 
 $connection = $database->getConnection();

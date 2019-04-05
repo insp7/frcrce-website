@@ -36,18 +36,19 @@ class Login {
     }
 
     public function validateStaffLogin($email, $password) {
-        $sql = "SELECT * FROM staff WHERE email = :email AND password = :password";
+        $sql = "SELECT * FROM staff WHERE email = ? AND password = ?";
 
         try {
             $ps = $this->connection->prepare($sql);
-            $ps->execute(["email" => $email, "password" => $password]);
+            $ps->execute([$email, $password]);
             $result = $ps->fetch(PDO::FETCH_ASSOC); // Only one row is expected
             $row_count = $ps->rowCount();
+
 
             if($row_count == 1)
                 echo "true";
             else
-                echo "false! row_count = " . $row_count;
+                echo "false! row_count = " . $row_count . "query = " . $sql . " email = " . $email . " password = " . $password;
 
         } catch (PDOException $e) {
             echo $e;

@@ -77,7 +77,7 @@
                             <div class="box-body box-profile">
                                 <img class="profile-user-img img-responsive img-circle" src="assets/img/user4-128x128.jpg" alt="User profile picture">
 
-                                <h3 class="profile-username text-center"><?php echo $staff_data['first_name'] . " " . $staff_data['last_name']; ?></h3>
+                                <h3 class="profile-username text-center"><?php echo $staff_data['first_name'] . " " . $staff_data['middle_name']. " " . $staff_data['last_name'];; ?></h3>
 
                                 <p class="text-muted text-center"><?php echo $staff_data['role'];?></p>
 
@@ -120,14 +120,13 @@
 
                                 <hr>
 
-                                <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
+                                <strong><i class="fa fa-pencil margin-r-5"></i>Committees</strong>
 
                                 <p>
-                                    <span class="label label-danger">UI Design</span>
-                                    <span class="label label-success">Coding</span>
-                                    <span class="label label-info">Javascript</span>
-                                    <span class="label label-warning">PHP</span>
-                                    <span class="label label-primary">Node.js</span>
+                                    <span class="label label-danger">CSI</span>
+                                    <span class="label label-success">ISTE</span>
+                                    <span class="label label-info">IEEE</span>
+                                    <span class="label label-warning">ACM</span>
                                 </p>
 
                                 <hr>
@@ -142,6 +141,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-md-9">
+
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#details" data-toggle="tab">Personal Details</a></li>
@@ -158,14 +158,22 @@
                                             <label for="inputName" class="col-sm-2 control-label">Employee Id</label>
 
                                             <div class="col-sm-10">
-                                                <input type="number" value="5423432422" class="form-control" id="inputName" placeholder="Name" readonly>
+                                                <input type="number" value="<?php echo $staff_data['employee_id']?>" class="form-control" id="inputName" placeholder="Name" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+
+                                            <div class="col-sm-10">
+                                                <input type="email" value="<?php echo $staff_data['email']?>" class="form-control" id="inputEmail" placeholder="Email" readonly >
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="contact_no" class="col-sm-2 control-label">Contact No</label>
                                             <div class="col-sm-10">
-                                            <input type="number" id="contact_no" name="contact_no" class="form-control" placeholder="Number"  data-parsley-trigger="change"
+                                            <input value="<?php echo $staff_data['contact_no']?>" readonly type="number" id="contact_no" name="contact_no" class="form-control" placeholder="Number"  data-parsley-trigger="change"
                                                    data-parsley-maxlength="10" data-parsley-minlength="10" data-parsley-minlength-message="exact 10 required" data-parsley-maxlength-message="exact 10 required" data-parsley-required="true">
                                             </div>
                                         </div>
@@ -174,7 +182,7 @@
                                         <div class="form-group">
                                             <label for="dobdatepicker" class="col-sm-2 control-label">DOB:</label>
                                             <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="dobdatepicker" name="date_of_birth" data-parsley-trigger="keyup"  data-parsley-required="true">
+                                            <input value="<?php echo $staff_data['date_of_birth']?>" readonly type="text" class="form-control" id="dobdatepicker" name="date_of_birth" data-parsley-trigger="keyup"  data-parsley-required="true">
                                             </div>
                                             <!-- /.input group -->
                                         </div>
@@ -184,10 +192,10 @@
                                         <div class="form-group">
                                             <label for="gender" class="col-sm-2 control-label">Gender</label>
                                             <div class="col-sm-10">
-                                                <select class="form-control" id="gender" name="gender" data-parsley-trigger="change"  data-parsley-required="true">
-                                                    <option value="male">Male</option>
-                                                    <option value="female">Female</option>
-                                                    <option value="option3">option 3</option>
+                                                <select readonly="" class="form-control" id="gender" name="gender" data-parsley-trigger="change"  data-parsley-required="true">
+                                                    <option value="male" <?php if($staff_data['gender']=='m'){echo "selected";}?> >Male</option>
+                                                    <option value="female" <?php if($staff_data['gender']=='f'){echo "selected";}?>>Female</option>
+                                                    <option value="option3" <?php if($staff_data['gender']=='o'){echo "selected";}?>>option 3</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -195,7 +203,7 @@
                                         <div class="form-group">
                                             <label for="pan" class="col-sm-2 control-label">PAN</label>
                                             <div class="col-sm-10">
-                                            <input type="number" id="pan" name="contact_no" class="form-control" placeholder="Number"  data-parsley-trigger="change"
+                                            <input type="number" value="<?php echo $staff_data['pan']?>" readonly id="pan" name="contact_no" class="form-control" placeholder="Number"  data-parsley-trigger="change"
                                                    data-parsley-maxlength="10" data-parsley-minlength="10" data-parsley-minlength-message="exact 10 required" data-parsley-maxlength-message="exact 10 required" data-parsley-required="true">
                                             </div>
                                         </div>
@@ -203,51 +211,20 @@
                                         <div class="form-group">
                                             <label for="pan" class="col-sm-2 control-label">Teaching</label>
                                             <div class="col-sm-10">
-                                                <input type="number" id="pan" name="contact_no" class="form-control" placeholder="Number"  data-parsley-trigger="change"
-                                                       data-parsley-maxlength="10" data-parsley-minlength="10" data-parsley-minlength-message="exact 10 required" data-parsley-maxlength-message="exact 10 required" data-parsley-required="true">
+                                                <input type="checkbox" readonly <?php if($staff_data['is_teaching']=='1'){echo "checked";}?> >
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-
+                                            <label for="pan" class="col-sm-2 control-label">Permanent</label>
                                             <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                                <input type="checkbox" readonly <?php if($staff_data['is_permanent']=='1'){echo "checked";}?> >
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="inputName" class="col-sm-2 control-label">Name</label>
 
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputName" placeholder="Name">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
-
-                                            <div class="col-sm-10">
-                                                <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputSkills" class="col-sm-2 control-label">Skills</label>
-
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
-                                            </div>
-                                        </div>
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                                <button type="submit" class="btn btn-danger">Submit</button>
+                                                <button type="submit" class="btn btn-danger" disabled>Edit</button>
                                             </div>
                                         </div>
                                     </form>
@@ -503,6 +480,109 @@
                             <!-- /.tab-content -->
                         </div>
                         <!-- /.nav-tabs-custom -->
+
+                        <!--BOS CHAIRMAN-->
+                        <div class="box box-primary">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">BOS Chairman</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                <strong><i class="fa fa-book margin-r-5"></i> Details</strong>
+
+                                <p class="text-muted">
+                                    <?php echo $staff_data['bos_chairman_details']; ?>
+                                </p>
+
+                                <hr>
+
+                                <strong><i class="fa fa-image margin-r-5"></i>Certificate</strong>
+
+                                <img style="margin-left: 150px" height="200" src="teacher/upload/<?php echo $_GET['id']; ?>/bos_chairman_certificate.jpg" alt="">
+
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+
+                        <!--BOS MEMBER-->
+                        <div class="box box-danger">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">BOS Member</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                <strong><i class="fa fa-book margin-r-5"></i> Details</strong>
+
+                                <p class="text-muted">
+                                    <?php echo $staff_data['bos_member_details']; ?>
+                                </p>
+
+                                <hr>
+
+                                <strong><i class="fa fa-image margin-r-5"></i>Certificate</strong>
+
+                                <img style="margin-left: 150px" height="200" src="teacher/upload/<?php echo $_GET['id']; ?>/bos_member_certificate.jpg" alt="">
+
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+
+                        <!--Industry experience-->
+                        <div class="box box-danger">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Industry Experience</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                <strong><i class="fa fa-book margin-r-5"></i> Years</strong>
+
+                                <p class="text-muted">
+                                    <?php echo $staff_data['industry_experience_years']; ?>
+                                </p>
+
+                                <hr>
+
+
+                                <strong><i class="fa fa-book margin-r-5"></i> Details</strong>
+
+                                <p class="text-muted">
+                                    <?php echo $staff_data['industry_experience_details']; ?>
+                                </p>
+
+                                <hr>
+
+                                <strong><i class="fa fa-image margin-r-5"></i>Certificate</strong>
+
+                                <img style="margin-left: 150px" height="200" src="teacher/upload/<?php echo $_GET['id']; ?>/industry_certificate.jpg" alt="">
+
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+
+                        <!--Industry experience-->
+                        <div class="box box-default">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Subject Chairman</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+
+                                <strong><i class="fa fa-book margin-r-5"></i> Details</strong>
+
+                                <p class="text-muted">
+                                    <?php echo $staff_data['subject_chairman_details']; ?>
+                                </p>
+
+                                <hr>
+
+                                <strong><i class="fa fa-image margin-r-5"></i>Certificate</strong>
+
+                                <img style="margin-left: 150px" height="200" src="teacher/upload/<?php echo $_GET['id']; ?>/subject_chairman_certificate.jpg" alt="">
+
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+
                     </div>
                     <!-- /.col -->
                 </div>
