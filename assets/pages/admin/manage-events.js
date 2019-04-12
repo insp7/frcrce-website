@@ -69,7 +69,6 @@ var TableDatatables = function() {
                         data.event_expenditure = $('#event_expenditure').val();
                         data.start_date = $('#start_date').val();
                         data.end_date = $('#end_date').val();
-                        data.description = $('#news_desc').val();
                         data.internal_participants_count = $('#internal_participants_count').val();
                         data.external_participants_count = $('#external_participants_count').val();
 
