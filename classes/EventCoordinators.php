@@ -46,4 +46,13 @@ class EventCoordinators {
         else
             return "False; No of affected rows: " . $ps->rowCount();
     }
+
+    public function getEventIdByCoordinatorId($staff_id) {
+        $sql = "SELECT event_id FROM event_coordinators WHERE staff_id = :staff_id AND is_deleted = 0";
+        $ps = $this->connection->prepare($sql);
+        $ps->execute(["staff_id" => $staff_id]);
+        $result_set = $ps->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result_set;
+    }
 }

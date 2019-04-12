@@ -93,20 +93,20 @@ class Events {
     public function insertEvent($event_info) { // $event_info is an associative array.
         $created_by = $_SESSION['staff_id'];
 
-        $sql = "INSERT INTO events(event_name, event_details, address, event_type, institute_funding, sponsor_funding, event_expenditure, start_date, end_date, internal_participants_count, external_participants_count, created_by) VALUES(:event_name, :event_details, :address, :event_type, :institute_funding, :sponsor_funding, :event_expenditure, :start_date, :end_date, :internal_participants_count, :external_participants_count, :created_by)";
+        $sql = "INSERT INTO events(event_name, event_details, created_by) VALUES(:event_name, :event_details, :created_by)";
         $ps = $this->connection->prepare($sql);
         $result = $ps->execute([
             "event_name" => $event_info['event_name'],
             "event_details" => $event_info['event_details'],
-            "address" => $event_info['event_address'],
-            "event_type" => $event_info['event_type'],
-            "institute_funding" => $event_info['event_institute_funding'],
-            "sponsor_funding" => $event_info['event_sponsor_funding'],
-            "event_expenditure" => $event_info['event_expenditure'],
-            "start_date" => $event_info['event_start_date'],
-            "end_date" => $event_info['event_end_date'],
-            "internal_participants_count" => $event_info['event_internal_participants'],
-            "external_participants_count" => $event_info['event_external_participants'],
+//            "address" => $event_info['event_address'],
+//            "event_type" => $event_info['event_type'],
+//            "institute_funding" => $event_info['event_institute_funding'],
+//            "sponsor_funding" => $event_info['event_sponsor_funding'],
+//            "event_expenditure" => $event_info['event_expenditure'],
+//            "start_date" => $event_info['event_start_date'],
+//            "end_date" => $event_info['event_end_date'],
+//            "internal_participants_count" => $event_info['event_internal_participants'],
+//            "external_participants_count" => $event_info['event_external_participants'],
             "created_by" => $created_by
         ]);
 
