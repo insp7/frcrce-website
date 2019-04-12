@@ -80,13 +80,166 @@ $("#is_bos_member").click(function () {
 $("#is_industry_experience").click(function () {
     if($("#is_industry_experience").prop("checked") == true) {
         $("#industry_experience_years").attr("required","true");
+        $("#industry_certificate").attr("required","true");
+        $("#industry_experience_details").attr("required","true");
 
     }else{
         $("#industry_experience_years").removeAttr("required");
+        $("#industry_certificate").removeAttr("required");
+        $("#industry_experience_details").removeAttr("required");
 
     }
     $("#industry_experience_years").parsley().validate();
+    $("#industry_certificate").parsley().validate();
+    $("#industry_experience_details").parsley().validate();
 });
+
+//Subject Chairman Validator
+$("#is_subject_chairman").click(function () {
+    if($("#is_subject_chairman").prop("checked") == true) {
+
+        $("#subject_chairman_certificate").attr("required","true");
+        $("#subject_chairman_details").attr("required","true");
+
+    }else{
+
+        $("#subject_chairman_certificate").removeAttr("required");
+        $("#subject_chairman_details").removeAttr("required");
+
+    }
+    $("#subject_chairman_certificate").parsley().validate();
+    $("#subject_chairman_details").parsley().validate();
+});
+//Subject Chairman Expert
+$("#is_subject_expert").click(function () {
+    if($("#is_subject_expert").prop("checked") == true) {
+
+        $("#subject_expert_certificate").attr("required","true");
+        $("#subject_expert_details").attr("required","true");
+
+    }else{
+
+        $("#subject_expert_certificate").removeAttr("required");
+        $("#subject_expert_details").removeAttr("required");
+
+    }
+    $("#subject_expert_certificate").parsley().validate();
+    $("#subject_expert_details").parsley().validate();
+});
+//Staff Selection Committee
+$("#is_staff_selection_committee_member").click(function () {
+    if($("#is_staff_selection_committee_member").prop("checked") == true) {
+
+        $("#staff_selection_certificate").attr("required","true");
+        $("#staff_selection_details").attr("required","true");
+
+    }else{
+
+        $("#staff_selection_certificate").removeAttr("required");
+        $("#staff_selection_details").removeAttr("required");
+
+    }
+    $("#staff_selection_certificate").parsley().validate();
+    $("#staff_selection_details").parsley().validate();
+});
+//Department Advisory Board
+$("#is_department_advisory_board").click(function () {
+    if($("#is_department_advisory_board").prop("checked") == true) {
+
+        $("#department_advisory_board_certificate").attr("required","true");
+        $("#department_advisory_board_details").attr("required","true");
+
+    }else{
+
+        $("#department_advisory_board_certificate").removeAttr("required");
+        $("#department_advisory_board_details").removeAttr("required");
+
+    }
+    $("#department_advisory_board_details").parsley().validate();
+    $("#department_advisory_board_certificate").parsley().validate();
+});
+//Academic Auditor
+$("#is_academic_audit").click(function () {
+    if($("#is_academic_audit").prop("checked") == true) {
+
+        $("#academic_audit_certificate").attr("required","true");
+        $("#academic_audit_details").attr("required","true");
+
+    }else{
+
+        $("#academic_audit_certificate").removeAttr("required");
+        $("#academic_audit_details").removeAttr("required");
+
+    }
+    $("#academic_audit_certificate").parsley().validate();
+    $("#academic_audit_details").parsley().validate();
+});
+//Subject Expert for phd
+$("#is_subject_expert_phd").click(function () {
+    if($("#is_subject_expert_phd").prop("checked") == true) {
+
+        $("#subject_expert_phd_certificate").attr("required","true");
+        $("#subject_expert_phd_details").attr("required","true");
+
+    }else{
+
+        $("#subject_expert_phd_details").removeAttr("required");
+        $("#subject_expert_phd_certificate").removeAttr("required");
+
+    }
+    $("#subject_expert_phd_details").parsley().validate();
+    $("#subject_expert_phd_certificate").parsley().validate();
+});
+//examiner in other universities
+$("#is_other_universities_examiner").click(function () {
+    if($("#is_other_universities_examiner").prop("checked") == true) {
+
+        $("#other_universities_examiner_certificate").attr("required","true");
+        $("#other_universities_examiner_details").attr("required","true");
+
+    }else{
+
+        $("#other_universities_examiner_certificate").removeAttr("required");
+        $("#other_universities_examiner_details").removeAttr("required");
+
+    }
+    $("#other_universities_examiner_certificate").parsley().validate();
+    $("#other_universities_examiner_details").parsley().validate();
+});
+//Examination auditor?
+$("#is_examination_auditor").click(function () {
+    if($("#is_examination_auditor").prop("checked") == true) {
+
+        $("#examination_auditor_certificate").attr("required","true");
+        $("#examination_auditor_details").attr("required","true");
+
+    }else{
+
+        $("#examination_auditor_certificate").removeAttr("required");
+        $("#examination_auditor_details").removeAttr("required");
+
+    }
+    $("#examination_auditor_certificate").parsley().validate();
+    $("#examination_auditor_details").parsley().validate();
+});
+//Subject co-ordinator for Syllabus Revision Committe
+$("#is_subject_co_ordinator_src").click(function () {
+    if($("#is_subject_co_ordinator_src").prop("checked") == true) {
+
+        $("#subject_co-ordinator_src_certificate").attr("required","true");
+        $("#subject_co-ordinator_src_details").attr("required","true");
+
+    }else{
+
+        $("#subject_co-ordinator_src_certificate").removeAttr("required");
+        $("#subject_co-ordinator_src_details").removeAttr("required");
+
+    }
+    $("#subject_co-ordinator_src_certificate").parsley().validate();
+    $("#subject_co-ordinator_src_details").parsley().validate();
+});
+
+
 
 /*CSI IEEE ISTE ACM...*/
 $("#is_ieee").click(function () {

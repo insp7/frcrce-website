@@ -121,7 +121,7 @@ if(isset($_POST['remaining-details'])) {
                         <div class="form-group">
                             <label for="contact_no">Contact No</label>
                             <input type="number" id="contact_no" name="contact_no" class="form-control" placeholder="Number"  data-parsley-trigger="change"
-                                   data-parsley-maxlength="10" data-parsley-minlength="10" data-parsley-minlength-message="exact 10 required" data-parsley-maxlength-message="exact 10 required" data-parsley-required="true">
+                                   data-parsley-maxlength="10" data-parsley-minlength="10" data-parsley-minlength-message="exact 10  " data-parsley-maxlength-message="exact 10  " data-parsley-required="true">
                         </div>
 
                         <!-- Date -->
@@ -145,7 +145,7 @@ if(isset($_POST['remaining-details'])) {
 
                         <div class="form-group">
                             <label for="re_new_password">New password</label>
-                            <input id="new_password" type="password" name="password" class="form-control" placeholder="Password" data-parsley-required="true" data-parsley-trigger="change"  data-parsley-minlength="8"
+                            <input id="new_password" type="password" name="password" class="form-control" placeholder="Password" data-parsley-required ="true" data-parsley-trigger="change"  data-parsley-minlength="8"
                                    data-parsley-required-message="Please enter your new password."
                                    data-parsley-uppercase="1"
                                    data-parsley-lowercase="1"
@@ -161,7 +161,7 @@ if(isset($_POST['remaining-details'])) {
                         <div class="form-group">
                             <label for="pan">PAN</label>
                             <input type="number" id="pan" name="contact_no" class="form-control" placeholder="Number"  data-parsley-trigger="change"
-                                   data-parsley-maxlength="10" data-parsley-minlength="10" data-parsley-minlength-message="exact 10 required" data-parsley-maxlength-message="exact 10 required" data-parsley-required="true">
+                                   data-parsley-maxlength="10" data-parsley-minlength="10" data-parsley-minlength-message="exact 10  " data-parsley-maxlength-message="exact 10  " data-parsley-required="true">
                         </div>
 
                         <!-- Date -->
@@ -175,7 +175,7 @@ if(isset($_POST['remaining-details'])) {
                         <div class="form-group">
                             <label for="employee_id">Employee ID</label>
                             <input type="number" id="employee_id" name="employee_id" class="form-control" placeholder="Employee id"  data-parsley-trigger="change"
-                                   data-parsley-maxlength="10"  data-parsley-maxlength-message="less than 10 required"  data-parsley-required="true">
+                                   data-parsley-maxlength="10"  data-parsley-maxlength-message="less than 10"  data-parsley-required="true">
                         </div>
 
                         <!-- checkbox -->
@@ -198,6 +198,7 @@ if(isset($_POST['remaining-details'])) {
                         <div class="box box-warning">
                             <div class="box-header with-border"></div>
                             <div class="box-body" id="optional_details_box">
+
                                 <div id="bos_chairmen_accordion" class="panel-group">
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
@@ -260,11 +261,11 @@ if(isset($_POST['remaining-details'])) {
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="industry_certificate">Industry Certificate</label>
-                                                    <input type="file" required id="industry_certificate" name="industry_certificate" class="form-control" data-parsley-trigger="change">
+                                                    <input type="file"  id="industry_certificate" name="industry_certificate" class="form-control" data-parsley-trigger="change">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="industry_experience_details">Details</label>
-                                                    <textarea required  id="industry_experience_details" name="industry_experience_details" class="form-control" cols="30" rows="4"></textarea required>
+                                                    <textarea   id="industry_experience_details" name="industry_experience_details" class="form-control" cols="30" rows="4"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -275,7 +276,7 @@ if(isset($_POST['remaining-details'])) {
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                Are you Subject Chairman ???   <label for=""> <input type="checkbox"  name="is_subject_chairman" value="1" onclick="$('#subject_chairman_a').click();"></label>
+                                                Are you Subject Chairman ???   <label for=""> <input type="checkbox"  id="is_subject_chairman" name="is_subject_chairman" value="1" onclick="$('#subject_chairman_a').click();"></label>
                                                 <a data-toggle="collapse" data-parent="#subject_chairman_accordion" href="#subject_chairman_collapse" id="subject_chairman_a"></a>
                                             </h4>
                                         </div>
@@ -283,11 +284,11 @@ if(isset($_POST['remaining-details'])) {
                                             <div class="panel-body">
                                                 <div class="form-group">
                                                     <label for="subject_chairman_certificate">Subject Chairman Certificate</label>
-                                                    <input type="file" required id="subject_chairman_certificate" name="subject_chairman_certificate" class="form-control" >
+                                                    <input type="file"   id="subject_chairman_certificate" name="subject_chairman_certificate" class="form-control" >
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="subject_chairman_details">Details</label>
-                                                    <textarea required  id="subject_chairman_details" name="subject_chairman_details" class="form-control" cols="30" rows="4"></textarea required>
+                                                    <textarea    id="subject_chairman_details" name="subject_chairman_details" class="form-control" cols="30" rows="4"></textarea  >
                                                 </div>
                                             </div>
                                         </div>
@@ -298,7 +299,7 @@ if(isset($_POST['remaining-details'])) {
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                Are you Subject Expert ???   <label for=""> <input type="checkbox"  name="is_subject_expert" value="1" onclick="$('#subject_expert_a').click();"></label>
+                                                Are you Subject Expert ???   <label for=""> <input type="checkbox" id="is_subject_expert" name="is_subject_expert" value="1" onclick="$('#subject_expert_a').click();"></label>
                                                 <a data-toggle="collapse" data-parent="#subject_expert_accordion" href="#subject_expert_collapse" id="subject_expert_a"></a>
                                             </h4>
                                         </div>
@@ -306,11 +307,11 @@ if(isset($_POST['remaining-details'])) {
                                             <div class="panel-body">
                                                 <div class="form-group">
                                                     <label for="subject_expert_certificate">Subject Expert Certificate</label>
-                                                    <input type="file" required id="subject_expert_certificate" name="subject_expert_certificate" class="form-control" >
+                                                    <input type="file"   id="subject_expert_certificate" name="subject_expert_certificate" class="form-control" >
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="subject_expert_details">Details</label>
-                                                    <textarea required  id="subject_expert_details" name="subject_expert_details" class="form-control" cols="30" rows="4"></textarea required>
+                                                    <textarea    id="subject_expert_details" name="subject_expert_details" class="form-control" cols="30" rows="4"></textarea  >
                                                 </div>
                                             </div>
                                         </div>
@@ -321,7 +322,7 @@ if(isset($_POST['remaining-details'])) {
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                Are you in Staff Selection Committee ???   <label for=""> <input type="checkbox"  name="is_staff_selection_committee_member" value="1" onclick="$('#staff_selection_a').click();"></label>
+                                                Are you in Staff Selection Committee ???   <label for=""> <input type="checkbox" id="is_staff_selection_committee_member" name="is_staff_selection_committee_member" value="1" onclick="$('#staff_selection_a').click();"></label>
                                                 <a data-toggle="collapse" data-parent="#staff_selection_accordion" href="#staff_selection_collapse" id="staff_selection_a"></a>
                                             </h4>
                                         </div>
@@ -329,11 +330,11 @@ if(isset($_POST['remaining-details'])) {
                                             <div class="panel-body">
                                                 <div class="form-group">
                                                     <label for="staff_selection_certificate">Staff Selection Committee Certificate</label>
-                                                    <input type="file" required id="staff_selection_certificate" name="staff_selection_certificate" class="form-control" >
+                                                    <input type="file"   id="staff_selection_certificate" name="staff_selection_certificate" class="form-control" >
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="staff_selection_details">Details</label>
-                                                    <textarea required  id="staff_selection_details" name="staff_selection_committee_details" class="form-control" cols="30" rows="4"></textarea required>
+                                                    <textarea    id="staff_selection_details" name="staff_selection_committee_details" class="form-control" cols="30" rows="4"></textarea  >
                                                 </div>
                                             </div>
                                         </div>
@@ -344,7 +345,7 @@ if(isset($_POST['remaining-details'])) {
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                Are you in Department Advisory Board ???   <label for=""> <input type="checkbox"  name="is_department_advisory_board" value="1" onclick="$('#department_advisory_board_a').click();"></label>
+                                                Are you in Department Advisory Board ???   <label for=""> <input type="checkbox" id="is_department_advisory_board" name="is_department_advisory_board" value="1" onclick="$('#department_advisory_board_a').click();"></label>
                                                 <a data-toggle="collapse" data-parent="#department_advisory_board_accordion" href="#department_advisory_board_collapse" id="department_advisory_board_a"></a>
                                             </h4>
                                         </div>
@@ -352,11 +353,11 @@ if(isset($_POST['remaining-details'])) {
                                             <div class="panel-body">
                                                 <div class="form-group">
                                                     <label for="department_advisory_board_certificate">Department Advisory Board Certificate</label>
-                                                    <input type="file" required id="department_advisory_board_certificate" name="department_advisory_board_certificate" class="form-control" >
+                                                    <input type="file"   id="department_advisory_board_certificate" name="department_advisory_board_certificate" class="form-control" >
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="department_advisory_board_details">Details</label>
-                                                    <textarea required  id="department_advisory_board_details" name="department_advisory_board_details" class="form-control" cols="30" rows="4"></textarea required>
+                                                    <textarea    id="department_advisory_board_details" name="department_advisory_board_details" class="form-control" cols="30" rows="4"></textarea  >
                                                 </div>
                                             </div>
                                         </div>
@@ -367,7 +368,7 @@ if(isset($_POST['remaining-details'])) {
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                Are you Academic Auditor in other colleges ???   <label for=""> <input type="checkbox"  name="is_academic_audit" value="1" onclick="$('#academic_audit_a').click();"></label>
+                                                Are you Academic Auditor in other colleges ???   <label for=""> <input type="checkbox" id="is_academic_audit" name="is_academic_audit" value="1" onclick="$('#academic_audit_a').click();"></label>
                                                 <a data-toggle="collapse" data-parent="#academic_audit_accordion" href="#academic_audit_collapse" id="academic_audit_a"></a>
                                             </h4>
                                         </div>
@@ -375,11 +376,11 @@ if(isset($_POST['remaining-details'])) {
                                             <div class="panel-body">
                                                 <div class="form-group">
                                                     <label for="academic_audit_certificate">Staff Selection Committee Certificate</label>
-                                                    <input type="file" required id="academic_audit_certificate" name="academic_audit_certificate" class="form-control" >
+                                                    <input type="file"   id="academic_audit_certificate" name="academic_audit_certificate" class="form-control" >
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="academic_audit_details">Details</label>
-                                                    <textarea required  id="academic_audit_details" name="academic_audit_details" class="form-control" cols="30" rows="4"></textarea required>
+                                                    <textarea    id="academic_audit_details" name="academic_audit_details" class="form-control" cols="30" rows="4"></textarea  >
                                                 </div>
                                             </div>
                                         </div>
@@ -390,7 +391,7 @@ if(isset($_POST['remaining-details'])) {
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                Are you Subject Expert for phd ???   <label for=""> <input type="checkbox"  name="is_subject_expert_phd" value="1" onclick="$('#subject_expert_phd_a').click();"></label>
+                                                Are you Subject Expert for phd ???   <label for=""> <input type="checkbox" id="is_subject_expert_phd" name="is_subject_expert_phd" value="1" onclick="$('#subject_expert_phd_a').click();"></label>
                                                 <a data-toggle="collapse" data-parent="#subject_expert_phd_accordion" href="#subject_expert_phd_collapse" id="subject_expert_phd_a"></a>
                                             </h4>
                                         </div>
@@ -398,11 +399,11 @@ if(isset($_POST['remaining-details'])) {
                                             <div class="panel-body">
                                                 <div class="form-group">
                                                     <label for="subject_expert_phd_certificate">Staff Selection Committee Certificate</label>
-                                                    <input type="file" required id="subject_expert_phd_certificate" name="subject_expert_phd_certificate" class="form-control" >
+                                                    <input type="file"   id="subject_expert_phd_certificate" name="subject_expert_phd_certificate" class="form-control" >
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="subject_expert_phd_details">Details</label>
-                                                    <textarea required  id="subject_expert_phd_details" name="subject_expert_phd_details" class="form-control" cols="30" rows="4"></textarea required>
+                                                    <textarea    id="subject_expert_phd_details" name="subject_expert_phd_details" class="form-control" cols="30" rows="4"></textarea  >
                                                 </div>
                                             </div>
                                         </div>
@@ -413,7 +414,7 @@ if(isset($_POST['remaining-details'])) {
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                Are you examiner in other universities ???   <label for=""> <input type="checkbox"  name="is_other_universities_examiner" value="1" onclick="$('#other_universities_examiner_a').click();"></label>
+                                                Are you examiner in other universities ???   <label for=""> <input type="checkbox" id="is_other_universities_examiner" name="is_other_universities_examiner" value="1" onclick="$('#other_universities_examiner_a').click();"></label>
                                                 <a data-toggle="collapse" data-parent="#other_universities_examiner_accordion" href="#other_universities_examiner_collapse" id="other_universities_examiner_a"></a>
                                             </h4>
                                         </div>
@@ -421,11 +422,11 @@ if(isset($_POST['remaining-details'])) {
                                             <div class="panel-body">
                                                 <div class="form-group">
                                                     <label for="other_universities_examiner_certificate">Staff Selection Committee Certificate</label>
-                                                    <input type="file" required id="other_universities_examiner_certificate" name="other_universities_examiner_certificate" class="form-control" >
+                                                    <input type="file"   id="other_universities_examiner_certificate" name="other_universities_examiner_certificate" class="form-control" >
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="other_universities_examiner_details">Details</label>
-                                                    <textarea required  id="other_universities_examiner_details" name="other_universities_examiner_details" class="form-control" cols="30" rows="4"></textarea required>
+                                                    <textarea    id="other_universities_examiner_details" name="other_universities_examiner_details" class="form-control" cols="30" rows="4"></textarea  >
                                                 </div>
                                             </div>
                                         </div>
@@ -436,7 +437,7 @@ if(isset($_POST['remaining-details'])) {
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                Are you Examination auditor???   <label for=""> <input type="checkbox"  name="is_examination_auditor" value="1" onclick="$('#examination_auditor_a').click();"></label>
+                                                Are you Examination auditor???   <label for=""> <input type="checkbox" id="is_examination_auditor" name="is_examination_auditor" value="1" onclick="$('#examination_auditor_a').click();"></label>
                                                 <a data-toggle="collapse" data-parent="#examination_auditor_accordion" href="#examination_auditor_collapse" id="examination_auditor_a"></a>
                                             </h4>
                                         </div>
@@ -444,11 +445,11 @@ if(isset($_POST['remaining-details'])) {
                                             <div class="panel-body">
                                                 <div class="form-group">
                                                     <label for="examination_auditor_certificate">Staff Selection Committee Certificate</label>
-                                                    <input type="file" required id="examination_auditor_certificate" name="examination_auditor_certificate" class="form-control" >
+                                                    <input type="file"   id="examination_auditor_certificate" name="examination_auditor_certificate" class="form-control" >
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="examination_auditor_details">Details</label>
-                                                    <textarea required  id="examination_auditor_details" name="examination_auditor_details" class="form-control" cols="30" rows="4"></textarea required>
+                                                    <textarea    id="examination_auditor_details" name="examination_auditor_details" class="form-control" cols="30" rows="4"></textarea  >
                                                 </div>
                                             </div>
                                         </div>
@@ -459,7 +460,7 @@ if(isset($_POST['remaining-details'])) {
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                Are you Subject co-ordinator for Syllabus Revision Committee ???   <label for=""> <input type="checkbox"  name="is_subject_co_ordinator_src" value="1" onclick="$('#subject_co-ordinator_src_a').click();"></label>
+                                                Are you Subject co-ordinator for Syllabus Revision Committee ???   <label for=""> <input type="checkbox" id="is_subject_co_ordinator_src" name="is_subject_co_ordinator_src" value="1" onclick="$('#subject_co-ordinator_src_a').click();"></label>
                                                 <a data-toggle="collapse" data-parent="#subject_co-ordinator_src_accordion" href="#subject_co-ordinator_src_collapse" id="subject_co-ordinator_src_a"></a>
                                             </h4>
                                         </div>
@@ -467,11 +468,11 @@ if(isset($_POST['remaining-details'])) {
                                             <div class="panel-body">
                                                 <div class="form-group">
                                                     <label for="subject_co-ordinator_src_certificate">Staff Selection Committee Certificate</label>
-                                                    <input type="file" required id="subject_co-ordinator_src_certificate" name="subject_co-ordinator_src_certificate" class="form-control" >
+                                                    <input type="file"   id="subject_co-ordinator_src_certificate" name="subject_co-ordinator_src_certificate" class="form-control" >
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="subject_co-ordinator_src_details">Details</label>
-                                                    <textarea required  id="subject_co-ordinator_src_details" name="subject_co_ordinator_src_details" class="form-control" cols="30" rows="4"></textarea required>
+                                                    <textarea    id="subject_co-ordinator_src_details" name="subject_co_ordinator_src_details" class="form-control" cols="30" rows="4"></textarea  >
                                                 </div>
                                             </div>
                                         </div>
